@@ -1,7 +1,14 @@
-import './App.css';
+import React, { Fragment } from 'react';
+import { GlobalStyle } from './reset.css';
+import AppBar from './components/AppBar';
 
 function App() {
-   return <div className="App">Hi</div>;
+   return (
+      <Fragment>
+         <GlobalStyle />
+         <AppBar />
+      </Fragment>
+   );
 }
 
 export default App;
