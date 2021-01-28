@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-
+import { theme } from '../../theme';
 export const AppBarRoot = styled.header`
-   background-color: #1e88e5;
+   background-color: ${theme.primary};
    width: 100%;
    display: flex;
    flex-direction: column;
