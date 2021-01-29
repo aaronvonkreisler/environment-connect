@@ -1,16 +1,26 @@
 export const theme = {
    colors: {
       primary: '#1D1D1D',
+      // primary: '#333',
       textPrimary: '#E5E5E5',
-      textSecindary: '#848484',
+      textSecondary: '#848484',
       background: '#212121',
    },
    device: {
       mobile: '(max-width: 500px)',
       mobileLarge: '(min-width: 501px) and (max-width: 767px)',
       tablet: '(min-width: 768px) and (max-width: 1023px)',
+      medium: '(min-width: 501px) and (max-width: 1023px)',
       laptop: '(min-width: 1024px) and (max-width: 2559px)',
       desktop: '(min-width: 2560px)',
+   },
+   elevation: {
+      one:
+         '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
+      two:
+         '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
+      three:
+         '0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12)',
    },
 };
 
