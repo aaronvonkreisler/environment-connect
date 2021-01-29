@@ -1,12 +1,14 @@
 import React, { Fragment } from 'react';
-import { GlobalStyle } from './reset.css';
+import { GlobalStyle } from './constants/reset.css';
 import AppBar from './components/AppBar';
-
+import AppThemeProvider from './components/AppTheme';
 function App() {
    return (
       <Fragment>
          <GlobalStyle />
-         <AppBar />
+         <AppThemeProvider>
+            <AppBar />
+         </AppThemeProvider>
       </Fragment>
    );
 }
