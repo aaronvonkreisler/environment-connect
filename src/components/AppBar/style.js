@@ -7,7 +7,7 @@ export const AppBarRoot = styled.header`
    justify-content: space-between;
    align-items: center;
    height: 65px;
-   padding: 0 24px;
+   padding-right: 24px;
    background-color: ${(props) => props.theme.colors.primary};
    color: ${(props) => props.theme.colors.textPrimary};
    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
@@ -16,42 +16,18 @@ export const AppBarRoot = styled.header`
    top: 0;
    left: auto;
    right: 0;
-
-   @media ${(props) => props.theme.device.mobile} {
-      bottom: 0;
-      top: auto;
-   }
+   z-index: 1100;
 `;
 
-export const LogoItems = styled.div`
+export const MenuButtonContainer = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: center;
-   flex-shrink: 0;
-   flex-grow: 0;
-`;
-
-export const LogoImage = styled.div`
-   display: flex;
-   overflow: hidden;
-   position: relative;
-   font-size: 1.25rem;
    align-items: center;
    flex-shrink: 0;
-   border-radius: 50%;
-   justify-content: center;
-   cursor: pointer;
-   height: 50px;
-   width: 50px;
-
-   & > img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      text-align: center;
-      text-indent: 10000px;
-      cursor: pointer;
-   }
+   flex-grow: 0;
+   min-width: 75px;
+   height: 100%;
 `;
 
 export const SearchBarContainer = styled.div`

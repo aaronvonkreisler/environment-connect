@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import { GlobalStyle } from './constants/reset.css';
 import AppThemeProvider from './components/AppTheme';
 import AppBar from './components/AppBar';
+import SideBar from './components/SideBar';
 import MainContainer from './components/MainContainer';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
          <GlobalStyle />
          <AppThemeProvider>
             <AppBar />
+            <SideBar />
             <MainContainer>
                <div>
                   Lorem ipsum dolor, sit amet consectetur adipisicing elit.

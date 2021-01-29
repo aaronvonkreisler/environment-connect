@@ -1,26 +1,24 @@
 import React from 'react';
-import { FiSearch } from 'react-icons/fi';
+import { FiSearch, FiMenu } from 'react-icons/fi';
 import {
    AppBarRoot,
-   LogoItems,
-   NavItems,
+   MenuButtonContainer,
    SearchBarContainer,
    Searchbar,
    Input,
    Icon,
-   LogoImage,
 } from './style';
 import Avatar from '../Avatar';
-import logoImage from '../../images/logoCropped.png';
+import IconButton from '../IconButton';
 
 function AppBar() {
    return (
       <AppBarRoot>
-         <LogoItems>
-            <LogoImage>
-               <img src={logoImage} alt="Compost Connect" />
-            </LogoImage>
-         </LogoItems>
+         <MenuButtonContainer>
+            <IconButton onCLick={() => alert('HI')}>
+               <FiMenu />
+            </IconButton>
+         </MenuButtonContainer>
 
          <SearchBarContainer>
             <div>

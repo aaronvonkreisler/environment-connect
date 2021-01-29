@@ -5,6 +5,7 @@ export const theme = {
       textPrimary: '#E5E5E5',
       textSecondary: '#848484',
       background: '#212121',
+      border: 'rgb(56, 68, 78)',
    },
    device: {
       mobile: '(max-width: 500px)',
@@ -13,6 +14,9 @@ export const theme = {
       medium: '(min-width: 501px) and (max-width: 1023px)',
       laptop: '(min-width: 1024px) and (max-width: 2559px)',
       desktop: '(min-width: 2560px)',
+   },
+   effects: {
+      buttonHover: 'rgba(29, 161, 242, 0.1)',
    },
    elevation: {
       one:
