@@ -1,12 +1,7 @@
 import React from 'react';
-import Button from '../components/Button';
+
 function ProjectsPage() {
-   return (
-      <div>
-         Projects Page
-         <Button outline onClick={() => alert('hi')} />
-      </div>
-   );
+   return <div>Projects Page</div>;
 }
 
 export default ProjectsPage;

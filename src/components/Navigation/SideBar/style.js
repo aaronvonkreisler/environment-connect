@@ -32,26 +32,36 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
    height: 42px;
    line-height: 42px;
    padding-left: 64px;
-   color: ${({ theme }) => theme.colors.textPrimary};
+   color: ${({ theme }) => theme.colors.textGrey};
+   transition: background-color 0.2s ease-in-out;
    &:hover {
       background-color: ${({ theme }) => theme.effects.buttonHover};
+      color: ${({ theme }) => theme.colors.blue};
+      & > svg {
+         color: ${({ theme }) => theme.colors.blue};
+      }
    }
    &.${activeClassName} {
       background-color: rgba(255, 255, 255, 0.05);
+      color: ${({ theme }) => theme.colors.blue};
+      & > svg {
+         color: ${({ theme }) => theme.colors.blue};
+      }
    }
    & > svg {
       position: absolute;
       left: 18px;
-      color: white !important;
+      color: ${(props) => props.theme.colors.textGrey};
       top: 12px;
       height: 1.25em;
       width: 1.25em;
       ${(props) =>
-         props.isOpen === false &&
-         `{
+         props.isOpen === false
+            ? `{
       left: 28px;
       
-   }`}
+   }`
+            : null}
    }
 `;
 
@@ -65,10 +75,11 @@ export const NavItemText = styled.div`
    transition-property: right, visibility, opacity;
    font-weight: 700;
    ${(props) =>
-      props.isOpen &&
-      `{
+      props.isOpen
+         ? `{
       right: 0;
       visibility: visible;
       opacity: 1;
-   }`}
+   }`
+         : null}
 `;
