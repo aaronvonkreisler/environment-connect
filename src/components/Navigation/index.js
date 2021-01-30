@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { GoProject } from 'react-icons/go';
 import { MdSettings } from 'react-icons/md';
-import AppBar from './AppBar';
-import SideBar from './SideBar';
-import SidebarItem from './SideBar/SidebarItem';
+import AppBar from 'components/Navigation/AppBar';
+import SideBar from 'components/Navigation/SideBar';
+import SidebarItem from 'components/Navigation/SideBar/SidebarItem';
 const sidebarItems = [
    {
       icon: <GoProject />,

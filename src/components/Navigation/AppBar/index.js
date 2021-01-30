@@ -8,10 +8,11 @@ import {
    Input,
    Icon,
 } from './style';
-import Avatar from '../../common/Avatar';
-import IconButton from '../../common/IconButton';
-import Button from '../../common/Button';
-import { FlexRow } from '../../shared/style';
+import Avatar from 'components/common/Avatar';
+import IconButton from 'components/common/IconButton';
+
+import Button from 'components/common/Button';
+import { FlexRow } from 'components/shared/style';
 
 function AppBar({ setSidebarOpen, isOpen }) {
    return (

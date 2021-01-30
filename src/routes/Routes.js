@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { GlobalStyle } from '../constants/reset.css';
-import AppThemeProvider from '../components/AppTheme';
-import Navigation from '../components/Navigation';
-import ProjectsPage from '../pages/ProjectsPage';
-import MainContainer from '../components/MainContainer';
+import { GlobalStyle } from 'constants/reset.css';
+import AppThemeProvider from 'components/AppTheme';
+import Navigation from 'components/Navigation';
+import ProjectsPage from 'pages/ProjectsPage';
+import MainContainer from 'components/common/MainContainer';
 
 function Routes() {
    return (
