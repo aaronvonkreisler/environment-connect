@@ -111,12 +111,4 @@ export const Input = styled.input`
          width: 400px;
       }
    }
-
-   @media ${(props) => props.theme.device.mobileLarge} {
-      width: 250px;
-
-      &:focus {
-         width: 270px;
-      }
-   }
 `;
