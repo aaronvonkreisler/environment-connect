@@ -16,7 +16,7 @@ export const theme = {
       desktop: '(min-width: 2560px)',
    },
    effects: {
-      buttonHover: 'rgba(29, 161, 242, 0.1)',
+      buttonHover: 'rgba(255, 255, 255, 0.1)',
    },
    elevation: {
       one:

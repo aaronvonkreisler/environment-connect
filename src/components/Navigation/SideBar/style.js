@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyledSidebar = styled.aside`
    display: flex;
    flex-direction: column;
-   justify-content: center;
+   justify-content: flex-start;
+   padding-top: 70px;
    background: ${({ theme }) => theme.colors.primary};
    border-right: ${({ theme }) => theme.colors.border};
    height: 100vh;
@@ -23,8 +25,8 @@ export const StyledSidebar = styled.aside`
       width: ${(props) => props.isOpen && '100vw'};
    }
 `;
-
-export const NavItem = styled.div`
+const activeClassName = 'nav-item-active';
+export const NavItem = styled(NavLink).attrs({ activeClassName })`
    position: relative;
    width: 100%;
    height: 42px;
@@ -32,19 +34,22 @@ export const NavItem = styled.div`
    padding-left: 64px;
    color: ${({ theme }) => theme.colors.textPrimary};
    &:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background-color: ${({ theme }) => theme.effects.buttonHover};
    }
-
+   &.${activeClassName} {
+      background-color: ${({ theme }) => theme.effects.buttonHover};
+   }
    & > svg {
       position: absolute;
       left: 18px;
       color: white !important;
       top: 12px;
       height: 1.25em;
+      width: 1.25em;
       ${(props) =>
          props.isOpen === false &&
          `{
-      left: 22px;
+      left: 28px;
       
    }`}
    }
@@ -58,6 +63,7 @@ export const NavItemText = styled.div`
    text-transform: uppercase;
    transition: all 0.1s;
    transition-property: right, visibility, opacity;
+   font-weight: 700;
    ${(props) =>
       props.isOpen &&
       `{

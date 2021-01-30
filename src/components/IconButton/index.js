@@ -11,8 +11,7 @@ const StyledButton = styled.button`
    text-decoration: none;
    background-color: transparent;
    flex: 0 0 auto;
-   /* color: ${({ theme }) => theme.colors.textPrimary}; */
-   color: rgb(29, 161, 242);
+   color: ${({ theme }) => theme.colors.textPrimary};
    padding: 12px;
    font-size: 1.5rem;
    text-align: center;

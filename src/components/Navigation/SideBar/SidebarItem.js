@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { NavItem, NavItemText } from './style';
 
-function SidebarItem({ item, isOpen }) {
+function SidebarItem({ item, isOpen, ...rest }) {
    const { label, path, icon } = item;
    return (
-      <NavLink to={path}>
-         <NavItem isOpen={isOpen}>
-            {icon}
-            <NavItemText isOpen={isOpen}>{label}</NavItemText>
-         </NavItem>
-      </NavLink>
+      <NavItem isOpen={isOpen} to={path} {...rest}>
+         {icon}
+         <NavItemText isOpen={isOpen}>{label}</NavItemText>
+      </NavItem>
    );
 }
 
