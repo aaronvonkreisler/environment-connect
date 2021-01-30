@@ -4,5 +4,6 @@ import { firebaseConfig } from './config/firebase.config';
 
 firebase.initializeApp(firebaseConfig);
 
-const firestore = firebase.firestore();
-// console.log(firestore);
+const db = firebase.firestore();
+
+export default db;
