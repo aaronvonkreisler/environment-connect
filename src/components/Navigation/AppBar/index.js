@@ -8,14 +8,14 @@ import {
    Input,
    Icon,
 } from './style';
-import Avatar from '../Avatar';
-import IconButton from '../IconButton';
+import Avatar from '../../Avatar';
+import IconButton from '../../IconButton';
 
-function AppBar() {
+function AppBar({ setSidebarOpen, isOpen }) {
    return (
       <AppBarRoot>
          <MenuButtonContainer>
-            <IconButton onCLick={() => alert('HI')}>
+            <IconButton onClick={() => setSidebarOpen(!isOpen)}>
                <FiMenu />
             </IconButton>
          </MenuButtonContainer>
