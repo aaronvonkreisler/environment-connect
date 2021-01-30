@@ -1,6 +1,7 @@
 export const theme = {
    colors: {
       primary: '#2D3035',
+
       // primary: '#333',
       textPrimary: '#E5E5E5',
       textSecondary: '#848484',
@@ -8,6 +9,7 @@ export const theme = {
       background: '#22252A',
       border: 'rgb(56, 68, 78)',
       blue: '#4B89DC',
+      containerGrey: '#333',
    },
    device: {
       mobile: '(max-width: 500px)',

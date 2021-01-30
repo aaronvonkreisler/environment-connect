@@ -5,7 +5,6 @@ import AppThemeProvider from 'components/AppTheme';
 import Navigation from 'components/Navigation';
 import ProjectsPage from 'pages/ProjectsPage';
 import MainContainer from 'components/common/MainContainer';
-
 function Routes() {
    return (
       <Router>

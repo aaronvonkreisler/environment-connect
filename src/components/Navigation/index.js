@@ -27,11 +27,15 @@ const sidebarItems = [
    },
 ];
 
-function Navigation() {
+function Navigation({ modalRef }) {
    const [sidebarOpen, setSidebarOpen] = useState(false);
    return (
       <Fragment>
-         <AppBar isOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+         <AppBar
+            isOpen={sidebarOpen}
+            setSidebarOpen={setSidebarOpen}
+            modalRef={modalRef}
+         />
          <SideBar isOpen={sidebarOpen}>
             {sidebarItems.map((item) => (
                <SidebarItem
