@@ -37,7 +37,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
       background-color: ${({ theme }) => theme.effects.buttonHover};
    }
    &.${activeClassName} {
-      background-color: ${({ theme }) => theme.effects.buttonHover};
+      background-color: rgba(255, 255, 255, 0.05);
    }
    & > svg {
       position: absolute;
