@@ -37,7 +37,7 @@ export const SearchBarContainer = styled.div`
    border-radius: 4px;
    background-color: #333;
    min-height: 35px;
-   @media ${(props) => props.theme.device.mobile} {
+   @media ${(props) => props.theme.device.tabletAndUp} {
       display: none !important;
    }
 
@@ -97,18 +97,18 @@ export const Input = styled.input`
    }
 
    @media ${(props) => props.theme.device.laptop} {
-      width: 500px;
+      width: 480px;
 
       &:focus {
-         width: 540px;
+         width: 520px;
       }
    }
 
    @media ${(props) => props.theme.device.tablet} {
-      width: 400px;
+      width: 380px;
 
       &:focus {
-         width: 440px;
+         width: 400px;
       }
    }
 

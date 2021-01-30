@@ -10,7 +10,8 @@ import {
 } from './style';
 import Avatar from '../../Avatar';
 import IconButton from '../../IconButton';
-
+import Button from '../../Button';
+import { FlexRow } from '../../shared/style';
 function AppBar({ setSidebarOpen, isOpen }) {
    return (
       <AppBarRoot>
@@ -30,12 +31,21 @@ function AppBar({ setSidebarOpen, isOpen }) {
                </Searchbar>
             </div>
          </SearchBarContainer>
-         <Avatar
-            src="https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
-            alt=""
-            shadow
-            onClick={() => alert('Menu Goes here')}
-         />
+         <FlexRow>
+            <div style={{ marginRight: '20px' }}>
+               <Button
+                  outline
+                  text="Add new Item"
+                  onClick={() => alert('hi')}
+               />
+            </div>
+            <Avatar
+               src="https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
+               alt=""
+               shadow
+               onClick={() => alert('Menu Goes here')}
+            />
+         </FlexRow>
       </AppBarRoot>
    );
 }

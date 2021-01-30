@@ -12,6 +12,7 @@ export const theme = {
       mobile: '(max-width: 500px)',
       mobileLarge: '(min-width: 501px) and (max-width: 767px)',
       tablet: '(min-width: 768px) and (max-width: 1023px)',
+      tabletAndUp: '(max-width: 768px)',
       medium: '(min-width: 501px) and (max-width: 1023px)',
       laptop: '(min-width: 1024px) and (max-width: 2559px)',
       desktop: '(min-width: 2560px)',
