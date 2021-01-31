@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledInput = styled.input`
-   flex: 1 0 auto;
    background: hsl(0, 0%, 10%);
    font-weight: 500;
    width: 100%;

@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import { Input, Select } from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
@@ -42,23 +41,38 @@ const layers = [
 ];
 
 function NewItemForm({ modalRef }) {
-   const { formData, handleChange } = useForm(initialState);
+   const { formData, handleChange, validateInput, errors } = useForm(
+      initialState
+   );
+
+   const handleSubmit = () => {
+      console.log(formData);
+   };
    return (
-      <Modal ref={modalRef}>
+      <Modal
+         ref={modalRef}
+         title="Add a new plant"
+         buttonText="Add plant"
+         onActionClick={handleSubmit}
+      >
          <Input
             name="plantName"
             placeholder="Plant Name"
             inputType="text"
             value={formData.plantName}
             onChange={handleChange}
+            onBlur={validateInput}
          />
+         {errors.plantName && <p>{errors.plantName}</p>}
          <Input
             name="zone"
             placeholder="Zone"
             inputType="text"
             value={formData.zone}
             onChange={handleChange}
+            onBlur={validateInput}
          />
+         {errors.zone && <p>{errors.zone}</p>}
 
          <Select name="layer" value={formData.layer} onChange={handleChange}>
             <option
@@ -78,7 +92,5 @@ function NewItemForm({ modalRef }) {
       </Modal>
    );
 }
-
-NewItemForm.propTypes = {};
 
 export default NewItemForm;

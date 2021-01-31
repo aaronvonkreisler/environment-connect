@@ -11,6 +11,7 @@ export function Input({ ...props }) {
          placeholder={props.placeholder}
          onChange={props.onChange}
          autoFocus={props.autoFocus}
+         onBlur={props.onBlur}
          disabled={props.disabled}
          name={props.name}
       />
