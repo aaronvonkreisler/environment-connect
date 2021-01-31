@@ -10,9 +10,9 @@ import {
 } from './style';
 import Avatar from 'components/common/Avatar';
 import IconButton from 'components/common/IconButton';
-import Modal from 'components/Modal';
 import Button from 'components/common/Button';
-import { FlexRow } from 'components/shared/style';
+import { FlexRow } from 'components/common/StyledUtils/style';
+import NewItemForm from 'components/NewItemForm';
 
 function AppBar({ setSidebarOpen, isOpen }) {
    const modalRef = useRef();
@@ -23,15 +23,8 @@ function AppBar({ setSidebarOpen, isOpen }) {
 
    return (
       <Fragment>
-         <Modal ref={modalRef}>
-            <h1> My Modal</h1>
-            <p>
-               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
-               voluptate culpa eligendi molestiae voluptatem quidem aut in
-               cupiditate ea, error ipsa voluptatibus aliquam ipsum maiores
-               totam distinctio et ex officiis.
-            </p>
-         </Modal>
+         <NewItemForm modalRef={modalRef} />
+
          <AppBarRoot>
             <MenuButtonContainer>
                <IconButton onClick={() => setSidebarOpen(!isOpen)}>

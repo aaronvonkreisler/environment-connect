@@ -1,6 +1,5 @@
 import React, { forwardRef, useState, useImperativeHandle } from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import { ModalWrapper, ModalBackdrop, ModalContainer } from './style';
 
 const Modal = forwardRef(function Modal({ children }, ref) {
@@ -36,9 +35,5 @@ const Modal = forwardRef(function Modal({ children }, ref) {
 
    return null;
 });
-
-Modal.propTypes = {
-   children: PropTypes.node.isRequired,
-};
 
 export default Modal;

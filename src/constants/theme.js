@@ -9,7 +9,8 @@ export const theme = {
       background: '#22252A',
       border: 'rgb(56, 68, 78)',
       blue: '#4B89DC',
-      containerGrey: '#333',
+      containerGrey: '#292a2b',
+      inputBackground: '#121212',
    },
    device: {
       mobile: '(max-width: 500px)',
