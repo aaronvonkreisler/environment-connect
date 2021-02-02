@@ -2,6 +2,9 @@ import React from 'react';
 import { Input, Select } from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
+import db from 'db';
+import { mergeDocAndId } from 'utils/utils';
+
 const initialState = {
    plantName: '',
    zone: '',
@@ -45,8 +48,13 @@ function NewItemForm({ modalRef }) {
       initialState
    );
 
-   const handleSubmit = () => {
-      console.log(formData);
+   const handleSubmit = async () => {
+      const docRef = await db.collection('plants').add(formData);
+
+      const doc = await docRef.get();
+
+      const newPlant = mergeDocAndId(doc);
+      console.log(newPlant);
    };
    return (
       <Modal

@@ -61,10 +61,10 @@ const Modal = forwardRef(function Modal(
 });
 
 Modal.propTypes = {
-   children: PropTypes.node.isRequired,
-   title: PropTypes.string.isRequired,
-   buttonText: PropTypes.string.isRequired,
-   onActionClick: PropTypes.func.isRequired,
+   children: PropTypes.node,
+   title: PropTypes.string,
+   buttonText: PropTypes.string,
+   onActionClick: PropTypes.func,
 };
 
 export default Modal;
