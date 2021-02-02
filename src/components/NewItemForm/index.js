@@ -4,7 +4,7 @@ import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
 import db from 'db';
 import { mergeDocAndId } from 'utils/utils';
-
+import { StyledErrorMessage } from 'components/common/FormElements/style';
 const initialState = {
    plantName: '',
    zone: '',
@@ -76,7 +76,9 @@ function NewItemForm({ modalRef }) {
             onChange={handleChange}
             onBlur={validateInput}
          />
-         {errors.plantName && <p>{errors.plantName}</p>}
+         {errors.plantName && (
+            <StyledErrorMessage>{errors.plantName}</StyledErrorMessage>
+         )}
          <Input
             name="zone"
             placeholder="Zone"
@@ -85,7 +87,7 @@ function NewItemForm({ modalRef }) {
             onChange={handleChange}
             onBlur={validateInput}
          />
-         {errors.zone && <p>{errors.zone}</p>}
+         {errors.zone && <StyledErrorMessage>{errors.zone}</StyledErrorMessage>}
 
          <Select name="layer" value={formData.layer} onChange={handleChange}>
             <option

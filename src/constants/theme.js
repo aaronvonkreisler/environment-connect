@@ -6,6 +6,7 @@ export const theme = {
       textPrimary: '#E5E5E5',
       textSecondary: '#848484',
       textGrey: '#5F6165',
+      textError: 'rgb(224, 36, 94)',
       background: '#22252A',
       border: 'rgb(56, 68, 78)',
       blue: '#4B89DC',

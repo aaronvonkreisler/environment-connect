@@ -34,3 +34,7 @@ export const StyledSelect = styled.select`
       border-color: ${({ theme }) => theme.colors.blue};
    }
 `;
+
+export const StyledErrorMessage = styled.p`
+   color: ${({ theme }) => theme.colors.textError};
+`;
