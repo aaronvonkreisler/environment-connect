@@ -6,6 +6,8 @@ import Navigation from 'components/Navigation';
 import MainContainer from 'components/common/MainContainer';
 import ProjectsPage from 'pages/ProjectsPage';
 import HomePage from 'pages/HomePage';
+import PlantProvider from 'providers/PlantProvider';
+
 function Routes() {
    return (
       <Router>
@@ -13,10 +15,12 @@ function Routes() {
          <AppThemeProvider>
             <Navigation />
             <MainContainer>
-               <Switch>
-                  <Route exact path="/" component={HomePage} />
-                  <Route exact path="/projects" component={ProjectsPage} />
-               </Switch>
+               <PlantProvider>
+                  <Switch>
+                     <Route exact path="/" component={HomePage} />
+                     <Route exact path="/projects" component={ProjectsPage} />
+                  </Switch>
+               </PlantProvider>
             </MainContainer>
          </AppThemeProvider>
       </Router>
