@@ -13,7 +13,7 @@ import {
 import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
 const Modal = forwardRef(function Modal(
-   { children, title, onActionClick, buttonText },
+   { children, title, onActionClick, buttonText, onCloseCallback },
    ref
 ) {
    const [display, setDisplay] = useState(false);
@@ -26,6 +26,7 @@ const Modal = forwardRef(function Modal(
 
    const close = () => {
       setDisplay(false);
+      onCloseCallback();
    };
 
    useImperativeHandle(ref, () => {

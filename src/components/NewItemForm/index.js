@@ -44,9 +44,13 @@ const layers = [
 ];
 
 function NewItemForm({ modalRef }) {
-   const { formData, handleChange, validateInput, errors } = useForm(
-      initialState
-   );
+   const {
+      formData,
+      handleChange,
+      validateInput,
+      errors,
+      resetFormState,
+   } = useForm(initialState);
 
    const handleSubmit = async () => {
       const docRef = await db.collection('plants').add(formData);
@@ -62,6 +66,7 @@ function NewItemForm({ modalRef }) {
          title="Add a new plant"
          buttonText="Add plant"
          onActionClick={handleSubmit}
+         onCloseCallback={() => resetFormState(initialState)}
       >
          <Input
             name="plantName"

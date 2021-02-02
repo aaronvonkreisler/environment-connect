@@ -30,7 +30,12 @@ const useForm = (initialState = {}) => {
       }
    };
 
-   return { formData, handleChange, validateInput, errors };
+   const resetFormState = (initialState) => {
+      setFormData(initialState);
+      setErrors(initialState);
+   };
+
+   return { formData, handleChange, validateInput, errors, resetFormState };
 };
 
 export default useForm;
