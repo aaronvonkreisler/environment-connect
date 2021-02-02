@@ -1,10 +1,17 @@
 import React, { Fragment, useState } from 'react';
 import { GoProject } from 'react-icons/go';
 import { MdSettings } from 'react-icons/md';
+import { RiPlantFill } from 'react-icons/ri';
+
 import AppBar from 'components/Navigation/AppBar';
 import SideBar from 'components/Navigation/SideBar';
 import SidebarItem from 'components/Navigation/SideBar/SidebarItem';
 const sidebarItems = [
+   {
+      icon: <RiPlantFill />,
+      label: 'Plants',
+      path: '/',
+   },
    {
       icon: <GoProject />,
       label: 'Projects',
@@ -19,11 +26,6 @@ const sidebarItems = [
       icon: <GoProject />,
       label: 'Hello',
       path: '/hello',
-   },
-   {
-      icon: <MdSettings />,
-      label: 'Test',
-      path: '/test',
    },
 ];
 
