@@ -11,7 +11,7 @@ export const StyledSidebar = styled.aside`
    height: 100vh;
    text-align: left;
    position: absolute;
-   width: ${(props) => (props.isOpen ? '200px' : '75px')};
+   width: ${(props) => (props.$isOpen ? '200px' : '75px')};
    top: 0;
    left: 0;
    z-index: 100;
@@ -21,8 +21,8 @@ export const StyledSidebar = styled.aside`
    transform: translateZ(0px);
 
    @media ${({ theme }) => theme.device.mobile} {
-      visibility: ${(props) => (props.isOpen ? 'visible' : 'hidden')};
-      width: ${(props) => props.isOpen && '100vw'};
+      visibility: ${(props) => (props.$isOpen ? 'visible' : 'hidden')};
+      width: ${(props) => props.$isOpen && '100vw'};
    }
 `;
 const activeClassName = 'nav-item-active';
@@ -56,7 +56,7 @@ export const NavItem = styled(NavLink).attrs({ activeClassName })`
       height: 1.25em;
       width: 1.25em;
       ${(props) =>
-         props.isOpen === false
+         props.$isOpen === false
             ? `{
       left: 28px;
       
@@ -75,7 +75,7 @@ export const NavItemText = styled.div`
    transition-property: right, visibility, opacity;
    font-weight: 700;
    ${(props) =>
-      props.isOpen
+      props.$isOpen === true
          ? `{
       right: 0;
       visibility: visible;

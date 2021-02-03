@@ -1,14 +1,8 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo } from 'react';
 import { useTable } from 'react-table';
+import { TableContainer, TableCell, TableRow, TableHeading } from './style';
 
-import PropTypes from 'prop-types';
-import { TableContainer } from './style';
-import { PlantContext } from 'providers/PlantProvider';
-
-function PlantTable(props) {
-   const plants = useContext(PlantContext);
-
-   console.log(plants);
+function PlantTable() {
    const data = useMemo(
       () => [
          {
@@ -31,65 +25,62 @@ function PlantTable(props) {
       () => [
          {
             Header: 'Plant Name',
-            accessor: 'col1', // accessor is the "key" in the data
+            accessor: 'plantName', // accessor is the "key" in the data
          },
          {
             Header: 'Layer',
-            accessor: 'col2',
+            accessor: 'layer',
          },
          {
             Header: 'Zone Count',
-            accessor: 'col3',
-         },
-         {
-            Header: 'Actions',
-            accessor: 'col4',
+            accessor: 'zone',
          },
       ],
 
       []
    );
 
-   const {
-      getTableProps,
-      getTableBodyProps,
-      headerGroups,
-      rows,
-      prepareRow,
-   } = useTable({ columns, data });
+   // const {
+   //    getTableProps,
+   //    getTableBodyProps,
+   //    headerGroups,
+   //    rows,
+   //    prepareRow,
+   // } = useTable({ columns, data });
 
    return (
-      <TableContainer>
-         <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-            <thead>
-               {headerGroups.map((headerGroup) => (
-                  <tr {...headerGroup.getHeaderGroupProps()}>
-                     {headerGroup.headers.map((column) => (
-                        <th {...column.getHeaderProps()}>
-                           {column.render('Header')}
-                        </th>
-                     ))}
-                  </tr>
-               ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-               {rows.map((row) => {
-                  prepareRow(row);
-                  return (
-                     <tr {...row.getRowProps()}>
-                        {row.cells.map((cell) => {
-                           return (
-                              <td {...cell.getCellProps()}>
-                                 {cell.render('Cell')}
-                              </td>
-                           );
-                        })}
-                     </tr>
-                  );
-               })}
-            </tbody>
-         </table>
-      </TableContainer>
+      <p>Table</p>
+      // <TableContainer>
+      //    <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
+      //       <thead>
+      //          {headerGroups.map((headerGroup) => (
+      //             <TableRow {...headerGroup.getHeaderGroupProps()}>
+      //                {headerGroup.headers.map((column) => (
+      //                   <TableHeading {...column.getHeaderProps()}>
+      //                      {column.render('Header')}
+      //                   </TableHeading>
+      //                ))}
+      //             </TableRow>
+      //          ))}
+      //       </thead>
+      //       <tbody {...getTableBodyProps()}>
+      //          {rows.map((row) => {
+      //             prepareRow(row);
+      //             return (
+      //                <TableRow {...row.getRowProps()}>
+      //                   {row.cells.map((cell) => {
+      //                      return (
+      //                         <TableCell {...cell.getCellProps()}>
+      //                            {cell.render('Cell')}
+      //                         </TableCell>
+      //                      );
+      //                   })}
+      //                </TableRow>
+      //             );
+      //          })}
+      //       </tbody>
+      //    </table>
+      // </TableContainer>
    );
 }
 
