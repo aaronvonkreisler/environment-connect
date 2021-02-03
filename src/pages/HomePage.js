@@ -1,15 +1,10 @@
 import React from 'react';
-import PlantTable from 'components/PlantTable';
+import TableSkeleton from 'components/PlantTable/TableSkeleton';
+
 import { FlexCol, FlexRow } from 'components/common/StyledUtils/style';
 
 function HomePage() {
-   return (
-      <FlexCol align="stretch">
-         <FlexRow>
-            <PlantTable />
-         </FlexRow>
-      </FlexCol>
-   );
+   return <TableSkeleton />;
 }
 
 export default HomePage;

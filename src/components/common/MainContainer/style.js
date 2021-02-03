@@ -7,6 +7,8 @@ export const Container = styled.main`
    padding-right: 24px;
    margin-left: auto;
    margin-right: auto;
+   width: 100%;
+   display: block;
 
    @media ${(props) => props.theme.device.mobile} {
       padding-left: 16px;
