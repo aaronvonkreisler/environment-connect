@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Input, Select } from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
-import db from 'db';
 import { mergeDocAndId } from 'utils/utils';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
+import db from 'db';
+import PlantContext from 'context/plants/plantContext';
+
 const initialState = {
    plantName: '',
    zone: '',
@@ -44,6 +46,7 @@ const layers = [
 ];
 
 function NewItemForm({ modalRef }) {
+   const { addNewPlant } = useContext(PlantContext);
    const {
       formData,
       handleChange,
@@ -52,20 +55,15 @@ function NewItemForm({ modalRef }) {
       resetFormState,
    } = useForm(initialState);
 
-   const handleSubmit = async () => {
-      const docRef = await db.collection('plants').add(formData);
-
-      const doc = await docRef.get();
-
-      const newPlant = mergeDocAndId(doc);
-      console.log(newPlant);
-   };
    return (
       <Modal
          ref={modalRef}
          title="Add a new plant"
          buttonText="Add plant"
-         onActionClick={handleSubmit}
+         onActionClick={() => {
+            addNewPlant(formData);
+            modalRef.current.closeModal();
+         }}
          onCloseCallback={() => resetFormState(initialState)}
       >
          <Input

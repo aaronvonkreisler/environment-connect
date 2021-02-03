@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import TableSkeleton from 'components/PlantTable/TableSkeleton';
-
-import { FlexCol, FlexRow } from 'components/common/StyledUtils/style';
+import PlantContext from 'context/plants/plantContext';
 
 function HomePage() {
-   return <TableSkeleton />;
+   const { fetchPlants, plants, fetching } = useContext(PlantContext);
+
+   useEffect(() => {
+      fetchPlants();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
+
+   return (
+      <>
+         {fetching && <TableSkeleton />}
+         {!fetching && plants && (
+            <p style={{ color: 'white', fontSize: '20px' }}>{plants.length}</p>
+         )}
+      </>
+   );
 }
 
 export default HomePage;

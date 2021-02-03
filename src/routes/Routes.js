@@ -6,19 +6,22 @@ import Navigation from 'components/Navigation';
 import MainContainer from 'components/common/MainContainer';
 import ProjectsPage from 'pages/ProjectsPage';
 import HomePage from 'pages/HomePage';
+import PlantsProvider from 'context/plants/PlantsProvider';
 
 function Routes() {
    return (
       <Router>
          <GlobalStyle />
          <AppThemeProvider>
-            <Navigation />
-            <MainContainer>
-               <Switch>
-                  <Route exact path="/" component={HomePage} />
-                  <Route exact path="/projects" component={ProjectsPage} />
-               </Switch>
-            </MainContainer>
+            <PlantsProvider>
+               <Navigation />
+               <MainContainer>
+                  <Switch>
+                     <Route exact path="/" component={HomePage} />
+                     <Route exact path="/projects" component={ProjectsPage} />
+                  </Switch>
+               </MainContainer>
+            </PlantsProvider>
          </AppThemeProvider>
       </Router>
    );
