@@ -29,11 +29,22 @@ export const TableHeading = styled.th`
    font-weight: 700;
    line-height: 1.5rem;
    display: table-cell;
-   padding: 16px;
+   padding: 10px;
    font-size: 1rem;
    border-bottom: 2px solid rgba(81, 81, 81, 1);
    vertical-align: inherit;
-   text-align: left;
+   text-align: ${(props) => props.$align || 'left'};
+
+   &.ascending::after {
+      content: '👇';
+      display: inline-block;
+      margin-left: 1em;
+   }
+   &.descending::after {
+      content: '☝️';
+      display: inline-block;
+      margin-left: 1em;
+   }
 `;
 
 export const TableRow = styled.tr`
@@ -56,7 +67,7 @@ export const TableRow = styled.tr`
 
 export const TableCell = styled.td`
    display: table-cell;
-   padding: 16px;
+   padding: 10px;
    font-size: 0.875rem;
    font-weight: 400;
    line-height: 1.44;
@@ -70,6 +81,7 @@ export const ColoredLabel = styled.span`
    display: inline-block;
    width: 12px;
    height: 12px;
-   border-radius: 50%;
+   border-radius: 2px;
+   margin-right: 4px;
    background-color: ${(props) => props.$color || 'grey'};
 `;

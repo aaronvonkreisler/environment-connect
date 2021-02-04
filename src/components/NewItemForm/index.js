@@ -55,6 +55,7 @@ function NewItemForm({ modalRef }) {
          buttonText="Add plant"
          onActionClick={() => {
             addNewPlant(formData);
+
             modalRef.current.closeModal();
          }}
          onCloseCallback={() => resetFormState(initialState)}

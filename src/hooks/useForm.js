@@ -28,6 +28,14 @@ const useForm = (initialState = {}) => {
             [target.name]: error,
          });
       }
+
+      if (target.name === 'plantName') {
+         const formattedName = capitalizeWords(formData.plantName);
+         setFormData({
+            ...formData,
+            plantName: formattedName,
+         });
+      }
    };
 
    const resetFormState = (initialState) => {
@@ -35,7 +43,23 @@ const useForm = (initialState = {}) => {
       setErrors(initialState);
    };
 
-   return { formData, handleChange, validateInput, errors, resetFormState };
+   const capitalizeWords = (text, field) => {
+      const words = text
+         .toLowerCase()
+         .split(' ')
+         .map((word, index) => word.charAt(0).toUpperCase() + word.slice(1))
+         .join(' ');
+
+      return words;
+   };
+
+   return {
+      formData,
+      handleChange,
+      validateInput,
+      errors,
+      resetFormState,
+   };
 };
 
 export default useForm;

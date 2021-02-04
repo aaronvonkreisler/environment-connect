@@ -22,10 +22,29 @@ const StyledButton = styled.button`
    &:hover {
       background-color: ${({ theme }) => theme.effects.buttonHover};
    }
+   ${(props) =>
+      props.$small &&
+      `
+   height: 32px;
+   width: 32px;
+   font-size: .95rem;
+   padding: 0;
+   
+   `}
+   ${(props) =>
+      props.$danger &&
+      `
+      &:hover {
+
+         color: rgb(224, 36, 94);
+         background-color: rgba(224, 36, 94, 0.2);
+         transition: background-color .2s ease-in;
+      }
+   `}
 `;
 
-function IconButton({ ...props }) {
-   return <StyledButton {...props} />;
+function IconButton({ small, danger, ...props }) {
+   return <StyledButton $small={small} $danger={danger} {...props} />;
 }
 
 export default IconButton;

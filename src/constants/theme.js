@@ -25,6 +25,7 @@ export const theme = {
    },
    effects: {
       buttonHover: 'rgba(255, 255, 255, 0.1)',
+      dangerHover: 'rgba(224, 36, 94, 0.2)',
    },
    elevation: {
       one:

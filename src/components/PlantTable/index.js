@@ -1,4 +1,6 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { FaTrash } from 'react-icons/fa';
+import { FiEdit2 } from 'react-icons/fi';
 import {
    TableContainer,
    TableCell,
@@ -7,85 +9,63 @@ import {
    StyledTable,
    ColoredLabel,
 } from './style';
+import IconButton from 'components/common/IconButton';
+import { getColorForLayer } from 'utils/utils';
+import useSortableData from 'hooks/useSortableData';
+import { FlexRow } from 'components/common/StyledUtils/style';
 
 const headerGroups = [
    {
       label: 'Plant Name',
       identifier: 'plantName',
+      align: 'left',
    },
    {
       label: 'Layer',
       identifier: 'layer',
+      align: 'left',
    },
    {
       label: 'Zone Count',
       identifier: 'zone',
+      align: 'left',
    },
    {
       label: 'Actions',
       identifier: 'actions',
+      align: 'middle',
    },
 ];
-// const layers = [
-//    {
-//       label: 'Canopy',
-//    },
-//    {
-//       label: 'Low Tree',
-//    },
-//    {
-//       label: 'Vertical',
-//    },
-//    {
-//       label: 'Shrub',
-//    },
-//    {
-//       label: 'Rhizosphere',
-//    },
-//    {
-//       label: 'Herbaveous',
-//    },
 
-//    {
-//       label: 'Soil Surface',
-//    },
-// ];
+function PlantTable({ data, className }) {
+   const { items, requestSortBy, sortConfig } = useSortableData(data);
 
-const getColorForLayer = (layerName) => {
-   const layer = layerName.toLowerCase();
+   const getClassNamesFor = (name) => {
+      if (!sortConfig) {
+         return;
+      }
+      return sortConfig.key === name ? sortConfig.direction : undefined;
+   };
 
-   if (layer === 'canopy') {
-      return 'red';
-   } else if (layer === 'low tree') {
-      return 'dark green';
-   } else if (layer === 'vertical') {
-      return 'yello';
-   } else if (layer === 'shrub') {
-      return 'orange';
-   } else if (layer === 'rhizosphere') {
-      return 'purple';
-   } else if (layer === 'herbaveous') {
-      return 'green';
-   } else if (layer === 'soil surface') {
-      return 'aliceblue';
-   }
-};
-
-function PlantTable({ data }) {
    return (
       <TableContainer>
          <StyledTable>
             <thead>
-               <TableRow $topRow>
+               <TableRow $topRow className={className}>
                   {headerGroups.map((header) => (
-                     <TableHeading key={header.identifier}>
+                     <TableHeading
+                        key={header.identifier}
+                        onClick={() => requestSortBy(header.identifier)}
+                        className={getClassNamesFor(header.identifier)}
+                        $align={header.align}
+                     >
                         {header.label}
                      </TableHeading>
                   ))}
                </TableRow>
             </thead>
             <tbody>
-               {data.map((item) => {
+               {items.map((item) => {
                   const { plantName, layer, zone, id } = item;
                   const color = getColorForLayer(layer);
                   return (
@@ -96,7 +76,16 @@ function PlantTable({ data }) {
                            {layer}
                         </TableCell>
                         <TableCell>{zone}</TableCell>
-                        <TableCell>Actions</TableCell>
+                        <TableCell>
+                           <FlexRow justify="space-evenly">
+                              <IconButton small>
+                                 <FiEdit2 />
+                              </IconButton>
+                              <IconButton small danger>
+                                 <FaTrash />
+                              </IconButton>
+                           </FlexRow>
+                        </TableCell>
                      </TableRow>
                   );
                })}
