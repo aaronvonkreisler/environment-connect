@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { FiEdit2 } from 'react-icons/fi';
 import {
@@ -13,7 +13,7 @@ import IconButton from 'components/common/IconButton';
 import { getColorForLayer } from 'utils/utils';
 import useSortableData from 'hooks/useSortableData';
 import { FlexRow } from 'components/common/StyledUtils/style';
-
+import PlantContext from 'context/plants/plantContext';
 const headerGroups = [
    {
       label: 'Plant Name',
@@ -38,6 +38,7 @@ const headerGroups = [
 ];
 
 function PlantTable({ data, className }) {
+   const { removePlant } = useContext(PlantContext);
    const { items, requestSortBy, sortConfig } = useSortableData(data);
 
    const getClassNamesFor = (name) => {
@@ -81,7 +82,11 @@ function PlantTable({ data, className }) {
                               <IconButton small>
                                  <FiEdit2 />
                               </IconButton>
-                              <IconButton small danger>
+                              <IconButton
+                                 small
+                                 danger
+                                 onClick={() => removePlant(id)}
+                              >
                                  <FaTrash />
                               </IconButton>
                            </FlexRow>

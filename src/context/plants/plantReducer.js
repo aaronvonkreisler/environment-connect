@@ -1,9 +1,10 @@
 import {
    FETCH_PLANTS_START,
    FETCH_PLANTS_SUCCESS,
-   FETCH_PLANTS_ERROR,
+   PLANTS_ERROR,
    ADD_PLANT,
    CLEAR_PLANTS_STATE,
+   REMOVE_PLANT,
 } from 'context/types';
 
 function plantReducer(state, action) {
@@ -21,7 +22,7 @@ function plantReducer(state, action) {
             plants: payload,
             fetching: false,
          };
-      case FETCH_PLANTS_ERROR:
+      case PLANTS_ERROR:
          return {
             ...state,
             error: payload,
@@ -31,6 +32,11 @@ function plantReducer(state, action) {
          return {
             ...state,
             plants: [payload, ...state.plants],
+         };
+      case REMOVE_PLANT:
+         return {
+            ...state,
+            plants: state.plants.filter((plant) => plant.id !== payload),
          };
       case CLEAR_PLANTS_STATE:
          return {

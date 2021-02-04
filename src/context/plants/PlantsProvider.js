@@ -5,10 +5,10 @@ import { mergeDocAndId } from 'utils/utils';
 import db from 'db';
 
 import {
-   FETCH_PLANTS_ERROR,
+   PLANTS_ERROR,
    FETCH_PLANTS_SUCCESS,
    FETCH_PLANTS_START,
-   CLEAR_PLANTS_STATE,
+   REMOVE_PLANT,
    ADD_PLANT,
 } from 'context/types';
 
@@ -35,20 +35,41 @@ function PlantsProvider({ children }) {
          });
       } catch (err) {
          dispatch({
-            type: FETCH_PLANTS_ERROR,
+            type: PLANTS_ERROR,
             payload: err.message,
          });
       }
    };
 
    const addNewPlant = async (plant) => {
-      const docRef = await db.collection('plants').add(plant);
-      const doc = await docRef.get();
-      const newPlant = mergeDocAndId(doc);
-      dispatch({
-         type: ADD_PLANT,
-         payload: newPlant,
-      });
+      try {
+         const docRef = await db.collection('plants').add(plant);
+         const doc = await docRef.get();
+         const newPlant = mergeDocAndId(doc);
+         dispatch({
+            type: ADD_PLANT,
+            payload: newPlant,
+         });
+      } catch (err) {
+         dispatch({
+            type: PLANTS_ERROR,
+            payload: err.message,
+         });
+      }
+   };
+
+   const removePlant = async (id) => {
+      try {
+         dispatch({
+            type: REMOVE_PLANT,
+            payload: id,
+         });
+      } catch (err) {
+         dispatch({
+            type: PLANTS_ERROR,
+            payload: err.message,
+         });
+      }
    };
 
    const value = {
@@ -56,6 +77,7 @@ function PlantsProvider({ children }) {
       plants: state.plants,
       fetchPlants,
       addNewPlant,
+      removePlant,
    };
    return (
       <PlantContext.Provider value={value}>{children}</PlantContext.Provider>
