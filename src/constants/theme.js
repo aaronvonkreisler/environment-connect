@@ -12,6 +12,7 @@ export const theme = {
       blue: '#4B89DC',
       containerGrey: '#292a2b',
       inputBackground: '#121212',
+      table: '#212529',
    },
    device: {
       mobile: '(max-width: 500px)',

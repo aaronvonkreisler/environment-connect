@@ -1,88 +1,127 @@
 import React, { useMemo } from 'react';
-import { useTable } from 'react-table';
-import { TableContainer, TableCell, TableRow, TableHeading } from './style';
+import {
+   TableContainer,
+   TableCell,
+   TableRow,
+   TableHeading,
+   StyledTable,
+   ColoredLabel,
+} from './style';
 
-function PlantTable() {
-   const data = useMemo(
-      () => [
-         {
-            col1: 'Hello',
-            col2: 'World',
-         },
-         {
-            col1: 'react-table',
-            col2: 'rocks',
-         },
-         {
-            col1: 'whatever',
-            col2: 'you want',
-         },
-      ],
-      []
-   );
+const headerGroups = [
+   {
+      label: 'Plant Name',
+      identifier: 'plantName',
+   },
+   {
+      label: 'Layer',
+      identifier: 'layer',
+   },
+   {
+      label: 'Zone Count',
+      identifier: 'zone',
+   },
+   {
+      label: 'Actions',
+      identifier: 'actions',
+   },
+];
+// const layers = [
+//    {
+//       label: 'Canopy',
+//    },
+//    {
+//       label: 'Low Tree',
+//    },
+//    {
+//       label: 'Vertical',
+//    },
+//    {
+//       label: 'Shrub',
+//    },
+//    {
+//       label: 'Rhizosphere',
+//    },
+//    {
+//       label: 'Herbaveous',
+//    },
 
-   const columns = useMemo(
-      () => [
-         {
-            Header: 'Plant Name',
-            accessor: 'plantName', // accessor is the "key" in the data
-         },
-         {
-            Header: 'Layer',
-            accessor: 'layer',
-         },
-         {
-            Header: 'Zone Count',
-            accessor: 'zone',
-         },
-      ],
+//    {
+//       label: 'Soil Surface',
+//    },
+// ];
 
-      []
-   );
+const getColorForLayer = (layerName) => {
+   const layer = layerName.toLowerCase();
 
-   // const {
-   //    getTableProps,
-   //    getTableBodyProps,
-   //    headerGroups,
-   //    rows,
-   //    prepareRow,
-   // } = useTable({ columns, data });
+   if (layer === 'canopy') {
+      return 'red';
+   } else if (layer === 'low tree') {
+      return 'dark green';
+   } else if (layer === 'vertical') {
+      return 'yello';
+   } else if (layer === 'shrub') {
+      return 'orange';
+   } else if (layer === 'rhizosphere') {
+      return 'purple';
+   } else if (layer === 'herbaveous') {
+      return 'green';
+   } else if (layer === 'soil surface') {
+      return 'aliceblue';
+   }
+};
 
+function PlantTable({ data }) {
    return (
-      <p>Table</p>
-      // <TableContainer>
-      //    <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-      //       <thead>
-      //          {headerGroups.map((headerGroup) => (
-      //             <TableRow {...headerGroup.getHeaderGroupProps()}>
-      //                {headerGroup.headers.map((column) => (
-      //                   <TableHeading {...column.getHeaderProps()}>
-      //                      {column.render('Header')}
-      //                   </TableHeading>
-      //                ))}
-      //             </TableRow>
-      //          ))}
-      //       </thead>
-      //       <tbody {...getTableBodyProps()}>
-      //          {rows.map((row) => {
-      //             prepareRow(row);
-      //             return (
-      //                <TableRow {...row.getRowProps()}>
-      //                   {row.cells.map((cell) => {
-      //                      return (
-      //                         <TableCell {...cell.getCellProps()}>
-      //                            {cell.render('Cell')}
-      //                         </TableCell>
-      //                      );
-      //                   })}
-      //                </TableRow>
-      //             );
-      //          })}
-      //       </tbody>
-      //    </table>
-      // </TableContainer>
+      <TableContainer>
+         <StyledTable>
+            <thead>
+               <TableRow $topRow>
+                  {headerGroups.map((header) => (
+                     <TableHeading key={header.identifier}>
+                        {header.label}
+                     </TableHeading>
+                  ))}
+               </TableRow>
+            </thead>
+            <tbody>
+               {data.map((item) => {
+                  const { plantName, layer, zone, id } = item;
+                  const color = getColorForLayer(layer);
+                  return (
+                     <TableRow key={id}>
+                        <TableCell>{plantName}</TableCell>
+                        <TableCell>
+                           <ColoredLabel $color={color} />
+                           {layer}
+                        </TableCell>
+                        <TableCell>{zone}</TableCell>
+                        <TableCell>Actions</TableCell>
+                     </TableRow>
+                  );
+               })}
+            </tbody>
+         </StyledTable>
+      </TableContainer>
    );
 }
+
+// <tbody {...getTableBodyProps()}>
+//    {rows.map((row) => {
+//       prepareRow(row);
+//       return (
+//          <TableRow {...row.getRowProps()}>
+//             {row.cells.map((cell) => {
+//                return (
+//                   <TableCell {...cell.getCellProps()}>
+//                      {cell.render('Cell')}
+//                   </TableCell>
+//                );
+//             })}
+//          </TableRow>
+//       );
+//    })}
+// </tbody>
 
 PlantTable.propTypes = {};
 

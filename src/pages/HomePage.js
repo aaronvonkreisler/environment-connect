@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import PlantTable from 'components/PlantTable';
 import TableSkeleton from 'components/PlantTable/TableSkeleton';
 import PlantContext from 'context/plants/plantContext';
 
@@ -13,9 +14,7 @@ function HomePage() {
    return (
       <>
          {fetching && <TableSkeleton />}
-         {!fetching && plants && (
-            <p style={{ color: 'white', fontSize: '20px' }}>{plants.length}</p>
-         )}
+         {!fetching && plants && <PlantTable data={plants} />}
       </>
    );
 }

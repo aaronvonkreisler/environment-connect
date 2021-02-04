@@ -7,8 +7,13 @@ export const TableContainer = styled.div`
    max-height: 400px;
    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
       0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
-   background-color: ${({ theme }) => theme.colors.containerGrey};
+   background-color: ${({ theme }) => theme.colors.table};
    border-radius: 4px;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none;
 `;
 
 export const StyledTable = styled.table`
@@ -21,12 +26,12 @@ export const StyledTable = styled.table`
 
 export const TableHeading = styled.th`
    color: ${({ theme }) => theme.colors.textPrimary};
-   font-weight: 500;
+   font-weight: 700;
    line-height: 1.5rem;
    display: table-cell;
    padding: 16px;
-   font-size: 0.875rem;
-   border-bottom: 1px solid rgba(81, 81, 81, 1);
+   font-size: 1rem;
+   border-bottom: 2px solid rgba(81, 81, 81, 1);
    vertical-align: inherit;
    text-align: left;
 `;
@@ -36,6 +41,17 @@ export const TableRow = styled.tr`
    vertical-align: middle;
    color: inherit;
    display: table-row;
+   cursor: pointer;
+   &:nth-of-type(odd) {
+      background-color: hsla(0, 0%, 100%, 0.05);
+   }
+   &:hover {
+      background-color: hsla(0, 0%, 100%, 0.075);
+   }
+   ${(props) =>
+      props.$topRow && {
+         'background-color': props.theme.colors.table + ' !important',
+      }}
 `;
 
 export const TableCell = styled.td`
@@ -44,8 +60,16 @@ export const TableCell = styled.td`
    font-size: 0.875rem;
    font-weight: 400;
    line-height: 1.44;
-   border-bottom: 1px solid rgba(81, 81, 81, 1);
+   border-bottom: 1px solid #373b3e;
    vertical-align: inherit;
    text-align: left;
    color: ${({ theme }) => theme.colors.textPrimary};
+`;
+
+export const ColoredLabel = styled.span`
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   border-radius: 50%;
+   background-color: ${(props) => props.$color || 'grey'};
 `;

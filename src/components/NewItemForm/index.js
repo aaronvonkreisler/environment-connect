@@ -16,32 +16,25 @@ const initialState = {
 const layers = [
    {
       label: 'Canopy',
-      value: 'canopy',
    },
    {
       label: 'Low Tree',
-      value: 'low tree',
    },
    {
       label: 'Vertical',
-      value: 'verticle',
    },
    {
       label: 'Shrub',
-      value: 'shrub',
    },
    {
       label: 'Rhizosphere',
-      value: 'rhizosphere',
    },
    {
       label: 'Herbaveous',
-      value: 'herbaveous',
    },
 
    {
       label: 'Soil Surface',
-      value: 'soil surface',
    },
 ];
 
@@ -97,7 +90,7 @@ function NewItemForm({ modalRef }) {
                -- Select a Layer --
             </option>
             {layers.map((layer, index) => (
-               <option value={layer.value} key={index}>
+               <option value={layer.label} key={index}>
                   {layer.label}
                </option>
             ))}
