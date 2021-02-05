@@ -10,6 +10,7 @@ import {
    FETCH_PLANTS_START,
    REMOVE_PLANT,
    ADD_PLANT,
+   SELECT_PLANT,
 } from 'context/types';
 
 function PlantsProvider({ children }) {
@@ -17,6 +18,7 @@ function PlantsProvider({ children }) {
       fetching: true,
       plants: null, // will be an array
       error: null,
+      selectedPlant: null,
    };
    const [state, dispatch] = useReducer(plantReducer, initialState);
 
@@ -72,12 +74,21 @@ function PlantsProvider({ children }) {
       }
    };
 
+   const selectPlant = (plant) => {
+      dispatch({
+         type: SELECT_PLANT,
+         payload: plant,
+      });
+   };
+
    const value = {
       fetching: state.fetching,
       plants: state.plants,
+      selectedPlant: state.selectedPlant,
       fetchPlants,
       addNewPlant,
       removePlant,
+      selectPlant,
    };
    return (
       <PlantContext.Provider value={value}>{children}</PlantContext.Provider>

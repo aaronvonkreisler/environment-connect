@@ -5,6 +5,7 @@ import {
    ADD_PLANT,
    CLEAR_PLANTS_STATE,
    REMOVE_PLANT,
+   SELECT_PLANT,
 } from 'context/types';
 
 function plantReducer(state, action) {
@@ -21,6 +22,11 @@ function plantReducer(state, action) {
             ...state,
             plants: payload,
             fetching: false,
+         };
+      case SELECT_PLANT:
+         return {
+            ...state,
+            selectedPlant: payload,
          };
       case PLANTS_ERROR:
          return {
