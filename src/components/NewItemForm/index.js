@@ -2,9 +2,7 @@ import React, { useContext } from 'react';
 import { Input, Select } from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
-import { mergeDocAndId } from 'utils/utils';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
-import db from 'db';
 import PlantContext from 'context/plants/plantContext';
 
 const initialState = {
