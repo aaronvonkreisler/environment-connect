@@ -66,6 +66,8 @@ function PlantsProvider({ children }) {
             type: REMOVE_PLANT,
             payload: id,
          });
+
+         await db.doc(`/plants/${id}`).delete();
       } catch (err) {
          dispatch({
             type: PLANTS_ERROR,
