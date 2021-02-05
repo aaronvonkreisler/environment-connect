@@ -4,3 +4,4 @@ export const ADD_PLANT = 'ADD_PLANT';
 export const PLANTS_ERROR = 'PLANTS_ERROR';
 export const CLEAR_PLANTS_STATE = 'CLEAR_PLANTS_STATE';
 export const REMOVE_PLANT = 'REMOVE_PLANT';
+export const SELECT_PLANT = 'SELECT_PLANT';
