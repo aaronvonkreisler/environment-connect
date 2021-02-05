@@ -9,7 +9,7 @@ import {
 import SkeletonPulse from 'components/common/SkeletonPulse';
 
 function TableSkeleton() {
-   let bodyRows = new Array(5).fill(undefined).map((val, idx) => idx);
+   let bodyRows = new Array(8).fill(undefined).map((val, idx) => idx);
    let headerRows = new Array(4).fill(undefined).map((val, idx) => idx);
 
    return (
