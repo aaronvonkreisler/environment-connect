@@ -1,4 +1,4 @@
-import React, { useRef, Fragment, useState } from 'react';
+import React, { useRef, Fragment, useState, useContext } from 'react';
 import { FiSearch, FiMenu } from 'react-icons/fi';
 import {
    AppBarRoot,
@@ -11,13 +11,15 @@ import {
 import Avatar from 'components/common/Avatar';
 import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
-import { FlexRow } from 'components/common/StyledUtils';
 import NewItemForm from 'components/NewItemForm';
+import AuthContext from 'context/auth/authContext';
+import { FlexRow } from 'components/common/StyledUtils';
 import { Menu, MenuItem } from 'components/common/Menu';
 import { requestLogout } from 'firebaseConfig/db';
 
 function AppBar({ setSidebarOpen, isOpen }) {
    const [menuOpen, setMenuOpen] = useState(false);
+   const { user, loading } = useContext(AuthContext);
    const modalRef = useRef();
 
    const handleModalOpen = () => {
@@ -57,7 +59,7 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   />
                </div>
                <Avatar
-                  src="https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
+                  src={!loading && user ? user.photoURL : null}
                   alt=""
                   shadow
                   onClick={() => setMenuOpen(!menuOpen)}
@@ -72,5 +74,5 @@ function AppBar({ setSidebarOpen, isOpen }) {
       </Fragment>
    );
 }
-
+//"https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
 export default AppBar;
