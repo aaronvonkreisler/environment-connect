@@ -4,7 +4,7 @@ import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
 import PlantContext from 'context/plants/plantContext';
-
+import AuthContext from 'context/auth/authContext';
 const initialState = {
    plantName: '',
    zone: '',
@@ -38,6 +38,8 @@ const layers = [
 
 function NewItemForm({ modalRef }) {
    const { addNewPlant } = useContext(PlantContext);
+   const { user } = useContext(AuthContext);
+   const { uid } = user || {};
    const {
       formData,
       handleChange,
@@ -52,7 +54,8 @@ function NewItemForm({ modalRef }) {
          title="Add a new plant"
          buttonText="Add plant"
          onActionClick={() => {
-            addNewPlant(formData);
+            const data = { ...formData, user: uid };
+            addNewPlant(data);
 
             modalRef.current.closeModal();
          }}
