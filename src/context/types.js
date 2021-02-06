@@ -5,3 +5,6 @@ export const PLANTS_ERROR = 'PLANTS_ERROR';
 export const CLEAR_PLANTS_STATE = 'CLEAR_PLANTS_STATE';
 export const REMOVE_PLANT = 'REMOVE_PLANT';
 export const SELECT_PLANT = 'SELECT_PLANT';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const LOGOUT = 'LOGOUT';

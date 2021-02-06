@@ -2,7 +2,7 @@ import React, { useEffect, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { StyledMenu, StyledMenuItem } from './style';
 
-function Menu({ open, onClose, ...props }) {
+export function Menu({ open, onClose, ...props }) {
    const closeMenu = useCallback(() => {
       onClose();
       document.removeEventListener('mousedown', closeMenu);
@@ -15,9 +15,7 @@ function Menu({ open, onClose, ...props }) {
    }, [closeMenu, open]);
    return (
       <StyledMenu $open={open} role="menu" id={props.id}>
-         <StyledMenuItem onClick={() => alert('hi')}>Log out</StyledMenuItem>
-         <StyledMenuItem>Log out</StyledMenuItem>
-         <StyledMenuItem>Log out</StyledMenuItem>
+         {props.children}
       </StyledMenu>
    );
 }
@@ -27,4 +25,6 @@ Menu.propTypes = {
    onClose: PropTypes.func.isRequired,
 };
 
-export default Menu;
+export function MenuItem({ ...props }) {
+   return <StyledMenuItem {...props}>{props.children}</StyledMenuItem>;
+}

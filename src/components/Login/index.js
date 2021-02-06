@@ -12,6 +12,7 @@ import Button from 'components/common/Button';
 import GoogleButton from 'components/GoogleButton';
 import useForm from 'hooks/useForm';
 import logoImage from 'images/logoCropped.png';
+import { signInWithGoogle } from 'firebaseConfig/db';
 
 const initialState = {
    email: '',
@@ -27,9 +28,9 @@ const LoginForm = () => {
       resetFormState(initialState);
    };
 
-   const onGoogleClick = () => {
-      alert('Google Sign-in');
-   };
+   // const onGoogleClick = () => {
+   //    alert('Google Sign-in');
+   // };
    return (
       <LoginFormWrapper role="presentation">
          <FlexRow justify="center">
@@ -75,7 +76,7 @@ const LoginForm = () => {
                   or
                   <span />
                </AlternateMethodText>
-               <GoogleButton onClick={onGoogleClick} />
+               <GoogleButton onClick={signInWithGoogle} />
             </LoginCard>
          </FlexRow>
       </LoginFormWrapper>

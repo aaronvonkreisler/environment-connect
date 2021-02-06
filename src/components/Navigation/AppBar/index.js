@@ -13,7 +13,8 @@ import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
 import { FlexRow } from 'components/common/StyledUtils';
 import NewItemForm from 'components/NewItemForm';
-import Menu from 'components/common/Menu';
+import { Menu, MenuItem } from 'components/common/Menu';
+import { requestLogout } from 'firebaseConfig/db';
 
 function AppBar({ setSidebarOpen, isOpen }) {
    const [menuOpen, setMenuOpen] = useState(false);
@@ -37,7 +38,6 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   <FiMenu />
                </IconButton>
             </MenuButtonContainer>
-
             <SearchBarContainer>
                <div>
                   <Icon>
@@ -64,7 +64,9 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   aria-controls="user-menu"
                   aria-haspopup="true"
                />
-               <Menu open={menuOpen} id="user-menu" onClose={handleMenuClose} />
+               <Menu open={menuOpen} id="user-menu" onClose={handleMenuClose}>
+                  <MenuItem onClick={requestLogout}>Logout</MenuItem>
+               </Menu>
             </FlexRow>
          </AppBarRoot>
       </Fragment>

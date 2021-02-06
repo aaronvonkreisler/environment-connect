@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import PlantContext from 'context/plants/plantContext';
 import plantReducer from 'context/plants/plantReducer';
 import { mergeDocAndId } from 'utils/utils';
-import db from 'db';
+import db from 'firebaseConfig/db';
 
 import {
    PLANTS_ERROR,
