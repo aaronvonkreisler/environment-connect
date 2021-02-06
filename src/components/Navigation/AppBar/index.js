@@ -1,4 +1,4 @@
-import React, { useRef, Fragment } from 'react';
+import React, { useRef, Fragment, useState } from 'react';
 import { FiSearch, FiMenu } from 'react-icons/fi';
 import {
    AppBarRoot,
@@ -13,12 +13,18 @@ import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
 import { FlexRow } from 'components/common/StyledUtils';
 import NewItemForm from 'components/NewItemForm';
+import Menu from 'components/common/Menu';
 
 function AppBar({ setSidebarOpen, isOpen }) {
+   const [menuOpen, setMenuOpen] = useState(false);
    const modalRef = useRef();
 
    const handleModalOpen = () => {
       modalRef.current.openModal();
+   };
+
+   const handleMenuClose = () => {
+      setMenuOpen(false);
    };
 
    return (
@@ -54,8 +60,11 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   src="https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
                   alt=""
                   shadow
-                  onClick={() => alert('Menu Goes here')}
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  aria-controls="user-menu"
+                  aria-haspopup="true"
                />
+               <Menu open={menuOpen} id="user-menu" onClose={handleMenuClose} />
             </FlexRow>
          </AppBarRoot>
       </Fragment>
