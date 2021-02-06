@@ -85,3 +85,23 @@ export const ColoredLabel = styled.span`
    margin-right: 4px;
    background-color: ${(props) => props.$color || 'grey'};
 `;
+
+export const MessageContainer = styled.div`
+   min-height: 400px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+`;
+
+export const Message = styled.div`
+   font-weight: 600;
+   font-size: 3rem;
+   font-family: 'Rubik', sans-serif;
+   position: absolute;
+   top: auto;
+   bottom: auto;
+   left: auto;
+   right: auto;
+`;
