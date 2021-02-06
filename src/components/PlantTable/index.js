@@ -79,12 +79,13 @@ function PlantTable({ data, className }) {
                         <TableCell>{zone}</TableCell>
                         <TableCell>
                            <FlexRow justify="space-evenly">
-                              <IconButton small>
+                              <IconButton small grey>
                                  <FiEdit2 />
                               </IconButton>
                               <IconButton
                                  small
                                  danger
+                                 grey
                                  onClick={() => removePlant(id)}
                               >
                                  <FaTrash />
