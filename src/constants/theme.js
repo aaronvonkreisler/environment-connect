@@ -21,6 +21,7 @@ export const theme = {
       tabletAndUp: '(max-width: 768px)',
       medium: '(min-width: 501px) and (max-width: 1023px)',
       laptop: '(min-width: 1024px) and (max-width: 2559px)',
+      laptopAndUp: '(min-width: 1024px)',
       desktop: '(min-width: 2560px)',
    },
    effects: {

@@ -7,21 +7,22 @@ import MainContainer from 'components/common/MainContainer';
 import ProjectsPage from 'pages/ProjectsPage';
 import HomePage from 'pages/HomePage';
 import PlantsProvider from 'context/plants/PlantsProvider';
-
+import LoginPage from 'pages/LoginPage';
 function Routes() {
    return (
       <Router>
          <GlobalStyle />
          <AppThemeProvider>
-            <PlantsProvider>
-               <Navigation />
-               <MainContainer>
-                  <Switch>
+            <Switch>
+               <Route exact path="/login" component={LoginPage} />
+               <PlantsProvider>
+                  <Navigation />
+                  <MainContainer>
                      <Route exact path="/" component={HomePage} />
                      <Route exact path="/projects" component={ProjectsPage} />
-                  </Switch>
-               </MainContainer>
-            </PlantsProvider>
+                  </MainContainer>
+               </PlantsProvider>
+            </Switch>
          </AppThemeProvider>
       </Router>
    );
