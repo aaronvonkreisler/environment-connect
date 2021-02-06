@@ -10,7 +10,7 @@ const sidebarItems = [
    {
       icon: <RiPlantFill />,
       label: 'Plants',
-      path: '/',
+      path: '/plants',
    },
    {
       icon: <GoProject />,
