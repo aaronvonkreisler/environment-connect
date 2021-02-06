@@ -1,9 +1,9 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import PlantContext from 'context/plants/plantContext';
 import plantReducer from 'context/plants/plantReducer';
 import { mergeDocAndId } from 'utils/utils';
 import db from 'firebaseConfig/db';
-
+import AuthContext from 'context/auth/authContext';
 import {
    PLANTS_ERROR,
    FETCH_PLANTS_SUCCESS,
@@ -14,6 +14,7 @@ import {
 } from 'context/types';
 
 function PlantsProvider({ children }) {
+   const { user } = useContext(AuthContext);
    const initialState = {
       fetching: true,
       plants: null, // will be an array
@@ -29,7 +30,10 @@ function PlantsProvider({ children }) {
          dispatch({
             type: FETCH_PLANTS_START,
          });
-         const docRef = await db.collection('plants').get();
+         const docRef = await db
+            .collection('plants')
+            .where('user', '==', user.uid)
+            .get();
          const newPlants = docRef.docs.map(mergeDocAndId);
          dispatch({
             type: FETCH_PLANTS_SUCCESS,
