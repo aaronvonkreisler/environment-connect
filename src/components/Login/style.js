@@ -59,6 +59,11 @@ export const LoginFormWrapper = styled.div`
    grid-template-columns: 1fr;
    grid-template-rows: 1fr 1fr;
    gap: 0px 0px;
+   @media ${({ theme }) => theme.device.mobile} {
+      & > :nth-child(1) {
+         display: none;
+      }
+   }
    @media ${({ theme }) => theme.device.laptopAndUp} {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
@@ -72,4 +77,38 @@ export const Title = styled.div`
    font-weight: 700;
    font-style: italic;
    font-family: 'Rubik', sans-serif;
+`;
+
+export const LoginCard = styled.div`
+   display: flex;
+   flex-direction: column;
+   background-color: ${({ theme }) => theme.colors.primary};
+   max-width: 600px;
+   min-width: 400px;
+   border-radius: 4px;
+   padding: 16px;
+   @media ${({ theme }) => theme.device.mobile} {
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+   }
+`;
+
+export const AlternateMethodText = styled.div`
+   display: flex;
+   justify-content: center;
+   color: ${({ theme }) => theme.colors.textGrey};
+
+   span {
+      height: 1.5px;
+      background: ${({ theme }) => theme.colors.textGrey};
+      width: 100%;
+      margin: auto 5px;
+   }
+`;
+
+export const Logo = styled.img`
+   height: 50px;
+   width: 50px;
+   overflow: hidden;
 `;

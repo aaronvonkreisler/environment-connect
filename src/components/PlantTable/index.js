@@ -12,7 +12,7 @@ import {
 import IconButton from 'components/common/IconButton';
 import { getColorForLayer } from 'utils/utils';
 import useSortableData from 'hooks/useSortableData';
-import { FlexRow } from 'components/common/StyledUtils/style';
+import { FlexRow } from 'components/common/StyledUtils';
 import PlantContext from 'context/plants/plantContext';
 const headerGroups = [
    {

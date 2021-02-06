@@ -1,16 +1,83 @@
 import React from 'react';
-import { LoginFormWrapper, Title } from './style';
-import { FlexRow, FlexCol } from 'components/common/StyledUtils/style';
+import {
+   LoginFormWrapper,
+   Title,
+   LoginCard,
+   AlternateMethodText,
+   Logo,
+} from './style';
+import { FlexRow } from 'components/common/StyledUtils';
+import { LabledInput } from 'components/common/FormElements/';
+import Button from 'components/common/Button';
+import GoogleButton from 'components/GoogleButton';
+import useForm from 'hooks/useForm';
 import logoImage from 'images/logoCropped.png';
-import { Input } from 'components/common/FormElements/';
+
+const initialState = {
+   email: '',
+   password: '',
+};
 
 const LoginForm = () => {
+   const { formData, resetFormState, handleChange } = useForm(initialState);
+
+   const onSubmit = (e) => {
+      e.preventDefault();
+      console.log(formData);
+      resetFormState(initialState);
+   };
+
+   const onGoogleClick = () => {
+      alert('Google Sign-in');
+   };
    return (
       <LoginFormWrapper role="presentation">
-         <FlexRow>
-            <Title>Environment Connect</Title>
+         <FlexRow justify="center">
+            <Title>
+               Environment <br /> Connect
+            </Title>
          </FlexRow>
-         <FlexRow>Aaron!!</FlexRow>
+         <FlexRow>
+            <LoginCard>
+               <FlexRow justify="center">
+                  <Logo src={logoImage} alt="Environment Connect" />
+               </FlexRow>
+               <form onSubmit={onSubmit}>
+                  <LabledInput
+                     id="email"
+                     inputType="text"
+                     border
+                     name="email"
+                     onChange={handleChange}
+                     value={formData.email}
+                  >
+                     Email
+                  </LabledInput>
+                  <LabledInput
+                     id="password"
+                     inputType="password"
+                     border
+                     name="password"
+                     onChange={handleChange}
+                     value={formData.password}
+                  >
+                     Password
+                  </LabledInput>
+                  <FlexRow
+                     style={{ marginTop: '10px', marginBottom: '10px' }}
+                     justify="flex-start"
+                  >
+                     <Button type="submit" text="Log in" outline fullWidth />
+                  </FlexRow>
+               </form>
+               <AlternateMethodText style={{ marginBottom: '10px' }}>
+                  <span />
+                  or
+                  <span />
+               </AlternateMethodText>
+               <GoogleButton onClick={onGoogleClick} />
+            </LoginCard>
+         </FlexRow>
       </LoginFormWrapper>
    );
 };

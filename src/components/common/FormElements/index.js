@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyledInput, StyledSelect } from './style';
+import {
+   StyledInput,
+   StyledSelect,
+   StyledLabel,
+   StyledLableInput,
+} from './style';
 
 export function Input({ ...props }) {
    return (
@@ -24,4 +29,24 @@ Input.propTypes = {
 
 export function Select({ ...props }) {
    return <StyledSelect {...props}>{props.children}</StyledSelect>;
+}
+
+export function LabledInput({ ...props }) {
+   return (
+      <StyledLabel htmlFor={props.id} $border={props.border}>
+         {props.children}
+         <StyledLableInput
+            id={props.id}
+            type={props.inputType}
+            defaultValue={props.defaultValue}
+            value={props.value}
+            placeholder={props.placeholder}
+            onChange={props.onChange}
+            onBlur={props.onBlur}
+            autoFocus={props.autoFocus}
+            disabled={props.disabled}
+            name={props.name}
+         />
+      </StyledLabel>
+   );
 }

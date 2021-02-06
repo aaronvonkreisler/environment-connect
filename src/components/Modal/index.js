@@ -42,7 +42,7 @@ const Modal = forwardRef(function Modal(
          <ModalContainer>
             <ModalTitle>
                <h6>{title}</h6>
-               <IconButton onClick={close}>
+               <IconButton onClick={close} grey>
                   <MdClose />
                </IconButton>
             </ModalTitle>

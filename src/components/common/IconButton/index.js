@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const StyledButton = styled.button`
    cursor: pointer;
@@ -11,7 +11,7 @@ const StyledButton = styled.button`
    text-decoration: none;
    background-color: transparent;
    flex: 0 0 auto;
-   color: ${({ theme }) => theme.colors.textPrimary};
+   color: ${(props) => props.theme.colors.textPrimary};
    padding: 12px;
    font-size: 1.5rem;
    text-align: center;
@@ -33,18 +33,25 @@ const StyledButton = styled.button`
    `}
    ${(props) =>
       props.$danger &&
-      `
-      &:hover {
+      css`
+         &:hover {
+            color: rgb(224, 36, 94);
+            background-color: rgba(224, 36, 94, 0.2);
+            transition: background-color 0.2s ease-in;
+         }
+      `}
 
-         color: rgb(224, 36, 94);
-         background-color: rgba(224, 36, 94, 0.2);
-         transition: background-color .2s ease-in;
-      }
-   `}
+   ${(props) =>
+      props.$grey &&
+      css`
+         color: rgb(136, 153, 166) !important;
+      `}
 `;
 
-function IconButton({ small, danger, ...props }) {
-   return <StyledButton $small={small} $danger={danger} {...props} />;
+function IconButton({ small, danger, grey, ...props }) {
+   return (
+      <StyledButton $small={small} $danger={danger} $grey={grey} {...props} />
+   );
 }
 
 export default IconButton;

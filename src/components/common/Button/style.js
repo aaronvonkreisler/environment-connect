@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledButton = styled.button`
    font-size: 0.875rem;
@@ -16,18 +16,27 @@ export const StyledButton = styled.button`
    justify-content: center;
    padding: 5px 15px;
    transition: background-color 0.2s ease-in-out;
+   ${(props) =>
+      props.fullWidth &&
+      css`
+         width: 100% !important;
+      `}
    background-color: ${(props) =>
-      props.outline ? 'transparent' : props.theme.colors.blue};
+      props.outline ? 'transparent' : props.theme.colors.blueRGB};
    color: ${(props) =>
-      props.outline ? props.theme.colors.blue : props.theme.colors.textPrimary};
+      props.outline
+         ? props.theme.colors.blueRGB
+         : props.theme.colors.textPrimary};
    border: ${(props) =>
-      props.outline ? '1px solid rgba(30, 136, 229, 0.5)' : 'none'};
+      props.outline ? '1px solid rgba(30, 136, 229, 0.5)' : 'transparent'};
 
    &:hover {
       border: ${(props) =>
-         props.outline ? '1px solid ' + props.theme.colors.blue : 'none'};
+         props.outline
+            ? '1px solid ' + props.theme.colors.blue
+            : 'transparent'};
       background-color: ${(props) =>
-         props.outline ? 'rgba(30, 136, 229, 0.08)' : props.theme.colors.blue};
+         props.outline ? 'rgba(30, 136, 229, 0.08)' : 'rgb(26, 145, 218)'};
       /*  */
    }
 `;

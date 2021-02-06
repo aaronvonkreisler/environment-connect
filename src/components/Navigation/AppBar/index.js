@@ -11,7 +11,7 @@ import {
 import Avatar from 'components/common/Avatar';
 import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
-import { FlexRow } from 'components/common/StyledUtils/style';
+import { FlexRow } from 'components/common/StyledUtils';
 import NewItemForm from 'components/NewItemForm';
 
 function AppBar({ setSidebarOpen, isOpen }) {
