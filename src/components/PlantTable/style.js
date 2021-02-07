@@ -34,7 +34,7 @@ export const TableHeading = styled.th`
    border-bottom: 2px solid rgba(81, 81, 81, 1);
    vertical-align: inherit;
    text-align: ${(props) => props.$align || 'left'};
-
+   cursor: pointer;
    &.ascending::after {
       content: '👇';
       display: inline-block;
@@ -52,7 +52,6 @@ export const TableRow = styled.tr`
    vertical-align: middle;
    color: inherit;
    display: table-row;
-   cursor: pointer;
    &:nth-of-type(odd) {
       background-color: hsla(0, 0%, 100%, 0.05);
    }

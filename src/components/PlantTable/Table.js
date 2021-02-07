@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { FiEdit2 } from 'react-icons/fi';
 import {
@@ -39,6 +40,8 @@ const headerGroups = [
 ];
 function Table({ className, data, removePlant }) {
    const { items, requestSortBy, sortConfig } = useSortableData(data);
+   let history = useHistory();
+
    const getClassNamesFor = (name) => {
       if (!sortConfig) {
          return;
@@ -76,7 +79,11 @@ function Table({ className, data, removePlant }) {
                         <TableCell>{zone}</TableCell>
                         <TableCell>
                            <FlexRow justify="space-evenly">
-                              <IconButton small grey>
+                              <IconButton
+                                 small
+                                 grey
+                                 onClick={() => history.push(`/plants/${id}`)}
+                              >
                                  <FiEdit2 />
                               </IconButton>
                               <IconButton

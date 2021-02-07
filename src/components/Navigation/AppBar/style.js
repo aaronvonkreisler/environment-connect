@@ -37,7 +37,7 @@ export const SearchBarContainer = styled.div`
    border-radius: 4px;
    background-color: ${({ theme }) => theme.colors.containerGrey};
    min-height: 35px;
-   @media ${({ theme }) => theme.device.tabletAndUp} {
+   @media ${({ theme }) => theme.device.tabletAndDown} {
       display: none !important;
    }
 
