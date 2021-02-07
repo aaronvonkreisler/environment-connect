@@ -80,11 +80,10 @@ function PlantsProvider({ children }) {
       }
    };
 
-   const selectPlant = (plant) => {
-      dispatch({
-         type: SELECT_PLANT,
-         payload: plant,
-      });
+   const fetchPlantById = async (id) => {
+      const docRef = await db.collection('plants').doc(id).get();
+
+      console.log(docRef.data());
    };
 
    const value = {
@@ -94,7 +93,7 @@ function PlantsProvider({ children }) {
       fetchPlants,
       addNewPlant,
       removePlant,
-      selectPlant,
+      fetchPlantById,
    };
    return (
       <PlantContext.Provider value={value}>{children}</PlantContext.Provider>

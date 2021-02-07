@@ -28,7 +28,7 @@ const headerGroups = [
       align: 'left',
    },
    {
-      label: 'Zone Count',
+      label: 'Hardiness Zone',
       identifier: 'zone',
       align: 'left',
    },

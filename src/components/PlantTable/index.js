@@ -1,6 +1,4 @@
 import React, { useContext } from 'react';
-import { TableContainer } from './style';
-
 import PlantContext from 'context/plants/plantContext';
 import Table from './Table';
 import EmptyDisplay from './EmptyDisplay';
