@@ -5,14 +5,8 @@ import Notes from 'components/PlantDetails/Notes';
 import Details from 'components/PlantDetails/Details';
 import PlantContext from 'context/plants/plantContext';
 import { useParams } from 'react-router-dom';
-
 function PlantDetailsPage() {
-   const {
-      fetchPlantById,
-      selectedPlant,
-      fetchingPlant,
-      clearSlectedPlant,
-   } = useContext(PlantContext);
+   const { fetchPlantById, clearSlectedPlant } = useContext(PlantContext);
    const { id } = useParams();
 
    useEffect(() => {
@@ -27,20 +21,20 @@ function PlantDetailsPage() {
    return (
       <DetailsContainer>
          <DetailsGrid>
-            {fetchingPlant || !selectedPlant ? (
-               <p>...loading</p>
-            ) : (
-               <Header
-                  title={selectedPlant.plantName}
-                  layer={selectedPlant.layer}
-               />
-            )}
-
+            <Header />
             <Notes />
             <Details />
          </DetailsGrid>
       </DetailsContainer>
    );
 }
+// {fetchingPlant || !selectedPlant ? (
+//    <SkeletonView />
+// ) : (
+//    <Header
+//       title={selectedPlant.plantName}
+//       layer={selectedPlant.layer}
+//    />
+// )}
 
 export default PlantDetailsPage;

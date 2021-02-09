@@ -1,20 +1,29 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { HeaderContainer, Title } from './style';
-import WaveSvg from 'components/common/WaveSvg';
 import { getColorForLayer } from 'utils/utils';
+import WaveSvg from 'components/common/WaveSvg';
+import PlantContext from 'context/plants/plantContext';
 
-function Header({ title, layer }) {
+function Header(props) {
+   const { selectedPlant, fetchingPlant } = useContext(PlantContext);
    const [fill, setFill] = useState('#4B89DC');
 
-   useLayoutEffect(() => {
-      const color = getColorForLayer(layer);
-      setFill(color);
-   }, [layer]);
+   useEffect(() => {
+      if (selectedPlant) {
+         const color = getColorForLayer(selectedPlant.layer);
+         setFill(color);
+      }
+   }, [selectedPlant]);
 
    return (
       <HeaderContainer>
-         <WaveSvg fill={fill} />
-         <Title>{title}</Title>
+         {fetchingPlant && <WaveSvg />}
+         {!fetchingPlant && selectedPlant && (
+            <>
+               <WaveSvg fill={fill} />
+               <Title>{selectedPlant.plantName}</Title>
+            </>
+         )}
       </HeaderContainer>
    );
 }
