@@ -20,10 +20,10 @@ import { requestLogout } from 'firebaseConfig/db';
 function AppBar({ setSidebarOpen, isOpen }) {
    const [menuOpen, setMenuOpen] = useState(false);
    const { user, loading } = useContext(AuthContext);
-   const modalRef = useRef();
+   const plantModalRef = useRef();
 
    const handleModalOpen = () => {
-      modalRef.current.openModal();
+      plantModalRef.current.openModal();
    };
 
    const handleMenuClose = () => {
@@ -32,7 +32,7 @@ function AppBar({ setSidebarOpen, isOpen }) {
 
    return (
       <Fragment>
-         <NewItemForm modalRef={modalRef} />
+         <NewItemForm modalRef={plantModalRef} />
 
          <AppBarRoot>
             <MenuButtonContainer>
