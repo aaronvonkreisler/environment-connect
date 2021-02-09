@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { DetailsGrid } from 'components/PlantDetails/style';
+import { DetailsContainer, DetailsGrid } from 'components/PlantDetails/style';
 import Header from 'components/PlantDetails/Header';
 import Notes from 'components/PlantDetails/Notes';
 import Details from 'components/PlantDetails/Details';
@@ -25,19 +25,21 @@ function PlantDetailsPage() {
    }, []);
 
    return (
-      <DetailsGrid>
-         {fetchingPlant || !selectedPlant ? (
-            <p>...loading</p>
-         ) : (
-            <Header
-               title={selectedPlant.plantName}
-               layer={selectedPlant.layer}
-            />
-         )}
+      <DetailsContainer>
+         <DetailsGrid>
+            {fetchingPlant || !selectedPlant ? (
+               <p>...loading</p>
+            ) : (
+               <Header
+                  title={selectedPlant.plantName}
+                  layer={selectedPlant.layer}
+               />
+            )}
 
-         <Notes />
-         <Details />
-      </DetailsGrid>
+            <Notes />
+            <Details />
+         </DetailsGrid>
+      </DetailsContainer>
    );
 }
 

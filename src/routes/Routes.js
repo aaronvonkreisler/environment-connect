@@ -20,19 +20,19 @@ function Routes() {
                <Route exact path="/" component={LoginPage} />
                <PlantsProvider>
                   <Navigation />
-                  <MainContainer>
-                     <PrivateRoute exact path="/plants" component={HomePage} />
-                     <PrivateRoute
-                        exact
-                        path="/projects"
-                        component={ProjectsPage}
-                     />
-                     <PrivateRoute
-                        exact
-                        path="/plants/:id"
-                        component={PlantDetailsPage}
-                     />
-                  </MainContainer>
+
+                  <PrivateRoute exact path="/plants" component={HomePage} />
+                  <PrivateRoute
+                     exact
+                     path="/projects"
+                     component={ProjectsPage}
+                  />
+
+                  <PrivateRoute
+                     exact
+                     path="/plants/:id"
+                     component={PlantDetailsPage}
+                  />
                </PlantsProvider>
             </Switch>
          </AppThemeProvider>

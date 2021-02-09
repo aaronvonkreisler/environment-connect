@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+export const DetailsContainer = styled.main`
+   padding-left: 75px;
+   margin-top: 66px;
+   padding-right: 24px;
+   width: 100%;
+   height: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   display: block;
+`;
 export const DetailsGrid = styled.div`
    display: grid;
    grid-template-columns: 1.5fr;
