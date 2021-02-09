@@ -10,16 +10,19 @@ import {
    FETCH_PLANTS_START,
    REMOVE_PLANT,
    ADD_PLANT,
-   SELECT_PLANT,
+   GET_PLANT_BY_ID_START,
+   GET_PLANT_BY_ID_SUCCESS,
+   CLEAR_SELECTED_PLANT,
 } from 'context/types';
 
 function PlantsProvider({ children }) {
    const { user } = useContext(AuthContext);
    const initialState = {
-      fetching: true,
+      fetching: false,
       plants: null, // will be an array
       error: null,
       selectedPlant: null,
+      fetchingPlant: false,
    };
    const [state, dispatch] = useReducer(plantReducer, initialState);
 
@@ -81,9 +84,25 @@ function PlantsProvider({ children }) {
    };
 
    const fetchPlantById = async (id) => {
-      const docRef = await db.collection('plants').doc(id).get();
+      try {
+         dispatch({ type: GET_PLANT_BY_ID_START });
+         const docRef = await db.collection('plants').doc(id).get();
+         const plant = docRef.data();
 
-      console.log(docRef.data());
+         dispatch({
+            type: GET_PLANT_BY_ID_SUCCESS,
+            payload: plant,
+         });
+      } catch (err) {
+         dispatch({
+            type: PLANTS_ERROR,
+            payload: err.message,
+         });
+      }
+   };
+
+   const clearSlectedPlant = () => {
+      dispatch({ type: CLEAR_SELECTED_PLANT });
    };
 
    const value = {
@@ -94,6 +113,7 @@ function PlantsProvider({ children }) {
       addNewPlant,
       removePlant,
       fetchPlantById,
+      clearSlectedPlant,
    };
    return (
       <PlantContext.Provider value={value}>{children}</PlantContext.Provider>

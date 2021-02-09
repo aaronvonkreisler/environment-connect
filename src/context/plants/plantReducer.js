@@ -5,7 +5,9 @@ import {
    ADD_PLANT,
    CLEAR_PLANTS_STATE,
    REMOVE_PLANT,
-   SELECT_PLANT,
+   GET_PLANT_BY_ID_START,
+   GET_PLANT_BY_ID_SUCCESS,
+   CLEAR_SELECTED_PLANT,
 } from 'context/types';
 
 function plantReducer(state, action) {
@@ -23,10 +25,21 @@ function plantReducer(state, action) {
             plants: payload,
             fetching: false,
          };
-      case SELECT_PLANT:
+      case GET_PLANT_BY_ID_START:
+         return {
+            ...state,
+            fetchingPlant: true,
+         };
+      case GET_PLANT_BY_ID_SUCCESS:
          return {
             ...state,
             selectedPlant: payload,
+            fetchingPlant: false,
+         };
+      case CLEAR_SELECTED_PLANT:
+         return {
+            ...state,
+            selectedPlant: null,
          };
       case PLANTS_ERROR:
          return {

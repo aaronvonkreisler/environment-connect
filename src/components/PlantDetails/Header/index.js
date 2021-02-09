@@ -1,20 +1,20 @@
-import React, { useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useLayoutEffect } from 'react';
 import { HeaderContainer, Title } from './style';
 import WaveSvg from 'components/common/WaveSvg';
-import PlantContext from 'context/plants/plantContext';
+import { getColorForLayer } from 'utils/utils';
 
-function Header({ plantName = 'Strawberries', color, match }) {
-   const { fetchPlantById } = useContext(PlantContext);
-   const { id } = useParams();
+function Header({ title, layer }) {
+   const [fill, setFill] = useState('#4B89DC');
 
-   useEffect(() => {
-      fetchPlantById(id);
-   }, [fetchPlantById, id]);
+   useLayoutEffect(() => {
+      const color = getColorForLayer(layer);
+      setFill(color);
+   }, [layer]);
+
    return (
       <HeaderContainer>
-         <WaveSvg fill="#2bbd7e" />
-         <Title>{plantName}</Title>
+         <WaveSvg fill={fill} />
+         <Title>{title}</Title>
       </HeaderContainer>
    );
 }

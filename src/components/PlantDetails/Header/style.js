@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
    grid-area: header;
    position: relative;
+   max-width: 600px;
 `;
 
 export const Title = styled.div`
@@ -10,7 +11,8 @@ export const Title = styled.div`
    font-weight: 500;
    font-family: 'Rubik', sans-serif;
    position: absolute;
-   top: 10%;
+   top: 0;
+
    left: 1%;
 
    @media ${({ theme }) => theme.device.tablet} {
