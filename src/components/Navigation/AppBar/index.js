@@ -1,5 +1,6 @@
 import React, { useRef, Fragment, useState, useContext } from 'react';
 import { FiSearch, FiMenu } from 'react-icons/fi';
+import { useLocation } from 'react-router-dom';
 import {
    AppBarRoot,
    MenuButtonContainer,
@@ -21,6 +22,8 @@ function AppBar({ setSidebarOpen, isOpen }) {
    const [menuOpen, setMenuOpen] = useState(false);
    const { user, loading } = useContext(AuthContext);
    const plantModalRef = useRef();
+   const { pathname } = useLocation();
+   const renderModalButton = pathname === '/plants';
 
    const handleModalOpen = () => {
       plantModalRef.current.openModal();
@@ -51,13 +54,16 @@ function AppBar({ setSidebarOpen, isOpen }) {
                </div>
             </SearchBarContainer>
             <FlexRow>
-               <div style={{ marginRight: '20px' }}>
-                  <Button
-                     outline
-                     text="Add new Item"
-                     onClick={handleModalOpen}
-                  />
-               </div>
+               {renderModalButton && (
+                  <div style={{ marginRight: '20px' }}>
+                     <Button
+                        outline
+                        text="Add new Item"
+                        onClick={handleModalOpen}
+                     />
+                  </div>
+               )}
+
                <Avatar
                   src={!loading && user ? user.photoURL : null}
                   alt=""
