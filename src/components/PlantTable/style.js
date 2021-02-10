@@ -60,7 +60,7 @@ export const TableRow = styled.tr`
    }
    ${(props) =>
       props.$topRow && {
-         'background-color': props.theme.colors.table + ' !important',
+         'background-color': props.theme.colors.paper + ' !important',
       }}
 `;
 

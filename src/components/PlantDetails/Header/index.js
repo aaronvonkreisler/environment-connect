@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { HeaderContainer, Title } from './style';
+import { HeaderContainer, Title, DetailsRow, DetailsPill } from './style';
 import { getColorForLayer } from 'utils/utils';
 import WaveSvg from 'components/common/WaveSvg';
 import PlantContext from 'context/plants/plantContext';
@@ -22,6 +22,14 @@ function Header(props) {
             <>
                <WaveSvg fill={fill} />
                <Title>{selectedPlant.plantName}</Title>
+               <DetailsRow>
+                  <DetailsPill>
+                     <span>Zone: {selectedPlant.zone}</span>
+                  </DetailsPill>
+                  <DetailsPill>
+                     <span>{selectedPlant.layer} Layer</span>
+                  </DetailsPill>
+               </DetailsRow>
             </>
          )}
       </HeaderContainer>

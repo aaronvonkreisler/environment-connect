@@ -14,7 +14,7 @@ export const theme = {
       blueRGB: 'rgb(29, 161, 242)',
       containerGrey: '#292a2b',
       inputBackground: '#121212',
-      table: '#212529',
+      paper: '#212529',
    },
    device: {
       mobile: '(max-width: 500px)',
