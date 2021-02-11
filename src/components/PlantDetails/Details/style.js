@@ -5,42 +5,87 @@ export const DetailsContainer = styled.div`
    display: none;
    @media (min-width: 768px) {
       display: flex;
+      flex-direction: column;
    }
 `;
 
 export const DetailsCard = styled.div`
    background-color: ${({ theme }) => theme.colors.containerGrey};
    width: 100%;
-   height: 100%;
-   margin-top: 20px;
+   margin-top: 10px;
    border-radius: 4px;
    display: flex;
+   flex-direction: row;
+   box-shadow: ${({ theme }) => theme.elevation.one};
+   position: relative;
+   overflow: hidden;
+`;
+
+export const CardWrapper = styled.div`
+   display: flex;
    flex-direction: column;
-   padding: 16px;
+   width: 100%;
 `;
 
-export const Title = styled.div`
+export const Label = styled.div`
    display: flex;
    flex-direction: row;
-   color: ${({ theme }) => theme.colors.textPrimary};
-   font-size: 18px;
+   color: ${({ theme }) => theme.colors.textGrey};
+   font-size: 16px;
    font-weight: 500;
-   border-bottom: 1px solid ${({ theme }) => theme.colors.blue};
    padding-bottom: 5px;
-   justify-content: space-between;
-   align-items: center;
-`;
-
-export const DetailItem = styled.div`
-   display: flex;
-   flex-direction: row;
-   padding-top: 10px;
    justify-content: flex-start;
    align-items: center;
+   padding: 4px 16px;
+`;
+
+export const Text = styled.div`
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   overflow: hidden;
+   z-index: 2;
+   padding: 0 16px;
+   & > span {
+      color: ${({ theme }) => theme.colors.textPrimary};
+      font-size: 2rem;
+      font-family: 'Rubik', sans-serif;
+      font-style: italic;
+   }
 
    & > svg {
-      margin-right: 5px;
-      height: 1.25em;
-      width: 1.25em;
+      color: ${({ theme }) => theme.colors.textPrimary};
+      font-size: 2rem;
+      margin-right: 4px;
    }
+`;
+
+export const SunGradient = styled.div`
+   position: absolute;
+   bottom: 0;
+   height: 2px;
+   width: 100%;
+
+   background: rgb(72, 69, 124);
+   background: linear-gradient(
+      248deg,
+      rgba(72, 69, 124, 0.586338759136467) 2%,
+      rgba(231, 67, 67, 0.5415208319655987) 35%,
+      rgba(255, 200, 0, 0.5555264342064952) 100%
+   );
+`;
+
+export const SeasonsGradient = styled.div`
+   position: absolute;
+   bottom: 0;
+   height: 2px;
+   width: 100%;
+   background: rgb(69, 124, 113);
+   background: linear-gradient(
+      248deg,
+      rgba(69, 124, 113, 0.4546860980720413) 15%,
+      rgba(206, 231, 67, 0.409868170901173) 45%,
+      rgba(0, 255, 251, 0.3650502437303046) 100%
+   );
 `;

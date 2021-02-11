@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
    grid-area: header;
    position: relative;
+   z-index: -1;
 `;
 
 export const Title = styled.div`
@@ -39,7 +40,9 @@ export const DetailsPill = styled.div`
    display: flex;
    flex-direction: column;
    margin-right: 10px;
-   margin-bottom: 5px;
+   margin-bottom: 10px;
+   box-shadow: ${({ theme }) => theme.elevation.one};
+
    & > span {
       padding: 0 10px;
       font-size: 14px;
