@@ -5,6 +5,7 @@ import {
    StyledSelect,
    StyledLabel,
    StyledLableInput,
+   StyledLabelSelect,
 } from './style';
 
 export function Input({ ...props }) {
@@ -52,6 +53,20 @@ export function LabledInput({ ...props }) {
             disabled={props.disabled}
             name={props.name}
          />
+      </StyledLabel>
+   );
+}
+
+export function LabledSelect({ ...props }) {
+   return (
+      <StyledLabel
+         htmlFor={props.id}
+         $border={props.border}
+         $spacing={props.spacing}
+         $borderSmall={props.borderSmall}
+      >
+         {props.label}
+         <StyledLabelSelect {...props}>{props.children}</StyledLabelSelect>
       </StyledLabel>
    );
 }

@@ -5,36 +5,12 @@ import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
 import PlantContext from 'context/plants/plantContext';
 import AuthContext from 'context/auth/authContext';
+import { layers } from 'constants/layers';
 const initialState = {
    plantName: '',
    zone: '',
    layer: '',
 };
-
-const layers = [
-   {
-      label: 'Canopy',
-   },
-   {
-      label: 'Low Tree',
-   },
-   {
-      label: 'Vertical',
-   },
-   {
-      label: 'Shrub',
-   },
-   {
-      label: 'Rhizosphere',
-   },
-   {
-      label: 'Herbaveous',
-   },
-
-   {
-      label: 'Soil Surface',
-   },
-];
 
 function NewItemForm({ modalRef }) {
    const { addNewPlant } = useContext(PlantContext);

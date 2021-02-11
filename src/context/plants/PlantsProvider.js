@@ -21,7 +21,7 @@ function PlantsProvider({ children }) {
       fetching: false,
       plants: null, // will be an array
       error: null,
-      selectedPlant: null,
+      selectedPlant: {},
       fetchingPlant: false,
    };
    const [state, dispatch] = useReducer(plantReducer, initialState);

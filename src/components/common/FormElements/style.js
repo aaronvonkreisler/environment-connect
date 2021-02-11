@@ -100,3 +100,16 @@ export const StyledLableInput = styled.input`
       color: ${({ theme }) => theme.colors.textSecondary};
    }
 `;
+
+export const StyledLabelSelect = styled.select`
+   flex: 1 0 auto;
+   background: ${({ theme }) => theme.colors.paper};
+   color: ${({ theme }) => theme.colors.textPrimary};
+   font-weight: 500;
+   width: 100%;
+   font-size: 18px;
+   border-radius: 4px;
+   padding: 8px 12px 8px 2px;
+   margin-top: 2px;
+   box-shadow: none;
+`;

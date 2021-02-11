@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { FiEdit2 } from 'react-icons/fi';
 import { HeaderContainer, Title, DetailsRow, DetailsPill } from './style';
 import { getColorForLayer } from 'utils/utils';
 import WaveSvg from 'components/common/WaveSvg';
 import PlantContext from 'context/plants/plantContext';
 import IconButton from 'components/common/IconButton';
-import { FiEdit2 } from 'react-icons/fi';
+
 function Header({ modalRef }) {
    const { selectedPlant, fetchingPlant } = useContext(PlantContext);
    const [fill, setFill] = useState('#4B89DC');
 
    useEffect(() => {
-      if (selectedPlant) {
+      if (selectedPlant.layer) {
          const color = getColorForLayer(selectedPlant.layer);
          setFill(color);
       }

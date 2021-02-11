@@ -39,7 +39,7 @@ function plantReducer(state, action) {
       case CLEAR_SELECTED_PLANT:
          return {
             ...state,
-            selectedPlant: null,
+            selectedPlant: {},
          };
       case PLANTS_ERROR:
          return {
