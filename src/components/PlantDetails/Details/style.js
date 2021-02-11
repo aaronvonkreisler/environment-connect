@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const DetailsContainer = styled.div`
    grid-area: details;
@@ -10,15 +10,26 @@ export const DetailsContainer = styled.div`
 `;
 
 export const DetailsCard = styled.div`
-   background-color: ${({ theme }) => theme.colors.containerGrey};
+   background-color: ${({ theme }) => theme.colors.paper};
    width: 100%;
+   max-width: 400px;
    margin-top: 10px;
    border-radius: 4px;
    display: flex;
    flex-direction: row;
-   box-shadow: ${({ theme }) => theme.elevation.one};
+   box-shadow: ${({ theme }) => theme.elevation.three};
    position: relative;
    overflow: hidden;
+   ${(props) =>
+      props.$tall &&
+      css`
+         padding: 14px 0;
+      `}
+   ${(props) =>
+      props.$last &&
+      css`
+         margin: 24px 0;
+      `}
 `;
 
 export const CardWrapper = styled.div`
@@ -31,7 +42,7 @@ export const Label = styled.div`
    display: flex;
    flex-direction: row;
    color: ${({ theme }) => theme.colors.textGrey};
-   font-size: 16px;
+   font-size: ${(props) => (props.$small ? '14px' : '16px')};
    font-weight: 500;
    padding-bottom: 5px;
    justify-content: flex-start;
@@ -49,11 +60,10 @@ export const Text = styled.div`
    padding: 0 16px;
    & > span {
       color: ${({ theme }) => theme.colors.textPrimary};
-      font-size: 2rem;
+      font-size: ${(props) => (props.$small ? '15px' : '2rem')};
       font-family: 'Rubik', sans-serif;
-      font-style: italic;
+      font-style: ${(props) => (props.$small ? 'none' : 'italic')};
    }
-
    & > svg {
       color: ${({ theme }) => theme.colors.textPrimary};
       font-size: 2rem;

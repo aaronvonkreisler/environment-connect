@@ -2,7 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import AuthContext from 'context/auth/authContext';
 import { auth } from 'firebaseConfig/db';
 import authReducer from 'context/auth/authReducer';
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from 'context/types';
+import { LOGIN_SUCCESS, LOGOUT } from 'context/types';
 
 const initialState = {
    user: null,

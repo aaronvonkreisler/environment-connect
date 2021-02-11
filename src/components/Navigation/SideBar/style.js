@@ -10,7 +10,7 @@ export const StyledSidebar = styled.aside`
    border-right: ${({ theme }) => theme.colors.border};
    height: 100vh;
    text-align: left;
-   position: absolute;
+   position: fixed;
    width: ${(props) => (props.$isOpen ? '200px' : '75px')};
    top: 0;
    left: 0;

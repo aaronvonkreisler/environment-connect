@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiEdit2, FiSun } from 'react-icons/fi';
+import { FiSun } from 'react-icons/fi';
 import { WiNightAltSnowThunderstorm as SeasonsIcon } from 'react-icons/wi';
 import { FaSnowflake } from 'react-icons/fa';
 import {
@@ -35,9 +35,25 @@ function Details() {
                   <span>Partial Shade</span>
                </Text>
             </CardWrapper>
-
-            {/*Label row small grey text */}
-            {/*Icon and value (large text) */}
+         </DetailsCard>
+         <DetailsCard $tall $last>
+            <CardWrapper>
+               <Label $small>Chill Hour Requirement</Label>
+               <Text $small>
+                  <span>200-300</span>
+               </Text>
+               <Label $small>Desired Water</Label>
+               <Text $small>
+                  <span>Moist well drained /light loamy soil</span>
+               </Text>
+               <Label $small>Nutiton needs</Label>
+               <Text $small>
+                  <span>
+                     Nitrogen, calcium, phosphorus, magnesium, sulfur and
+                     potassium.
+                  </span>
+               </Text>
+            </CardWrapper>
          </DetailsCard>
       </DetailsContainer>
    );

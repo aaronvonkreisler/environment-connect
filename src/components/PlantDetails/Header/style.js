@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
    grid-area: header;
    position: relative;
-   z-index: -1;
 `;
 
 export const Title = styled.div`
@@ -24,13 +23,29 @@ export const Title = styled.div`
 export const DetailsRow = styled.div`
    min-height: 50px;
    width: 100%;
+   margin-bottom: 10px;
    position: absolute;
    bottom: 0;
    display: flex;
    flex-direction: row;
    justify-content: flex-start;
-   align-items: flex-end;
-   margin-left: 24px;
+   align-items: baseline;
+
+   & > :nth-child(1) {
+      display: flex;
+      flex-direction: row;
+      margin-left: 24px;
+      height: 100%;
+   }
+   & > :nth-child(2) {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      z-index: 2;
+      align-items: flex-end;
+      padding-right: 5px;
+      height: 100%;
+   }
 `;
 
 export const DetailsPill = styled.div`
@@ -40,7 +55,7 @@ export const DetailsPill = styled.div`
    display: flex;
    flex-direction: column;
    margin-right: 10px;
-   margin-bottom: 10px;
+
    box-shadow: ${({ theme }) => theme.elevation.one};
 
    & > span {
