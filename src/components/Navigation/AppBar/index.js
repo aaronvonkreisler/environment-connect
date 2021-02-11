@@ -80,5 +80,4 @@ function AppBar({ setSidebarOpen, isOpen }) {
       </Fragment>
    );
 }
-//"https://tweeter-dev.s3.us-east-2.amazonaws.com/dnrvvOQ8LGlJ2uEgqjiR4HAhp-1608075405666.JPG"
 export default AppBar;

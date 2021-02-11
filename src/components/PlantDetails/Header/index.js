@@ -5,7 +5,7 @@ import WaveSvg from 'components/common/WaveSvg';
 import PlantContext from 'context/plants/plantContext';
 import IconButton from 'components/common/IconButton';
 import { FiEdit2 } from 'react-icons/fi';
-function Header(props) {
+function Header({ modalRef }) {
    const { selectedPlant, fetchingPlant } = useContext(PlantContext);
    const [fill, setFill] = useState('#4B89DC');
 
@@ -16,6 +16,9 @@ function Header(props) {
       }
    }, [selectedPlant]);
 
+   const openEditForm = () => {
+      modalRef.current.openModal();
+   };
    return (
       <HeaderContainer>
          {fetchingPlant && <WaveSvg fill="4B89DC" />}
@@ -33,7 +36,7 @@ function Header(props) {
                      </DetailsPill>
                   </div>
                   <div>
-                     <IconButton grey onClick={() => alert('hi')}>
+                     <IconButton grey small={false} onClick={openEditForm}>
                         <FiEdit2 />
                      </IconButton>
                   </div>

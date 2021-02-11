@@ -45,7 +45,7 @@ export const StyledLabel = styled.label`
    width: 100%;
    margin-top: 12px;
    font-weight: 500;
-   font-size: 18px;
+   font-size: 16px;
    letter-spacing: -0.4px;
    position: relative;
    color: ${({ theme }) => theme.colors.textGrey};
@@ -59,6 +59,21 @@ export const StyledLabel = styled.label`
             color: rgb(29, 161, 242);
          }
       `}
+   ${(props) =>
+      props.$borderSmall &&
+      css`
+         border-bottom: 1px solid rgb(136, 153, 166);
+         &:focus-within {
+            border-color: rgb(29, 161, 242);
+            color: rgb(29, 161, 242);
+         }
+      `}
+
+   ${(props) =>
+      props.$spacing &&
+      css`
+         margin: 0 10px;
+      `}
 `;
 
 export const StyledLableInput = styled.input`
@@ -68,7 +83,7 @@ export const StyledLableInput = styled.input`
    width: 100%;
    font-size: 18px;
    border-radius: 4px;
-   padding: 8px 12px;
+   padding: 8px 12px 8px 2px;
    margin-top: 2px;
    box-shadow: none;
    color: ${({ theme }) => theme.colors.textPrimary};

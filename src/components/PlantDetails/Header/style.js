@@ -21,7 +21,6 @@ export const Title = styled.div`
 `;
 
 export const DetailsRow = styled.div`
-   min-height: 50px;
    width: 100%;
    margin-bottom: 10px;
    position: absolute;
@@ -45,6 +44,10 @@ export const DetailsRow = styled.div`
       align-items: flex-end;
       padding-right: 5px;
       height: 100%;
+   }
+
+   @media ${({ theme }) => theme.device.mobile} {
+      margin-bottom: 5px;
    }
 `;
 

@@ -33,7 +33,12 @@ export function Select({ ...props }) {
 
 export function LabledInput({ ...props }) {
    return (
-      <StyledLabel htmlFor={props.id} $border={props.border}>
+      <StyledLabel
+         htmlFor={props.id}
+         $border={props.border}
+         $spacing={props.spacing}
+         $borderSmall={props.borderSmall}
+      >
          {props.children}
          <StyledLableInput
             id={props.id}
