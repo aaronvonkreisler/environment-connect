@@ -7,7 +7,9 @@ import useForm from 'hooks/useForm';
 import PlantContext from 'context/plants/plantContext';
 
 function EditDetailsForm({ modalRef }) {
-   const { fetchingPlant, selectedPlant } = useContext(PlantContext);
+   const { fetchingPlant, selectedPlant, updatePlant } = useContext(
+      PlantContext
+   );
    const [initialState, setInitialState] = useState({
       season: '',
       layer: '',
@@ -15,9 +17,8 @@ function EditDetailsForm({ modalRef }) {
       chillHours: '',
       desiredWater: '',
       nutritionNeeds: '',
-      user: '',
    });
-   const { formData, handleChange, resetFormState } = useForm(initialState);
+   const { formData, handleChange } = useForm(initialState);
 
    useEffect(() => {
       setInitialState({
@@ -38,13 +39,12 @@ function EditDetailsForm({ modalRef }) {
             fetchingPlant || !selectedPlant.nutritionNeeds
                ? ''
                : selectedPlant.nutritionNeeds,
-         user: fetchingPlant || !selectedPlant.user ? '' : selectedPlant.user,
       });
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [fetchingPlant, selectedPlant]);
 
    const handleSubmit = () => {
-      console.log(formData);
+      updatePlant(selectedPlant.id, formData);
    };
 
    return (
@@ -52,7 +52,6 @@ function EditDetailsForm({ modalRef }) {
          title="Edit plant"
          buttonText="Save"
          onActionClick={handleSubmit}
-         onCloseCallback={() => console.log('hi')}
          ref={modalRef}
       >
          <FlexRow align="center" justify="space-between">

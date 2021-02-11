@@ -13,6 +13,7 @@ import {
    GET_PLANT_BY_ID_START,
    GET_PLANT_BY_ID_SUCCESS,
    CLEAR_SELECTED_PLANT,
+   UPDATE_PLANT,
 } from 'context/types';
 
 function PlantsProvider({ children }) {
@@ -87,7 +88,7 @@ function PlantsProvider({ children }) {
       try {
          dispatch({ type: GET_PLANT_BY_ID_START });
          const docRef = await db.collection('plants').doc(id).get();
-         const plant = docRef.data();
+         const plant = mergeDocAndId(docRef);
 
          dispatch({
             type: GET_PLANT_BY_ID_SUCCESS,
@@ -99,6 +100,26 @@ function PlantsProvider({ children }) {
             payload: err.message,
          });
       }
+   };
+
+   const updatePlant = async (id, updates) => {
+      try {
+         await db.doc(`/plants/${id}`).update(updates);
+         const docRef = await db.doc(`/plants/${id}`).get();
+
+         const updatedPlant = mergeDocAndId(docRef);
+         dispatch({
+            type: UPDATE_PLANT,
+            payload: updatedPlant,
+         });
+      } catch (err) {
+         dispatch({
+            type: PLANTS_ERROR,
+            payload: err.message,
+         });
+      }
+
+      // console.log(updatedPlant);
    };
 
    const clearSlectedPlant = () => {
@@ -114,6 +135,7 @@ function PlantsProvider({ children }) {
       removePlant,
       fetchPlantById,
       clearSlectedPlant,
+      updatePlant,
    };
    return (
       <PlantContext.Provider value={value}>{children}</PlantContext.Provider>

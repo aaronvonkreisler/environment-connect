@@ -3,6 +3,7 @@ import {
    FETCH_PLANTS_SUCCESS,
    PLANTS_ERROR,
    ADD_PLANT,
+   UPDATE_PLANT,
    CLEAR_PLANTS_STATE,
    REMOVE_PLANT,
    GET_PLANT_BY_ID_START,
@@ -19,6 +20,7 @@ function plantReducer(state, action) {
             ...state,
             fetching: true,
          };
+
       case FETCH_PLANTS_SUCCESS:
          return {
             ...state,
@@ -51,6 +53,11 @@ function plantReducer(state, action) {
          return {
             ...state,
             plants: [payload, ...state.plants],
+         };
+      case UPDATE_PLANT:
+         return {
+            ...state,
+            selectedPlant: payload,
          };
       case REMOVE_PLANT:
          return {

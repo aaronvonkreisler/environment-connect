@@ -26,7 +26,9 @@ const Modal = forwardRef(function Modal(
 
    const close = () => {
       setDisplay(false);
-      onCloseCallback();
+      if (onCloseCallback) {
+         onCloseCallback();
+      }
    };
 
    useImperativeHandle(ref, () => {
