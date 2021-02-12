@@ -42,6 +42,7 @@ function plantReducer(state, action) {
          return {
             ...state,
             selectedPlant: {},
+            fetchingPlant: true,
          };
       case PLANTS_ERROR:
          return {

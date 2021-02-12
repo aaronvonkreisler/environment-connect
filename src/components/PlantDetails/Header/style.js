@@ -20,6 +20,12 @@ export const Title = styled.div`
    }
 `;
 
+export const SkeletonTitle = styled.div`
+   position: absolute;
+   top: 0;
+   width: 100%;
+`;
+
 export const DetailsRow = styled.div`
    width: 100%;
    margin-bottom: 10px;
@@ -53,6 +59,7 @@ export const DetailsRow = styled.div`
 
 export const DetailsPill = styled.div`
    min-height: 20px;
+   min-width: 100px;
    background-color: #212121;
    border-radius: 2px;
    display: flex;
