@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FiSun } from 'react-icons/fi';
 import { WiNightAltSnowThunderstorm as SeasonsIcon } from 'react-icons/wi';
-import { FaSnowflake } from 'react-icons/fa';
+import PlantContext from 'context/plants/plantContext';
 import {
    DetailsContainer,
    DetailsCard,
@@ -11,50 +11,68 @@ import {
    SunGradient,
    SeasonsGradient,
 } from './style';
+import DetailsSkeleton from './DetailsSkeleton';
 
 function Details() {
+   const { fetchingPlant, selectedPlant } = useContext(PlantContext);
    return (
       <DetailsContainer>
-         <DetailsCard>
-            <CardWrapper>
-               <Label>Season</Label>
-               <SeasonsGradient />
-               <Text>
-                  <SeasonsIcon />
-
-                  <span>Winter</span>
-               </Text>
-            </CardWrapper>
-         </DetailsCard>
-         <DetailsCard>
-            <CardWrapper>
-               <Label>Desired Sun</Label>
-               <SunGradient />
-               <Text>
-                  <FiSun />
-                  <span>Partial Shade</span>
-               </Text>
-            </CardWrapper>
-         </DetailsCard>
-         <DetailsCard $tall $last>
-            <CardWrapper>
-               <Label $small>Chill Hour Requirement</Label>
-               <Text $small>
-                  <span>200-300</span>
-               </Text>
-               <Label $small>Desired Water</Label>
-               <Text $small>
-                  <span>Moist well drained /light loamy soil</span>
-               </Text>
-               <Label $small>Nutiton needs</Label>
-               <Text $small>
-                  <span>
-                     Nitrogen, calcium, phosphorus, magnesium, sulfur and
-                     potassium.
-                  </span>
-               </Text>
-            </CardWrapper>
-         </DetailsCard>
+         {fetchingPlant || !selectedPlant.plantName ? (
+            <DetailsSkeleton />
+         ) : (
+            <>
+               <DetailsCard>
+                  <CardWrapper>
+                     <Label>Season</Label>
+                     <SeasonsGradient />
+                     <Text>
+                        <SeasonsIcon />
+                        <span>
+                           {selectedPlant.season && selectedPlant.season}
+                        </span>
+                     </Text>
+                  </CardWrapper>
+               </DetailsCard>
+               <DetailsCard>
+                  <CardWrapper>
+                     <Label>Desired Sun</Label>
+                     <SunGradient />
+                     <Text>
+                        <FiSun />
+                        <span>
+                           {selectedPlant.desiredSun &&
+                              selectedPlant.desiredSun}
+                        </span>
+                     </Text>
+                  </CardWrapper>
+               </DetailsCard>
+               <DetailsCard $tall $last>
+                  <CardWrapper>
+                     <Label $small>Chill Hour Requirement</Label>
+                     <Text $small>
+                        <span>
+                           {selectedPlant.chillHours &&
+                              selectedPlant.chillHours}
+                        </span>
+                     </Text>
+                     <Label $small>Desired Water</Label>
+                     <Text $small>
+                        <span>
+                           {selectedPlant.desiredWater &&
+                              selectedPlant.desiredWater}
+                        </span>
+                     </Text>
+                     <Label $small>Nutiton needs</Label>
+                     <Text $small>
+                        <span>
+                           {selectedPlant.nutritionNeeds &&
+                              selectedPlant.nutritionNeeds}
+                        </span>
+                     </Text>
+                  </CardWrapper>
+               </DetailsCard>
+            </>
+         )}
       </DetailsContainer>
    );
 }
