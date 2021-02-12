@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Modal from 'components/Modal';
 import { LabledInput, LabledSelect } from 'components/common/FormElements';
 import { FlexRow, FlexCol } from 'components/common/StyledUtils';
-import { layers } from 'constants/layers';
+import { layers, sunOptions } from 'constants/options';
 import useForm from 'hooks/useForm';
 import PlantContext from 'context/plants/plantContext';
 
@@ -17,6 +17,7 @@ function EditDetailsForm({ modalRef }) {
       chillHours: '',
       desiredWater: '',
       nutritionNeeds: '',
+      hasDetails: true,
    });
    const { formData, handleChange } = useForm(initialState);
 
@@ -35,18 +36,24 @@ function EditDetailsForm({ modalRef }) {
             fetchingPlant || !selectedPlant.desiredWater
                ? ''
                : selectedPlant.desiredWater,
+         desiredSun:
+            fetchingPlant || !selectedPlant.desiredSun
+               ? ''
+               : selectedPlant.desiredSun,
          nutritionNeeds:
             fetchingPlant || !selectedPlant.nutritionNeeds
                ? ''
                : selectedPlant.nutritionNeeds,
+         hasDetails: true,
       });
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [fetchingPlant, selectedPlant]);
 
    const handleSubmit = () => {
       updatePlant(selectedPlant.id, formData);
+      modalRef.current.closeModal();
    };
-
+   window.form = formData;
    return (
       <Modal
          title="Edit plant"
@@ -54,18 +61,41 @@ function EditDetailsForm({ modalRef }) {
          onActionClick={handleSubmit}
          ref={modalRef}
       >
-         <FlexRow align="center" justify="space-between">
-            <LabledInput
-               id="season"
-               inputType="text"
-               name="season"
-               value={formData.season}
-               onChange={handleChange}
-               borderSmall
-               spacing
-            >
-               Season
-            </LabledInput>
+         <FlexRow align="center" justify="flex-start">
+            <FlexCol>
+               <LabledInput
+                  id="season"
+                  inputType="text"
+                  name="season"
+                  value={formData.season}
+                  onChange={handleChange}
+                  borderSmall
+                  spacing
+               >
+                  Season
+               </LabledInput>
+            </FlexCol>
+
+            <FlexCol>
+               <FlexCol style={{ padding: '0 5px' }}>
+                  <LabledSelect
+                     id="desired-sun"
+                     inputType="text"
+                     name="desiredSun"
+                     borderSmall
+                     spacing
+                     value={formData.desiredSun}
+                     onChange={handleChange}
+                     label="Desired Sun"
+                  >
+                     {sunOptions.map((opt, index) => (
+                        <option value={opt.label} key={index}>
+                           {opt.label}
+                        </option>
+                     ))}
+                  </LabledSelect>
+               </FlexCol>
+            </FlexCol>
          </FlexRow>
          <FlexRow
             align="center"

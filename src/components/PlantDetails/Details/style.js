@@ -58,9 +58,11 @@ export const Text = styled.div`
    overflow: hidden;
    z-index: 2;
    padding: 0 16px;
+   min-height: 16px;
+   margin-bottom: 10px;
    & > span {
       color: ${({ theme }) => theme.colors.textPrimary};
-      font-size: ${(props) => (props.$small ? '15px' : '2rem')};
+      font-size: ${(props) => (props.$small ? '16px' : '2rem')};
       font-family: 'Rubik', sans-serif;
       font-style: ${(props) => (props.$small ? 'none' : 'italic')};
    }

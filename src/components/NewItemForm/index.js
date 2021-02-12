@@ -5,11 +5,12 @@ import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
 import PlantContext from 'context/plants/plantContext';
 import AuthContext from 'context/auth/authContext';
-import { layers } from 'constants/layers';
+import { layers } from 'constants/options';
 const initialState = {
    plantName: '',
    zone: '',
    layer: '',
+   hasDetails: false,
 };
 
 function NewItemForm({ modalRef }) {
