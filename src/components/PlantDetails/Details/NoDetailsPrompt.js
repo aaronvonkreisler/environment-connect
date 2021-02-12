@@ -2,7 +2,6 @@ import React from 'react';
 import { GoRocket } from 'react-icons/go';
 import {
    DetailsCard,
-   Text,
    MessageContainer,
    RocketIcon,
    SecondaryText,
