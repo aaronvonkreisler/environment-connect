@@ -88,6 +88,9 @@ function EditDetailsForm({ modalRef }) {
                      onChange={handleChange}
                      label="Desired Sun"
                   >
+                     <option value="" defaultValue disabled>
+                        {' '}
+                     </option>
                      {sunOptions.map((opt, index) => (
                         <option value={opt.label} key={index}>
                            {opt.label}

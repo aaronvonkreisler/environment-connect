@@ -12,14 +12,15 @@ import {
    SeasonsGradient,
 } from './style';
 import DetailsSkeleton from './DetailsSkeleton';
+import NoDetailsPrompt from './NoDetailsPrompt';
 
-function Details() {
+function Details({ modalRef }) {
    const { fetchingPlant, selectedPlant } = useContext(PlantContext);
    return (
       <DetailsContainer>
          {fetchingPlant || !selectedPlant.plantName ? (
             <DetailsSkeleton />
-         ) : (
+         ) : selectedPlant.hasDetails ? (
             <>
                <DetailsCard>
                   <CardWrapper>
@@ -72,6 +73,8 @@ function Details() {
                   </CardWrapper>
                </DetailsCard>
             </>
+         ) : (
+            <NoDetailsPrompt modalRef={modalRef} />
          )}
       </DetailsContainer>
    );

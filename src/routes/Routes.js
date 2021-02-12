@@ -4,7 +4,6 @@ import { GlobalStyle } from 'constants/reset.css';
 import PrivateRoute from './PrivateRoute';
 import AppThemeProvider from 'components/AppTheme';
 import Navigation from 'components/Navigation';
-import MainContainer from 'components/common/MainContainer';
 import ProjectsPage from 'pages/ProjectsPage';
 import HomePage from 'pages/HomePage';
 import PlantsProvider from 'context/plants/PlantsProvider';

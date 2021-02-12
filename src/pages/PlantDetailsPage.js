@@ -28,7 +28,7 @@ function PlantDetailsPage() {
             <DetailsGrid>
                <Header modalRef={editPlantModalRef} />
                <Notes />
-               <Details />
+               <Details modalRef={editPlantModalRef} />
             </DetailsGrid>
          </DetailsContainer>
       </>

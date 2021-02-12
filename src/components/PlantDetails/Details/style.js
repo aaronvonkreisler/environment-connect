@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const DetailsContainer = styled.div`
    grid-area: details;
@@ -100,4 +100,54 @@ export const SeasonsGradient = styled.div`
       rgba(206, 231, 67, 0.409868170901173) 45%,
       rgba(0, 255, 251, 0.3650502437303046) 100%
    );
+`;
+
+export const MessageContainer = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   align-items: flex-start;
+   min-height: 300px;
+   padding: 16px;
+`;
+
+const tilt = keyframes`
+{
+   0% {
+      transform: translate(-50%, -50%) skewY(3deg);
+   }
+   50% {
+      transform: translate(-50%, -50%) skewY(-3deg);
+   }
+   100% {
+      transform: translate(-50%, -50%) skewY(3deg);
+   }
+}
+`;
+
+export const RocketIcon = styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   width: 100%;
+   min-height: 200px;
+   position: relative;
+   & > svg {
+      height: 8rem;
+      width: 8rem;
+      color: ${({ theme }) => theme.colors.textGrey};
+      animation: ${tilt} linear 3s infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+   }
+`;
+
+export const SecondaryText = styled.span`
+   color: ${({ theme }) => theme.colors.textGrey};
+   font-size: ${(props) => props.$size || '16px'};
+   margin: 5px 0;
 `;

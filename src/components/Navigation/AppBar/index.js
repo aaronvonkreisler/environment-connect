@@ -53,7 +53,7 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   </Searchbar>
                </div>
             </SearchBarContainer>
-            <FlexRow>
+            <FlexRow justify="flex-end">
                {renderModalButton && (
                   <div style={{ marginRight: '20px' }}>
                      <Button
