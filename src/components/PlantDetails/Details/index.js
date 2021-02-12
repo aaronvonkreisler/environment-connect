@@ -16,11 +16,20 @@ import NoDetailsPrompt from './NoDetailsPrompt';
 
 function Details({ modalRef }) {
    const { fetchingPlant, selectedPlant } = useContext(PlantContext);
+   const {
+      season,
+      hasDetails,
+      desiredSun,
+      desiredWater,
+      chillHours,
+      nutritionNeeds,
+   } = selectedPlant || {};
+   console.log(season);
    return (
       <DetailsContainer>
          {fetchingPlant || !selectedPlant.plantName ? (
             <DetailsSkeleton />
-         ) : selectedPlant.hasDetails ? (
+         ) : hasDetails ? (
             <>
                <DetailsCard>
                   <CardWrapper>
@@ -28,9 +37,7 @@ function Details({ modalRef }) {
                      <SeasonsGradient />
                      <Text>
                         <SeasonsIcon />
-                        <span>
-                           {selectedPlant.season && selectedPlant.season}
-                        </span>
+                        <span>{season && season}</span>
                      </Text>
                   </CardWrapper>
                </DetailsCard>
@@ -40,10 +47,7 @@ function Details({ modalRef }) {
                      <SunGradient />
                      <Text>
                         <FiSun />
-                        <span>
-                           {selectedPlant.desiredSun &&
-                              selectedPlant.desiredSun}
-                        </span>
+                        <span>{desiredSun && desiredSun}</span>
                      </Text>
                   </CardWrapper>
                </DetailsCard>
@@ -51,24 +55,15 @@ function Details({ modalRef }) {
                   <CardWrapper>
                      <Label $small>Chill Hour Requirement</Label>
                      <Text $small>
-                        <span>
-                           {selectedPlant.chillHours &&
-                              selectedPlant.chillHours}
-                        </span>
+                        <span>{chillHours && chillHours}</span>
                      </Text>
                      <Label $small>Desired Water</Label>
                      <Text $small>
-                        <span>
-                           {selectedPlant.desiredWater &&
-                              selectedPlant.desiredWater}
-                        </span>
+                        <span>{desiredWater && desiredWater}</span>
                      </Text>
                      <Label $small>Nutiton needs</Label>
                      <Text $small>
-                        <span>
-                           {selectedPlant.nutritionNeeds &&
-                              selectedPlant.nutritionNeeds}
-                        </span>
+                        <span>{nutritionNeeds && nutritionNeeds}</span>
                      </Text>
                   </CardWrapper>
                </DetailsCard>
