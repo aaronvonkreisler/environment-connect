@@ -1,8 +1,14 @@
 import React from 'react';
-import { NotesContainer } from './style';
+import { NotesContainer, NotesBody, NotesTitle } from './style';
 
 function Notes() {
-   return <NotesContainer>Notes</NotesContainer>;
+   return (
+      <NotesContainer>
+         <NotesBody>
+            <NotesTitle>Notes</NotesTitle>
+         </NotesBody>
+      </NotesContainer>
+   );
 }
 
 export default Notes;

@@ -11,7 +11,7 @@ export const Title = styled.div`
    font-family: 'Rubik', sans-serif;
    position: absolute;
    top: 0;
-   margin-left: 24px;
+   margin-left: 16px;
    @media ${({ theme }) => theme.device.tablet} {
       font-size: 54px;
    }
@@ -39,7 +39,7 @@ export const DetailsRow = styled.div`
    & > :nth-child(1) {
       display: flex;
       flex-direction: row;
-      margin-left: 24px;
+      margin-left: 16px;
       height: 100%;
    }
    & > :nth-child(2) {

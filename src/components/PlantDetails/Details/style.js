@@ -6,6 +6,7 @@ export const DetailsContainer = styled.div`
    @media (min-width: 768px) {
       display: flex;
       flex-direction: column;
+      margin-left: 20px;
    }
 `;
 
