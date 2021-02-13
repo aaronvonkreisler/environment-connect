@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 
 export const NotesContainer = styled.div`
-   grid-area: notes;
+   display: flex;
+   margin-top: 20px;
 `;
 
 export const NotesBody = styled.section`
    display: flex;
+   flex-direction: column;
    flex: 1 100%;
    width: 100%;
    padding: 16px;
    background-color: ${({ theme }) => theme.colors.paper};
    border-radius: 4px;
    min-height: 300px;
-   box-shadow: ${({ theme }) => theme.elevation.two};
+   box-shadow: ${({ theme }) => theme.elevation.three};
+   white-space: pre-wrap;
 `;
 
 export const NotesTitle = styled.div`
@@ -20,4 +23,10 @@ export const NotesTitle = styled.div`
    font-size: 22px;
    font-weight: 400;
    text-align: left;
+`;
+
+export const EditorWrapper = styled.div`
+   position: relative;
+   width: 100%;
+   word-break: break-all;
 `;

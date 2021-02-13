@@ -1,7 +1,6 @@
 import styled, { css, keyframes } from 'styled-components';
 
 export const DetailsContainer = styled.div`
-   grid-area: details;
    display: none;
    @media (min-width: 768px) {
       display: flex;

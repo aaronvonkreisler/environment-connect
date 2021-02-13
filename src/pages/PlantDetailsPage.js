@@ -1,6 +1,11 @@
 import React, { useContext, useEffect, useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import { DetailsContainer, DetailsGrid } from 'components/PlantDetails/style';
+import {
+   DetailsContainer,
+   DetailsGrid,
+   LeftSide,
+   RightSide,
+} from 'components/PlantDetails/style';
 import Header from 'components/PlantDetails/Header';
 import Notes from 'components/PlantDetails/Notes';
 import Details from 'components/PlantDetails/Details';
@@ -26,9 +31,13 @@ function PlantDetailsPage() {
          <EditDetailsForm modalRef={editPlantModalRef} />
          <DetailsContainer>
             <DetailsGrid>
-               <Header modalRef={editPlantModalRef} />
-               <Notes />
-               <Details modalRef={editPlantModalRef} />
+               <LeftSide>
+                  <Header modalRef={editPlantModalRef} />
+                  <Notes />
+               </LeftSide>
+               <RightSide>
+                  <Details modalRef={editPlantModalRef} />
+               </RightSide>
             </DetailsGrid>
          </DetailsContainer>
       </>
