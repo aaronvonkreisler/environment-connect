@@ -73,35 +73,6 @@ export const Text = styled.div`
    }
 `;
 
-export const SunGradient = styled.div`
-   position: absolute;
-   bottom: 0;
-   height: 2px;
-   width: 100%;
-
-   background: rgb(72, 69, 124);
-   background: linear-gradient(
-      248deg,
-      rgba(72, 69, 124, 0.586338759136467) 2%,
-      rgba(231, 67, 67, 0.5415208319655987) 35%,
-      rgba(255, 200, 0, 0.5555264342064952) 100%
-   );
-`;
-
-export const SeasonsGradient = styled.div`
-   position: absolute;
-   bottom: 0;
-   height: 2px;
-   width: 100%;
-   background: rgb(69, 124, 113);
-   background: linear-gradient(
-      248deg,
-      rgba(69, 124, 113, 0.4546860980720413) 15%,
-      rgba(206, 231, 67, 0.409868170901173) 45%,
-      rgba(0, 255, 251, 0.3650502437303046) 100%
-   );
-`;
-
 export const MessageContainer = styled.div`
    display: flex;
    flex-direction: column;

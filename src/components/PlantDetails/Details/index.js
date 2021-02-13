@@ -8,8 +8,6 @@ import {
    CardWrapper,
    Label,
    Text,
-   SunGradient,
-   SeasonsGradient,
 } from './style';
 import DetailsSkeleton from './DetailsSkeleton';
 import NoDetailsPrompt from './NoDetailsPrompt';
@@ -34,7 +32,6 @@ function Details({ modalRef }) {
                <DetailsCard>
                   <CardWrapper>
                      <Label>Season</Label>
-                     <SeasonsGradient />
                      <Text>
                         <SeasonsIcon />
                         <span>{season && season}</span>
@@ -44,7 +41,6 @@ function Details({ modalRef }) {
                <DetailsCard>
                   <CardWrapper>
                      <Label>Desired Sun</Label>
-                     <SunGradient />
                      <Text>
                         <FiSun />
                         <span>{desiredSun && desiredSun}</span>
