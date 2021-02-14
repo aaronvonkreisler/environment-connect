@@ -22,7 +22,6 @@ function Details({ modalRef }) {
       chillHours,
       nutritionNeeds,
    } = selectedPlant || {};
-   console.log(season);
    return (
       <DetailsContainer>
          {fetchingPlant || !selectedPlant.plantName ? (

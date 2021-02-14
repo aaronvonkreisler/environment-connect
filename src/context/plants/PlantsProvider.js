@@ -54,12 +54,18 @@ function PlantsProvider({ children }) {
    const addNewPlant = async (plant) => {
       try {
          const docRef = await db.collection('plants').add(plant);
+
          const doc = await docRef.get();
          const newPlant = mergeDocAndId(doc);
          dispatch({
             type: ADD_PLANT,
             payload: newPlant,
          });
+
+         // create a notes document
+         await db
+            .collection('notes')
+            .add({ plant: newPlant.id, user: user.uid });
       } catch (err) {
          dispatch({
             type: PLANTS_ERROR,

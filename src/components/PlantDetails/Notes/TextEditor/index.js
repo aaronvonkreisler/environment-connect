@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState, useEffect } from 'react';
 import { Slate, Editable, withReact } from 'slate-react';
 import { createEditor } from 'slate';
 import isHotkey from 'is-hotkey';
@@ -8,10 +8,13 @@ import Element from './Element';
 import Toolbar from './Toolbar';
 import { toggleMark } from './utils';
 import { ContentContainer } from './style';
+import useDebounce from 'hooks/useDebounce';
+import db from 'firebaseConfig/db';
+
 const initialValue = [
    {
       type: 'paragraph',
-      children: [{ text: 'A line of text in a paragraph.' }],
+      children: [{ text: ' ' }],
    },
 ];
 
@@ -21,11 +24,34 @@ const HOTKEYS = {
    'mod+u': 'underline',
 };
 
-function TextEditor() {
+function TextEditor({ plantId, notes }) {
    const [value, setValue] = useState(initialValue);
    const editor = useMemo(() => withHistory(withReact(createEditor())), []);
    const renderElement = useCallback((props) => <Element {...props} />, []);
    const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
+   const debouncedValue = useDebounce(value, 1000);
+
+   const formatData = (data) => {
+      return JSON.stringify(data);
+   };
+
+   const handleSave = async (id, data) => {
+      console.log('from save -- plant:', id);
+      console.log(notes);
+   };
+
+   useEffect(() => {
+      if (debouncedValue && notes !== null) {
+         const updates = formatData(debouncedValue);
+         handleSave(notes.id, updates);
+      }
+
+      // Only want it to fire when text is changed. If plant Id
+      // is included in the dependency array it will update when
+      // the component first mounts as well.
+
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [debouncedValue]);
    return (
       <Slate
          editor={editor}
@@ -35,6 +61,8 @@ function TextEditor() {
          <Toolbar />
          <ContentContainer>
             <Editable
+               autoFocus
+               spellCheck
                renderElement={renderElement}
                renderLeaf={renderLeaf}
                onKeyDown={(event) => {
