@@ -1,21 +1,29 @@
 import React from 'react';
+import {
+   HeadingOne,
+   HeadingTwo,
+   OrderedList,
+   UnorderedList,
+   BlockQuote,
+   Paragraph,
+} from './style';
 
 function Element({ attributes, children, element }) {
    switch (element.type) {
       case 'block-quote':
-         return <blockquote {...attributes}>{children}</blockquote>;
+         return <BlockQuote {...attributes}>{children}</BlockQuote>;
       case 'bulleted-list':
-         return <ul {...attributes}>{children}</ul>;
+         return <UnorderedList {...attributes}>{children}</UnorderedList>;
       case 'heading-one':
-         return <h1 {...attributes}>{children}</h1>;
+         return <HeadingOne {...attributes}>{children}</HeadingOne>;
       case 'heading-two':
-         return <h2 {...attributes}>{children}</h2>;
+         return <HeadingTwo {...attributes}>{children}</HeadingTwo>;
       case 'list-item':
          return <li {...attributes}>{children}</li>;
       case 'numbered-list':
-         return <ol {...attributes}>{children}</ol>;
+         return <OrderedList {...attributes}>{children}</OrderedList>;
       default:
-         return <p {...attributes}>{children}</p>;
+         return <Paragraph {...attributes}>{children}</Paragraph>;
    }
 }
 

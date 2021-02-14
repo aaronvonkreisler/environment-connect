@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
-import { FiEdit2 } from 'react-icons/fi';
+import { BiSelectMultiple } from 'react-icons/bi';
 import {
    TableContainer,
    TableCell,
@@ -84,7 +84,7 @@ function Table({ className, data, removePlant }) {
                                  grey
                                  onClick={() => history.push(`/plants/${id}`)}
                               >
-                                 <FiEdit2 />
+                                 <BiSelectMultiple />
                               </IconButton>
                               <IconButton
                                  small

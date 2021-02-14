@@ -46,11 +46,22 @@ const StyledButton = styled.button`
       css`
          color: rgb(136, 153, 166) !important;
       `}
+      ${(props) =>
+      props.$active &&
+      css`
+         background-color: ${({ theme }) => theme.effects.buttonHover};
+      `}
 `;
 
-function IconButton({ small, danger, grey, ...props }) {
+function IconButton({ small, danger, active, grey, ...props }) {
    return (
-      <StyledButton $small={small} $danger={danger} $grey={grey} {...props} />
+      <StyledButton
+         $small={small}
+         $danger={danger}
+         $grey={grey}
+         $active={active}
+         {...props}
+      />
    );
 }
 

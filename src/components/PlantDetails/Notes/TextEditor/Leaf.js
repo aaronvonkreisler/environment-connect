@@ -1,16 +1,17 @@
 import React from 'react';
+import { Bold, Italic, Underline } from './style';
 
 function Leaf({ attributes, children, leaf }) {
    if (leaf.bold) {
-      children = <strong>{children}</strong>;
+      children = <Bold>{children}</Bold>;
    }
 
    if (leaf.italic) {
-      children = <em>{children}</em>;
+      children = <Italic>{children}</Italic>;
    }
 
    if (leaf.underline) {
-      children = <u>{children}</u>;
+      children = <Underline>{children}</Underline>;
    }
 
    return <span {...attributes}>{children}</span>;

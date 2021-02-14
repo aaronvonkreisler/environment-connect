@@ -1,26 +1,24 @@
 import React from 'react';
 import { useSlate } from 'slate-react';
-
+import { isBlockActive, toggleBlock } from './utils';
 import IconButton from 'components/common/IconButton';
-import { isMarkActive, toggleMark } from './utils';
 
-const MarkButton = ({ format, icon }) => {
+function BlockButton({ format, icon }) {
    const editor = useSlate();
+
    return (
       <IconButton
          style={{ marginRight: '2px' }}
          small
-         active={isMarkActive(editor, format)}
+         active={isBlockActive(editor, format)}
          onClick={(e) => {
             e.preventDefault();
-            toggleMark(editor, format);
-            console.log(editor);
-            console.log(format);
+            toggleBlock(editor, format);
          }}
       >
          {icon}
       </IconButton>
    );
-};
+}
 
-export default MarkButton;
+export default BlockButton;

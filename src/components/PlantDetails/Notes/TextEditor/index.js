@@ -9,10 +9,19 @@ import {
 } from 'slate';
 import isHotkey from 'is-hotkey';
 import { withHistory } from 'slate-history';
+import { BiBold, BiUnderline, BiItalic } from 'react-icons/bi';
+import {
+   MdFormatSize,
+   MdFormatQuote,
+   MdTitle,
+   MdFormatListNumbered,
+   MdFormatListBulleted,
+} from 'react-icons/md';
 import Leaf from './Leaf';
 import Element from './Element';
 import MarkButton from './MarkButton';
-import { BiBold, BiUnderline, BiItalic } from 'react-icons/bi';
+import BlockButton from './BlockButton';
+
 import { toggleMark } from './utils';
 const initialValue = [
    {
@@ -42,6 +51,17 @@ function TextEditor() {
             <MarkButton format="bold" icon={<BiBold />} />
             <MarkButton format="italic" icon={<BiItalic />} />
             <MarkButton format="underline" icon={<BiUnderline />} />
+            <BlockButton format="heading-one" icon={<MdFormatSize />} />
+            <BlockButton format="heading-two" icon={<MdTitle />} />
+            <BlockButton
+               format="numbered-list"
+               icon={<MdFormatListNumbered />}
+            />
+            <BlockButton
+               format="bulleted-list"
+               icon={<MdFormatListBulleted />}
+            />
+            <BlockButton format="block-quote" icon={<MdFormatQuote />} />
          </div>
          <Editable
             renderElement={renderElement}
