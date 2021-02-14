@@ -8,7 +8,7 @@ function BlockButton({ format, icon }) {
 
    return (
       <IconButton
-         style={{ marginRight: '2px' }}
+         style={{ marginRight: '4px' }}
          small
          active={isBlockActive(editor, format)}
          onClick={(e) => {

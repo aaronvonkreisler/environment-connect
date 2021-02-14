@@ -6,6 +6,9 @@ import {
    UnorderedList,
    BlockQuote,
    Paragraph,
+   CenteredParagraph,
+   LeftParagraph,
+   RightParagraph,
 } from './style';
 
 function Element({ attributes, children, element }) {
@@ -23,7 +26,7 @@ function Element({ attributes, children, element }) {
       case 'numbered-list':
          return <OrderedList {...attributes}>{children}</OrderedList>;
       default:
-         return <Paragraph {...attributes}>{children}</Paragraph>;
+         return <LeftParagraph {...attributes}>{children}</LeftParagraph>;
    }
 }
 

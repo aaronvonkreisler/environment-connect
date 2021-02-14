@@ -8,7 +8,7 @@ const MarkButton = ({ format, icon }) => {
    const editor = useSlate();
    return (
       <IconButton
-         style={{ marginRight: '2px' }}
+         style={{ marginRight: '4px' }}
          small
          active={isMarkActive(editor, format)}
          onClick={(e) => {
