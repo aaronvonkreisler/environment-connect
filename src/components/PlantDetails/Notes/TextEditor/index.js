@@ -24,7 +24,7 @@ const HOTKEYS = {
    'mod+u': 'underline',
 };
 
-function TextEditor({ plantId, notes }) {
+function TextEditor({ notes }) {
    const [value, setValue] = useState(initialValue);
    const editor = useMemo(() => withHistory(withReact(createEditor())), []);
    const renderElement = useCallback((props) => <Element {...props} />, []);
@@ -35,9 +35,10 @@ function TextEditor({ plantId, notes }) {
       return JSON.stringify(data);
    };
 
-   const handleSave = async (id, data) => {
-      console.log('from save -- plant:', id);
-      console.log(notes);
+   const handleSave = async (notesId, data) => {
+      console.log('from save -- plant:', notesId);
+      const updates = formatData(data);
+      await db.doc(`notes/${notesId}`).update({ content: updates });
    };
 
    useEffect(() => {

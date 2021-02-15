@@ -5,10 +5,7 @@ import {
    OrderedList,
    UnorderedList,
    BlockQuote,
-   Paragraph,
-   CenteredParagraph,
    LeftParagraph,
-   RightParagraph,
 } from './style';
 
 function Element({ attributes, children, element }) {
