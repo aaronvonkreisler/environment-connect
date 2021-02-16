@@ -6,7 +6,13 @@ import {
    StyledLabel,
    StyledLableInput,
    StyledLabelSelect,
+   CheckboxLabel,
+   CheckboxInput,
+   Checkmark,
+   Icon,
 } from './style';
+
+import { BsCheck } from 'react-icons/bs';
 
 export function Input({ ...props }) {
    return (
@@ -68,5 +74,18 @@ export function LabledSelect({ ...props }) {
          {props.label}
          <StyledLabelSelect {...props}>{props.children}</StyledLabelSelect>
       </StyledLabel>
+   );
+}
+
+export function Checkbox({ ...props }) {
+   return (
+      <CheckboxLabel>
+         <CheckboxInput type="checkbox" checked={props.checked} />
+         <Checkmark checked={props.checked}>
+            <Icon>
+               <BsCheck />
+            </Icon>
+         </Checkmark>
+      </CheckboxLabel>
    );
 }

@@ -113,3 +113,45 @@ export const StyledLabelSelect = styled.select`
    margin-top: 2px;
    box-shadow: none;
 `;
+
+export const CheckboxLabel = styled.label`
+   display: block;
+   position: relative;
+   padding-left: 35px;
+   margin-bottom: 12px;
+   cursor: pointer;
+   font-size: 22px;
+   --webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+`;
+
+export const CheckboxInput = styled.input`
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 0;
+   width: 0;
+`;
+
+export const Icon = styled.span``;
+
+export const Checkmark = styled.span`
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 25px;
+   width: 25px;
+   background-color: #212121;
+
+   ${(props) =>
+      props.checked &&
+      css`
+         background-color: #2196f3;
+      `}
+
+   ${Icon} {
+      visibility: ${(props) => (props.checked ? 'visible' : 'hidden')};
+   }
+`;

@@ -6,13 +6,14 @@ export const HomeGrid = styled.div`
    width: 100%;
    height: 100%;
    @media ${({ theme }) => theme.device.tabletAndDown} {
-      flex-direction: column;
+      flex-direction: column-reverse;
    }
 `;
 
 export const LeftSide = styled.div`
    display: flex;
    flex-direction: column;
+   justify-content: flex-end;
    flex: 0.65;
 
    @media ${({ theme }) => theme.device.tabletAndDown} {

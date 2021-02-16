@@ -4,7 +4,7 @@ import TableSkeleton from 'components/PlantTable/TableSkeleton';
 import PlantContext from 'context/plants/plantContext';
 import MainContainer from 'components/common/MainContainer';
 import { HomeGrid, LeftSide, RightSide } from './style';
-
+import Todos from 'components/Todos';
 function HomePage() {
    const { fetchPlants, plants, fetching } = useContext(PlantContext);
 
@@ -21,7 +21,9 @@ function HomePage() {
                <LeftSide>
                   <PlantTable data={plants} />
                </LeftSide>
-               <RightSide>Todo section</RightSide>
+               <RightSide>
+                  <Todos />
+               </RightSide>
             </HomeGrid>
          )}
       </MainContainer>
