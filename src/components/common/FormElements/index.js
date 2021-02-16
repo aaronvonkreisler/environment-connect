@@ -80,7 +80,11 @@ export function LabledSelect({ ...props }) {
 export function Checkbox({ ...props }) {
    return (
       <CheckboxLabel>
-         <CheckboxInput type="checkbox" checked={props.checked} />
+         <CheckboxInput
+            type="checkbox"
+            checked={props.checked}
+            onChange={props.onChange}
+         />
          <Checkmark checked={props.checked}>
             <Icon>
                <BsCheck />

@@ -14,6 +14,7 @@ export const TableContainer = styled.div`
    }
    -ms-overflow-style: none; /* IE and Edge */
    scrollbar-width: none;
+   margin-bottom: 24px;
 `;
 
 export const StyledTable = styled.table`

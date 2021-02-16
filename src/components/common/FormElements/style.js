@@ -120,7 +120,7 @@ export const CheckboxLabel = styled.label`
    padding-left: 35px;
    margin-bottom: 12px;
    cursor: pointer;
-   font-size: 22px;
+   font-size: 13px;
    --webkit-user-select: none;
    -moz-user-select: none;
    -ms-user-select: none;
@@ -141,10 +141,10 @@ export const Checkmark = styled.span`
    position: absolute;
    top: 0;
    left: 0;
-   height: 25px;
-   width: 25px;
-   background-color: #212121;
-
+   height: 15px;
+   width: 15px;
+   background-color: #38484e;
+   border-radius: 3px;
    ${(props) =>
       props.checked &&
       css`
