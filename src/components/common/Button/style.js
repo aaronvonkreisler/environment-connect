@@ -22,7 +22,7 @@ export const StyledButton = styled.button`
          width: 100% !important;
       `}
    background-color: ${(props) =>
-      props.outline ? 'transparent' : props.theme.colors.blueRGB};
+      props.outline ? 'transparent' : props.theme.colors.blue};
    color: ${(props) =>
       props.outline
          ? props.theme.colors.blueRGB
@@ -36,8 +36,15 @@ export const StyledButton = styled.button`
             ? '1px solid ' + props.theme.colors.blue
             : 'transparent'};
       background-color: ${(props) =>
-         props.outline ? 'rgba(30, 136, 229, 0.08)' : 'rgb(26, 145, 218)'};
+         props.outline
+            ? 'rgba(30, 136, 229, 0.08)'
+            : 'rgba(75, 137, 220, 0.8)'};
       /*  */
+   }
+
+   &:disabled {
+      opacity: 0.5;
+      cursor: auto;
    }
 `;
 

@@ -63,6 +63,13 @@ export function LabledInput({ ...props }) {
    );
 }
 
+LabledInput.propTypes = {
+   id: PropTypes.string.isRequired,
+   inputType: PropTypes.string.isRequired,
+   onChange: PropTypes.func.isRequired,
+   value: PropTypes.string.isRequired,
+};
+
 export function LabledSelect({ ...props }) {
    return (
       <StyledLabel

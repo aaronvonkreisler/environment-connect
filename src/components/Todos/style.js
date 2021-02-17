@@ -36,4 +36,24 @@ export const StyledTodo = styled.div`
    flex-direction: row;
    align-items: center;
    justify-content: flex-start;
+   width: 100%;
+   padding: 8px;
+   cursor: pointer;
+   border-radius: 4px;
+
+   &:hover {
+      background-color: hsla(0, 0%, 100%, 0.075);
+   }
+`;
+
+export const ErrorMessage = styled.p`
+   color: ${({ theme }) => theme.colors.textError};
+`;
+
+export const ColorCircle = styled.span`
+   height: 12px;
+   width: 12px;
+   background-color: ${(props) => props.$color};
+   border: 1px solid ${(props) => props.$color};
+   border-radius: 50%;
 `;
