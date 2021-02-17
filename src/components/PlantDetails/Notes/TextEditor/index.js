@@ -31,14 +31,21 @@ function TextEditor({ notes }) {
    const renderLeaf = useCallback((props) => <Leaf {...props} />, []);
    const debouncedValue = useDebounce(value, 1000);
 
+   useEffect(() => {
+      if (notes?.content) {
+         const parsedNotes = JSON.parse(notes.content);
+         setValue(parsedNotes);
+      }
+   }, [notes]);
+
    const formatData = (data) => {
       return JSON.stringify(data);
    };
 
    const handleSave = async (notesId, data) => {
       console.log('from save -- plant:', notesId);
-      const updates = formatData(data);
-      await db.doc(`notes/${notesId}`).update({ content: updates });
+      // const updates = formatData(data);
+      await db.doc(`notes/${notesId}`).update({ content: data });
    };
 
    useEffect(() => {

@@ -8,14 +8,14 @@ function Notes() {
    const [notes, setNotes] = useState(null);
    const { id } = useParams();
 
-   const getNotes = useCallback(async () => {
+   const getNotes = async () => {
       const note = await fetchNotes(id);
       setNotes(note);
-   }, [id]);
+   };
 
    useEffect(() => {
       getNotes();
-   }, [id, getNotes]);
+   }, []);
    return (
       <NotesContainer>
          <NotesBody>
