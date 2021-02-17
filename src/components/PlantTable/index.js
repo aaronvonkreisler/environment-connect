@@ -1,21 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PlantContext from 'context/plants/plantContext';
 import Table from './Table';
 import EmptyDisplay from './EmptyDisplay';
+import TableSkeleton from './TableSkeleton';
 
 function PlantTable({ data }) {
-   const { removePlant } = useContext(PlantContext);
+   const { removePlant, fetchPlants, fetching, plants } = useContext(
+      PlantContext
+   );
+
+   useEffect(() => {
+      fetchPlants();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, []);
 
    return (
       <>
-         {data.length === 0 ? (
-            <EmptyDisplay />
+         {fetching && <TableSkeleton />}
+         {!fetching && plants?.length > 0 ? (
+            <Table data={plants} removePlant={removePlant} />
          ) : (
-            <Table data={data} removePlant={removePlant} />
+            <EmptyDisplay />
          )}
       </>
    );
 }
+
+// {data.length === 0 ? (
+//    <EmptyDisplay />
+// ) : (
+//    <Table data={data} removePlant={removePlant} />
+// )}
 
 PlantTable.propTypes = {};
 

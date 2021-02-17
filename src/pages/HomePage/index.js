@@ -8,24 +8,21 @@ import Todos from 'components/Todos';
 function HomePage() {
    const { fetchPlants, plants, fetching } = useContext(PlantContext);
 
-   useEffect(() => {
-      fetchPlants();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+   // useEffect(() => {
+   //    fetchPlants();
+   //    // eslint-disable-next-line react-hooks/exhaustive-deps
+   // }, []);
 
    return (
       <MainContainer>
-         {fetching && <TableSkeleton />}
-         {!fetching && plants && (
-            <HomeGrid>
-               <LeftSide>
-                  <PlantTable data={plants} />
-               </LeftSide>
-               <RightSide>
-                  <Todos />
-               </RightSide>
-            </HomeGrid>
-         )}
+         <HomeGrid>
+            <LeftSide>
+               <PlantTable />
+            </LeftSide>
+            <RightSide>
+               <Todos />
+            </RightSide>
+         </HomeGrid>
       </MainContainer>
    );
 }
