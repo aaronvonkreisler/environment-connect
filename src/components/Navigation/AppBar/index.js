@@ -1,19 +1,13 @@
 import React, { useRef, Fragment, useState, useContext } from 'react';
-import { FiSearch, FiMenu } from 'react-icons/fi';
+import { FiMenu } from 'react-icons/fi';
 import { useLocation } from 'react-router-dom';
-import {
-   AppBarRoot,
-   MenuButtonContainer,
-   SearchBarContainer,
-   Searchbar,
-   Input,
-   Icon,
-} from './style';
+import { AppBarRoot, MenuButtonContainer } from './style';
 import Avatar from 'components/common/Avatar';
 import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
 import NewItemForm from 'components/NewItemForm';
 import AuthContext from 'context/auth/authContext';
+import Search from 'components/Search';
 import { FlexRow } from 'components/common/StyledUtils';
 import { Menu, MenuItem } from 'components/common/Menu';
 import { requestLogout } from 'firebaseConfig/db';
@@ -43,16 +37,7 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   <FiMenu />
                </IconButton>
             </MenuButtonContainer>
-            <SearchBarContainer>
-               <div>
-                  <Icon>
-                     <FiSearch />
-                  </Icon>
-                  <Searchbar>
-                     <Input type="text" placeholder="Search..." />
-                  </Searchbar>
-               </div>
-            </SearchBarContainer>
+            <Search />
             <FlexRow justify="flex-end" flexBasis="250px">
                {renderModalButton && (
                   <div style={{ width: '100%', marginRight: '20px' }}>
