@@ -18,7 +18,6 @@ export const TableContainer = styled.div`
 `;
 
 export const StyledTable = styled.table`
-   min-width: 650px;
    width: 100%;
    display: table;
    border-spacing: 0;

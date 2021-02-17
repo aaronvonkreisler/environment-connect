@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const TodoCard = styled.div`
    display: flex;
@@ -31,6 +31,10 @@ export const TodoTitle = styled.div`
    justify-content: flex-start;
    width: 100%;
    position: sticky;
+   font-size: 16px;
+   font-weight: 700;
+   border-bottom: 1px solid gray;
+   padding: 4px 0;
 
    & > :nth-child(1) {
       flex-grow: 1;
@@ -42,7 +46,7 @@ export const TodoTitle = styled.div`
 
 export const StyledTodo = styled.div`
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    align-items: center;
    justify-content: flex-start;
    width: 100%;
@@ -53,6 +57,23 @@ export const StyledTodo = styled.div`
    &:hover {
       background-color: hsla(0, 0%, 100%, 0.075);
    }
+
+   ${(props) =>
+      props.$open &&
+      css`
+         background-color: hsla(0, 0%, 100%, 0.075);
+      `}
+`;
+
+export const TodoText = styled.span`
+   color: ${({ theme }) => theme.colors.textPrimary};
+   font-size: 16px;
+
+   ${(props) =>
+      props.$completed &&
+      css`
+         color: ${({ theme }) => theme.colors.textGrey} !important;
+      `}
 `;
 
 export const ErrorMessage = styled.p`
@@ -60,9 +81,17 @@ export const ErrorMessage = styled.p`
 `;
 
 export const ColorCircle = styled.span`
-   height: 12px;
-   width: 12px;
+   height: 10px;
+   width: 10px;
+   margin-left: 6px;
+   display: inline-block;
    background-color: ${(props) => props.$color};
    border: 1px solid ${(props) => props.$color};
    border-radius: 50%;
+`;
+
+export const PriorityBadge = styled.div`
+   display: inline-block;
+   padding: 0.35em 0.65em;
+   font-size: 0.75em;
 `;

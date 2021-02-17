@@ -25,3 +25,14 @@ export const getColorForLayer = (layerName) => {
       return '#8d6e63';
    }
 };
+
+export const getPriorityColor = (priority) => {
+   const level = priority.toLowerCase();
+   if (level === 'medium') {
+      return '#0b6e4f';
+   } else if (level === 'high') {
+      return '#d90b00';
+   } else {
+      return '#212529';
+   }
+};

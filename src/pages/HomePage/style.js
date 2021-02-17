@@ -6,19 +6,19 @@ export const HomeGrid = styled.div`
    width: 100%;
    height: 100%;
    @media ${({ theme }) => theme.device.tabletAndDown} {
-      flex-direction: column-reverse;
+      flex-direction: column;
    }
 `;
 
 export const LeftSide = styled.div`
    display: flex;
    flex-direction: column;
-   justify-content: flex-end;
+   justify-content: flex-start;
    flex: 0.65;
 
-   @media ${({ theme }) => theme.device.tabletAndDown} {
+   /* @media ${({ theme }) => theme.device.tabletAndDown} {
       flex-direction: row;
-   }
+   } */
 `;
 
 export const RightSide = styled.div`
