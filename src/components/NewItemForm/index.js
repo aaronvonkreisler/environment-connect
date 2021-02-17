@@ -1,11 +1,17 @@
 import React, { useContext } from 'react';
-import { Input, Select } from 'components/common/FormElements';
+import {
+   Input,
+   Select,
+   LabledInput,
+   LabledSelect,
+} from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
 import PlantContext from 'context/plants/plantContext';
 import AuthContext from 'context/auth/authContext';
 import { layers } from 'constants/options';
+
 const initialState = {
    plantName: '',
    zone: '',
@@ -38,42 +44,53 @@ function NewItemForm({ modalRef }) {
          }}
          onCloseCallback={() => resetFormState(initialState)}
       >
-         <Input
+         <LabledInput
+            border
             name="plantName"
-            placeholder="Plant Name"
+            id="plant-name"
             inputType="text"
             value={formData.plantName}
             onChange={handleChange}
             onBlur={validateInput}
-         />
+         >
+            Plant name
+         </LabledInput>
          {errors.plantName && (
             <StyledErrorMessage>{errors.plantName}</StyledErrorMessage>
          )}
-         <Input
+         <LabledInput
+            border
             name="zone"
-            placeholder="Zone"
+            id="zone"
             inputType="text"
             value={formData.zone}
             onChange={handleChange}
             onBlur={validateInput}
-         />
+         >
+            Zone
+         </LabledInput>
          {errors.zone && <StyledErrorMessage>{errors.zone}</StyledErrorMessage>}
 
-         <Select name="layer" value={formData.layer} onChange={handleChange}>
+         <LabledSelect
+            name="layer"
+            id="layer"
+            value={formData.layer}
+            onChange={handleChange}
+            label="Layer"
+            border
+         >
             <option
                disabled
                defaultValue
                style={{ filter: 'blur(2px)' }}
                value=""
-            >
-               -- Select a Layer --
-            </option>
+            ></option>
             {layers.map((layer, index) => (
                <option value={layer.label} key={index}>
                   {layer.label}
                </option>
             ))}
-         </Select>
+         </LabledSelect>
       </Modal>
    );
 }

@@ -1,39 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { TodoCard, TodoTitle } from './style';
 import IconButton from 'components/common/IconButton';
-import { FiSearch } from 'react-icons/fi';
 import { BiPlus } from 'react-icons/bi';
 import { MdMoreVert } from 'react-icons/md';
 import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
+import TodoSkeleton from './TodoSkeleton';
+import useTodos from 'hooks/useTodos';
+import AuthContext from 'context/auth/authContext';
 
-const placeHolder = [
-   {
-      title: 'Go to the store',
-      complete: false,
-      dueDate: '2021-02-17',
-      priority: 'high',
-      details: '',
-   },
-   {
-      title: 'Walk the dog',
-      complete: true,
-      dueDate: '2021-02-17',
-      priority: 'low',
-      details: '',
-   },
-   {
-      title: 'Buy groceries',
-      complete: false,
-      dueDate: '2021-02-17',
-      priority: 'medium',
-      details: 'I need to buy groceries so that I can survive',
-   },
-];
-
+const initialState = {
+   todos: [],
+   fetching: false,
+   error: null,
+};
 function Todos() {
+   const { user } = useContext(AuthContext);
    const [toggleForm, setToggleForm] = useState(false);
-   const [todos, setTodos] = useState(placeHolder);
+   const { state, toggleTodo, fetchTodos, addTodo } = useTodos(initialState);
+   const { todos, fetching } = state;
+
+   useEffect(() => {
+      fetchTodos(user.uid);
+   }, []);
+
    return (
       <TodoCard>
          <TodoTitle>
@@ -51,8 +41,18 @@ function Todos() {
                </IconButton>
             </div>
          </TodoTitle>
-         {toggleForm && <TodoForm />}
-         {!toggleForm && todos.map((todo) => <TodoItem item={todo} />)}
+         {fetching && <TodoSkeleton />}
+         {toggleForm && !fetching && (
+            <TodoForm
+               addTodo={addTodo}
+               setToggleForm={setToggleForm}
+               userId={user.uid}
+            />
+         )}
+         {!toggleForm &&
+            todos.map((todo) => (
+               <TodoItem item={todo} toggleTodo={toggleTodo} key={todo.id} />
+            ))}
       </TodoCard>
    );
 }

@@ -7,9 +7,17 @@ export const TodoCard = styled.div`
    box-shadow: ${({ theme }) => theme.elevation.two};
    border-radius: 4px;
    margin-left: 16px;
-   min-height: 400px;
+   height: 490px;
+   /* max-height: 510px; */
+   overflow-y: auto;
+   margin-bottom: 24px;
    width: 100%;
    padding: 8px 16px;
+   &::-webkit-scrollbar {
+      display: none;
+   }
+   -ms-overflow-style: none; /* IE and Edge */
+   scrollbar-width: none;
    @media ${({ theme }) => theme.device.tabletAndDown} {
       margin-left: 0;
       margin-bottom: 24px;
@@ -22,6 +30,7 @@ export const TodoTitle = styled.div`
    align-items: center;
    justify-content: flex-start;
    width: 100%;
+   position: sticky;
 
    & > :nth-child(1) {
       flex-grow: 1;

@@ -4,6 +4,7 @@ import { LabledInput, LabledSelect } from 'components/common/FormElements';
 import { FlexCol, FlexRow } from 'components/common/StyledUtils';
 import Button from 'components/common/Button';
 import { ErrorMessage, ColorCircle } from './style';
+
 const initialValue = {
    title: '',
    completed: false,
@@ -11,15 +12,18 @@ const initialValue = {
    priority: 'low',
    details: '',
 };
-function TodoForm() {
+
+function TodoForm({ addTodo, setToggleForm, userId }) {
    const [disabled, setDisabled] = useState(true);
+
    const { formData, handleChange, validateInput, errors } = useForm(
       initialValue
    );
    const { title, dueDate, priority, details } = formData;
 
    const handleSubmit = () => {
-      console.log(formData);
+      addTodo({ ...formData, user: userId });
+      setToggleForm(false);
    };
 
    useEffect(() => {

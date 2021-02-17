@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StyledTodo } from './style';
 import { Checkbox } from 'components/common/FormElements';
-import { FlexCol, FlexRow } from 'components/common/StyledUtils';
+import { FlexCol } from 'components/common/StyledUtils';
 
-function TodoItem({ item }) {
-   const [todo, setTodo] = useState(item);
+function TodoItem({ item, toggleTodo }) {
    const handleCheck = (e) => {
-      // will need to update in db
-      console.log(todo);
-      setTodo({ ...todo, complete: e.target.checked });
+      toggleTodo(item);
    };
    return (
       <StyledTodo>
@@ -18,7 +15,7 @@ function TodoItem({ item }) {
             fullWidth={false}
             flexBasis="24px"
          >
-            <Checkbox checked={todo.complete} onChange={handleCheck} />
+            <Checkbox checked={item.completed} onChange={handleCheck} />
          </FlexCol>
          <FlexCol
             flexGrow={1}
@@ -26,7 +23,7 @@ function TodoItem({ item }) {
             align="flexstart"
             fullWidth={false}
          >
-            <span>{todo.title}</span>
+            <span>{item.title}</span>
          </FlexCol>
       </StyledTodo>
    );

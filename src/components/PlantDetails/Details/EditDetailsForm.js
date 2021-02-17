@@ -53,7 +53,6 @@ function EditDetailsForm({ modalRef }) {
       updatePlant(selectedPlant.id, formData);
       modalRef.current.closeModal();
    };
-   window.form = formData;
    return (
       <Modal
          title="Edit plant"
