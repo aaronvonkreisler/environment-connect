@@ -13,8 +13,6 @@ export const StyledMenu = styled.ul`
    border: 1px solid rgba(0, 0, 0, 0.15);
    border-radius: 0.25rem;
    position: absolute;
-   top: 53px;
-   right: 10px;
    opacity: 0;
    transition: opacity 288ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
       transform 192ms cubic-bezier(0.4, 0, 0.2, 1) 96ms;

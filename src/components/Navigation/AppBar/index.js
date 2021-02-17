@@ -57,7 +57,12 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   aria-controls="user-menu"
                   aria-haspopup="true"
                />
-               <Menu open={menuOpen} id="user-menu" onClose={handleMenuClose}>
+               <Menu
+                  open={menuOpen}
+                  id="user-menu"
+                  onClose={handleMenuClose}
+                  style={{ top: '53px', right: '10px' }}
+               >
                   <MenuItem onClick={requestLogout}>Logout</MenuItem>
                </Menu>
             </FlexRow>

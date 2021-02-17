@@ -14,7 +14,7 @@ export function Menu({ open, onClose, ...props }) {
       }
    }, [closeMenu, open]);
    return (
-      <StyledMenu $open={open} role="menu" id={props.id}>
+      <StyledMenu $open={open} role="menu" id={props.id} {...props}>
          {props.children}
       </StyledMenu>
    );
