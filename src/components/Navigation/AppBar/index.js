@@ -53,9 +53,9 @@ function AppBar({ setSidebarOpen, isOpen }) {
                   </Searchbar>
                </div>
             </SearchBarContainer>
-            <FlexRow justify="flex-end">
+            <FlexRow justify="flex-end" flexBasis="250px">
                {renderModalButton && (
-                  <div style={{ marginRight: '20px' }}>
+                  <div style={{ width: '100%', marginRight: '20px' }}>
                      <Button
                         outline
                         text="Add new Item"
