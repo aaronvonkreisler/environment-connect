@@ -103,7 +103,7 @@ function TodoForm({ addTodo, setToggleForm, userId }) {
          <div style={{ marginTop: '40px' }} />
          <FlexRow fullWidth>
             <Button
-               text="Add todo"
+               text="Add task"
                onClick={handleSubmit}
                fullWidth
                disabled={disabled}

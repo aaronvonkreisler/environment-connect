@@ -27,7 +27,7 @@ function Todos() {
    return (
       <TodoCard>
          <TodoTitle>
-            <div>{toggleForm ? 'Add todo' : "Todo's"}</div>
+            <div>{toggleForm ? 'Add task' : "My tasks"}</div>
             <div>
                <IconButton
                   small
