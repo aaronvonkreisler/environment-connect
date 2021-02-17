@@ -60,8 +60,8 @@ function EditDetailsForm({ modalRef }) {
          onActionClick={handleSubmit}
          ref={modalRef}
       >
-         <FlexRow align="center" justify="flex-start">
-            <FlexCol>
+         <FlexRow align="center" justify="flex-start" fullWidth>
+            <FlexCol flexBasis="50%" margin="0 10px 0 0">
                <LabledInput
                   id="season"
                   inputType="text"
@@ -75,36 +75,35 @@ function EditDetailsForm({ modalRef }) {
                </LabledInput>
             </FlexCol>
 
-            <FlexCol>
-               <FlexCol style={{ padding: '0 5px' }}>
-                  <LabledSelect
-                     id="desired-sun"
-                     inputType="text"
-                     name="desiredSun"
-                     borderSmall
-                     spacing
-                     value={formData.desiredSun}
-                     onChange={handleChange}
-                     label="Desired Sun"
-                  >
-                     <option value="" defaultValue disabled>
-                        {' '}
+            <FlexCol flexBasis="50%">
+               <LabledSelect
+                  id="desired-sun"
+                  inputType="text"
+                  name="desiredSun"
+                  borderSmall
+                  spacing
+                  value={formData.desiredSun}
+                  onChange={handleChange}
+                  label="Desired Sun"
+               >
+                  <option value="" defaultValue disabled>
+                     {' '}
+                  </option>
+                  {sunOptions.map((opt, index) => (
+                     <option value={opt.label} key={index}>
+                        {opt.label}
                      </option>
-                     {sunOptions.map((opt, index) => (
-                        <option value={opt.label} key={index}>
-                           {opt.label}
-                        </option>
-                     ))}
-                  </LabledSelect>
-               </FlexCol>
+                  ))}
+               </LabledSelect>
             </FlexCol>
          </FlexRow>
          <FlexRow
             align="center"
             justify="flex-start"
             style={{ marginTop: '10px' }}
+            fullWidth
          >
-            <FlexCol style={{ width: '50%', padding: '0 5px' }}>
+            <FlexCol flexBasis="50%" margin="0 5px">
                <LabledSelect
                   id="layer"
                   name="layer"
@@ -121,7 +120,7 @@ function EditDetailsForm({ modalRef }) {
                   ))}
                </LabledSelect>
             </FlexCol>
-            <FlexCol style={{ width: '33.33%', padding: '0 5px' }}>
+            <FlexCol flexBasis="33.33%" margin="0 5px">
                <LabledInput
                   id="zone"
                   inputType="text"
@@ -134,7 +133,7 @@ function EditDetailsForm({ modalRef }) {
                   Zone
                </LabledInput>
             </FlexCol>
-            <FlexCol style={{ width: '16.67%', padding: '0 5px' }}>
+            <FlexCol flexBasis="16.67%" margin="0 5px">
                <LabledInput
                   id="chill-hours"
                   inputType="text"
@@ -151,6 +150,7 @@ function EditDetailsForm({ modalRef }) {
          <FlexRow
             align="center"
             justify="flex-start"
+            fullWidth
             style={{ marginTop: '10px' }}
          >
             <LabledInput
@@ -169,6 +169,7 @@ function EditDetailsForm({ modalRef }) {
             align="center"
             justify="flex-start"
             style={{ marginTop: '10px' }}
+            fullWidth
          >
             <LabledInput
                id="nutriton-needs"
