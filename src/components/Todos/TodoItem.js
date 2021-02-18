@@ -7,14 +7,14 @@ import TodoItemDetails from './TodoItemDetails';
 
 function TodoItem({ item, toggleTodo }) {
    const [toggleDetails, setToggleDetails] = useState(false);
-   const [color, setColor] = useState('');
+   const [color, setColor] = useState({});
    const handleCheck = (e) => {
       toggleTodo(item);
    };
 
    useLayoutEffect(() => {
-      const { text } = getPriorityColor(item.priority);
-      setColor(text);
+      const color = getPriorityColor(item.priority);
+      setColor(color);
    }, [item.priority]);
 
    return (
@@ -39,13 +39,13 @@ function TodoItem({ item, toggleTodo }) {
             >
                <FlexRow fullWidth justify="space-between">
                   <TodoText $completed={item.completed}>{item.title}</TodoText>
-                  <ColorCircle $color={color} />
+                  <ColorCircle $color={color.text} />
                </FlexRow>
             </FlexCol>
          </FlexRow>
-         <FlexRow fullWidth justify="flex-start" style={{ marginTop: '10px' }}>
-            {toggleDetails && <TodoItemDetails todo={item} />}
-         </FlexRow>
+         {toggleDetails && (
+            <TodoItemDetails todo={item} color={color.contrast} bg={color.bg} />
+         )}
       </StyledTodo>
    );
 }

@@ -29,10 +29,44 @@ export const getColorForLayer = (layerName) => {
 export const getPriorityColor = (priority) => {
    const level = priority.toLowerCase();
    if (level === 'medium') {
-      return { text: '#0b6e4f', bg: '' };
+      return {
+         text: '#0b6e4f',
+         bg: 'rgba(25, 184, 144, 0.73)',
+         contrast: '#fff',
+      };
    } else if (level === 'high') {
-      return { text: '#d90b00', bg: '' };
+      return {
+         text: '#d90b00',
+         bg: 'rgba(238, 32, 63, 0.86)',
+         contrast: '#fff',
+      };
    } else {
-      return { text: '#212529', bg: '' };
+      return { text: '#212529', bg: '#6c757d', contrast: '#fff' };
    }
+};
+
+// date from date picker is in yyyy-mm-dd format
+// returns a format on mon, dd ex: Jan, 12
+export const formatDate = (date) => {
+   const monthsArr = [
+      'Jan',
+      'Feb',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec',
+   ];
+
+   const dates = date.split('-');
+   const monthNum = Number(dates[1]);
+   const dayNum = dates[2];
+   const monthName = monthsArr[monthNum - 1];
+
+   return `${monthName}, ${dayNum}`;
 };

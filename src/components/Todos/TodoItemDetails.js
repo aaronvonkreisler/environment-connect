@@ -1,21 +1,31 @@
-import React, { useLayoutEffect, useState } from 'react';
-import { PriorityBadge } from './TodoItemDetails.style';
-import { getPriorityColor } from 'utils/utils';
+import React from 'react';
+import { PriorityBadge, StyledDate } from './TodoItemDetails.style';
+import { FlexCol, FlexRow } from 'components/common/StyledUtils';
+import { formatDate } from 'utils/utils';
 
-function TodoItemDetails({ todo }) {
+function TodoItemDetails({ todo, color, bg }) {
    const { priority, dueDate } = todo;
-   const [color, setColor] = useState('');
-
-   useLayoutEffect(() => {
-      const { text } = getPriorityColor(priority);
-      setColor(text);
-   }, [priority]);
-
+   window.item = todo;
    return (
       <>
-         <PriorityBadge $color={color}>
-            <span>Priority: {priority}</span>
-         </PriorityBadge>
+         <FlexRow fullWidth margin="10px 0 0 0" justify="space-between">
+            <FlexCol flexBasis="30%" align="flex-start">
+               <PriorityBadge $color={color} $bg={bg}>
+                  <span>Priority: {priority}</span>
+               </PriorityBadge>
+            </FlexCol>
+            <FlexCol flexGrow="1" align="flex-end" justify="flex-start">
+               <StyledDate>
+                  Due: {dueDate ? formatDate(dueDate) : 'N/A'}
+               </StyledDate>
+            </FlexCol>
+         </FlexRow>
+         <FlexCol align="flex-start" fullWidth>
+            <FlexRow justify="flex-start">Details</FlexRow>
+            <FlexRow justify="flex-start">
+               lots of details text lots of lots of lots
+            </FlexRow>
+         </FlexCol>
       </>
    );
 }

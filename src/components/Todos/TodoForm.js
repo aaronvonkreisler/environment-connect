@@ -68,9 +68,9 @@ function TodoForm({ addTodo, setToggleForm, userId }) {
                   onBlur={validateInput}
                   style={{ width: 'auto' }}
                >
-                  <option value="low">Low</option>
-                  <option value="medium">Medium</option>
-                  <option value="high">High</option>
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
                </LabledSelect>
             </FlexCol>
             <FlexCol flexGrow="1">
