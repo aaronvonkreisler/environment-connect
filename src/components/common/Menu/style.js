@@ -14,12 +14,14 @@ export const StyledMenu = styled.ul`
    border-radius: 0.25rem;
    position: absolute;
    opacity: 0;
+   visibility: hidden;
    transition: opacity 288ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
       transform 192ms cubic-bezier(0.4, 0, 0.2, 1) 96ms;
    ${(props) =>
       props.$open &&
       css`
          opacity: 1;
+         visibility: visible;
       `};
 `;
 

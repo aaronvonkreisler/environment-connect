@@ -3,10 +3,16 @@ import PropTypes from 'prop-types';
 import { StyledMenu, StyledMenuItem } from './style';
 
 export function Menu({ open, onClose, ...props }) {
-   const closeMenu = useCallback(() => {
-      onClose();
-      document.removeEventListener('mousedown', closeMenu);
-   }, [onClose]);
+   const closeMenu = useCallback(
+      (e) => {
+         if (e.target.tagName !== 'LI') {
+            onClose();
+         }
+         console.log(e.target.tagName);
+         document.removeEventListener('mousedown', closeMenu);
+      },
+      [onClose]
+   );
 
    useEffect(() => {
       if (open) {
