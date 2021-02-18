@@ -10,6 +10,7 @@ import useSortableData from 'hooks/useSortableData';
 
 const initialState = {
    todos: [],
+   incompleteTodos: [],
    fetching: false,
    error: null,
 };
@@ -17,27 +18,30 @@ function Todos() {
    const { id } = useAuth();
    const [toggleForm, setToggleForm] = useState(false);
    const { state, toggleTodo, fetchTodos, addTodo } = useTodos(initialState);
-   const { todos, fetching } = state;
-   const [filteredTodos, setFilteredTodos] = useState(todos);
-   const { items, requestSortBy } = useSortableData(filteredTodos);
+   const { todos, fetching, incompleteTodos } = state;
+   const [sortableData, setSortableData] = useState([]);
+   const [displayComplete, setDisplayComplete] = useState(false);
+   const { items, requestSortBy } = useSortableData(sortableData);
 
    useEffect(() => {
       fetchTodos(id);
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
-   // filter through the todos to set State to only show ones that arent completed
    useEffect(() => {
-      if (todos) {
-         const withoutCompleted = todos.filter(
-            (todo) => todo.completed === false
-         );
-         setFilteredTodos(withoutCompleted);
+      if (incompleteTodos) {
+         setSortableData(incompleteTodos);
       }
-   }, [todos]);
+   }, [incompleteTodos]);
 
    const showCompleted = () => {
-      setFilteredTodos(todos);
+      if (displayComplete) {
+         setSortableData(incompleteTodos);
+         setDisplayComplete(false);
+      } else {
+         setSortableData(todos);
+         setDisplayComplete(true);
+      }
    };
 
    return (

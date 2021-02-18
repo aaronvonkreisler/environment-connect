@@ -31,6 +31,7 @@ function todoReducer(state, action) {
             ...state,
             fetching: false,
             todos: payload,
+            incompleteTodos: payload.filter((item) => item.completed === false),
          };
       case 'ERROR':
          return {

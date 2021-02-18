@@ -2,8 +2,17 @@ import { createTodo, getAllTodos, completeTodo } from 'firebaseConfig/queries';
 import { useReducer } from 'react';
 import todoReducer from 'reducers/todoReducer';
 
+// const initialState = {
+//    todos: [],
+//    incompleteTodos: [],
+//    displayingCompleted: false,
+//    fetching: false,
+//    error: null,
+// };
+
 const useTodos = (initialTodos) => {
    const [state, dispatch] = useReducer(todoReducer, initialTodos);
+
    const addTodo = async (todo) => {
       try {
          const item = await createTodo(todo);
