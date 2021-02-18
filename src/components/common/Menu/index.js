@@ -1,15 +1,15 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { StyledMenu, StyledMenuItem } from './style';
 
 export function Menu({ open, onClose, ...props }) {
+   const menuRef = useRef();
    const closeMenu = useCallback(
       (e) => {
-         const isMenuItem = e.target.parentElement.tagName === 'UL';
-
-         if (!isMenuItem) {
-            onClose();
+         if (menuRef.current.contains(e.target)) {
+            return;
          }
+         onClose();
          document.removeEventListener('mousedown', closeMenu);
       },
       [onClose]
@@ -21,7 +21,13 @@ export function Menu({ open, onClose, ...props }) {
       }
    }, [closeMenu, open]);
    return (
-      <StyledMenu $open={open} role="menu" id={props.id} {...props}>
+      <StyledMenu
+         $open={open}
+         role="menu"
+         id={props.id}
+         {...props}
+         ref={menuRef}
+      >
          {props.children}
       </StyledMenu>
    );
