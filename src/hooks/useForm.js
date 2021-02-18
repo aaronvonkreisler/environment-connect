@@ -4,6 +4,9 @@ const useForm = (initialState = {}) => {
    const [formData, setFormData] = useState(initialState);
    const [errors, setErrors] = useState(initialState);
 
+   window.form = formData;
+   window.errors = errors;
+
    useEffect(() => {
       setFormData(initialState);
    }, [initialState]);

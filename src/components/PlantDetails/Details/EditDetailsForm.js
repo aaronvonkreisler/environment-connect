@@ -16,6 +16,7 @@ function EditDetailsForm({ modalRef }) {
       zone: '',
       chillHours: '',
       desiredWater: '',
+      desiredSun: '',
       nutritionNeeds: '',
       hasDetails: true,
    });

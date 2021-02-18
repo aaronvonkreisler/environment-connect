@@ -18,7 +18,7 @@ import useSortableData from 'hooks/useSortableData';
 
 const headerGroups = [
    {
-      label: 'Plant Name',
+      label: 'Plant name',
       identifier: 'plantName',
       align: 'left',
    },
@@ -28,8 +28,13 @@ const headerGroups = [
       align: 'left',
    },
    {
-      label: 'Hardiness Zone',
+      label: 'Hardiness zone',
       identifier: 'zone',
+      align: 'left',
+   },
+   {
+      label: 'Desired sun',
+      identifier: 'desiredSun',
       align: 'left',
    },
    {
@@ -67,7 +72,7 @@ function Table({ className, data, removePlant }) {
             </thead>
             <tbody>
                {items.map((item) => {
-                  const { plantName, layer, zone, id } = item;
+                  const { plantName, layer, zone, id, desiredSun } = item;
                   const color = getColorForLayer(layer);
                   return (
                      <TableRow key={id}>
@@ -77,6 +82,8 @@ function Table({ className, data, removePlant }) {
                            {layer}
                         </TableCell>
                         <TableCell>{zone}</TableCell>
+                        <TableCell>{desiredSun}</TableCell>
+
                         <TableCell>
                            <FlexRow justify="space-evenly">
                               <IconButton

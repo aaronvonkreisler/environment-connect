@@ -5,12 +5,14 @@ import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';
 import PlantContext from 'context/plants/plantContext';
 import AuthContext from 'context/auth/authContext';
-import { layers } from 'constants/options';
+import { layers, sunOptions } from 'constants/options';
+import { FlexCol, FlexRow } from 'components/common/StyledUtils';
 
 const initialState = {
    plantName: '',
    zone: '',
    layer: '',
+   desiredSun: '',
    hasDetails: false,
 };
 
@@ -53,18 +55,48 @@ function NewItemForm({ modalRef }) {
          {errors.plantName && (
             <StyledErrorMessage>{errors.plantName}</StyledErrorMessage>
          )}
-         <LabledInput
-            border
-            name="zone"
-            id="zone"
-            inputType="text"
-            value={formData.zone}
-            onChange={handleChange}
-            onBlur={validateInput}
-         >
-            Zone
-         </LabledInput>
-         {errors.zone && <StyledErrorMessage>{errors.zone}</StyledErrorMessage>}
+         <FlexRow fullWidth justify="flex-start">
+            <FlexCol flexBasis="50%" margin="5px">
+               <LabledInput
+                  border
+                  name="zone"
+                  id="zone"
+                  inputType="text"
+                  value={formData.zone}
+                  onChange={handleChange}
+                  onBlur={validateInput}
+               >
+                  Zone
+               </LabledInput>
+               {errors.zone && (
+                  <StyledErrorMessage>{errors.zone}</StyledErrorMessage>
+               )}
+            </FlexCol>
+            <FlexCol flexBasis="50%" margin="5px">
+               <LabledSelect
+                  id="desired-sun"
+                  inputType="text"
+                  name="desiredSun"
+                  border
+                  value={formData.desiredSun}
+                  onChange={handleChange}
+                  onBlur={validateInput}
+                  label="Desired Sun"
+               >
+                  <option value="" defaultValue disabled>
+                     {' '}
+                  </option>
+                  {sunOptions.map((opt, index) => (
+                     <option value={opt.label} key={index}>
+                        {opt.label}
+                     </option>
+                  ))}
+               </LabledSelect>
+               {errors.desiredSun && (
+                  <StyledErrorMessage>{errors.desiredSun}</StyledErrorMessage>
+               )}
+            </FlexCol>
+         </FlexRow>
 
          <LabledSelect
             name="layer"
@@ -72,20 +104,19 @@ function NewItemForm({ modalRef }) {
             value={formData.layer}
             onChange={handleChange}
             label="Layer"
+            onBlur={validateInput}
             border
          >
-            <option
-               disabled
-               defaultValue
-               style={{ filter: 'blur(2px)' }}
-               value=""
-            ></option>
+            <option disabled defaultValue value=""></option>
             {layers.map((layer, index) => (
                <option value={layer.label} key={index}>
                   {layer.label}
                </option>
             ))}
          </LabledSelect>
+         {errors.layer && (
+            <StyledErrorMessage>{errors.layer}</StyledErrorMessage>
+         )}
       </Modal>
    );
 }

@@ -112,6 +112,7 @@ export const StyledLabelSelect = styled.select`
    padding: 8px 12px 8px 2px;
    margin-top: 2px;
    box-shadow: none;
+   cursor: pointer;
 `;
 
 export const CheckboxLabel = styled.label`
