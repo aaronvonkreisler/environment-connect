@@ -41,6 +41,7 @@ export const TodoTitle = styled.div`
    }
    & > :nth-child(2) {
       flex-grow: 0;
+      position: relative;
    }
 `;
 

@@ -11,6 +11,6 @@ export const PriorityBadge = styled.div`
 `;
 
 export const SecondaryText = styled.span`
-   font-size: 15px;
+   font-size: 14px;
    color: ${({ theme }) => theme.colors.textGrey};
 `;

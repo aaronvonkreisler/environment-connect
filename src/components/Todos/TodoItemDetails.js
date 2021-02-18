@@ -5,19 +5,18 @@ import { formatDate } from 'utils/utils';
 
 function TodoItemDetails({ todo, color, bg }) {
    const { priority, dueDate, details } = todo;
-   window.item = todo;
    return (
       <>
          <FlexRow fullWidth margin="10px 0 0 0" justify="space-between">
-            <FlexCol flexBasis="30%" align="flex-start">
-               <PriorityBadge $color={color} $bg={bg}>
-                  <span>Priority: {priority}</span>
-               </PriorityBadge>
-            </FlexCol>
-            <FlexCol flexGrow="1" align="flex-end" justify="flex-start">
+            <FlexCol flexGrow="1" align="flex-start" justify="flex-start">
                <SecondaryText>
                   Due: {dueDate ? formatDate(dueDate) : 'n/a'}
                </SecondaryText>
+            </FlexCol>
+            <FlexCol flexBasis="30%" align="flex-end">
+               <PriorityBadge $color={color} $bg={bg}>
+                  <span>Priority: {priority}</span>
+               </PriorityBadge>
             </FlexCol>
          </FlexRow>
          {details && (
