@@ -5,7 +5,9 @@ import { StyledMenu, StyledMenuItem } from './style';
 export function Menu({ open, onClose, ...props }) {
    const closeMenu = useCallback(
       (e) => {
-         if (e.target.tagName !== 'LI') {
+         const isMenuItem = e.target.parentElement.tagName === 'UL';
+
+         if (!isMenuItem) {
             onClose();
          }
          document.removeEventListener('mousedown', closeMenu);
@@ -31,5 +33,9 @@ Menu.propTypes = {
 };
 
 export function MenuItem({ ...props }) {
-   return <StyledMenuItem {...props}>{props.children}</StyledMenuItem>;
+   return (
+      <StyledMenuItem {...props} role="menu-item">
+         {props.children}
+      </StyledMenuItem>
+   );
 }

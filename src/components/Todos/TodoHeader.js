@@ -5,7 +5,12 @@ import { TodoTitle } from './style';
 import { Menu, MenuItem } from 'components/common/Menu';
 import IconButton from 'components/common/IconButton';
 
-function TodoHeader({ toggleForm, setToggleForm, requestSortBy }) {
+function TodoHeader({
+   toggleForm,
+   setToggleForm,
+   requestSortBy,
+   showCompleted,
+}) {
    const [menuOpen, setMenuOpen] = useState(false);
 
    return (
@@ -40,6 +45,9 @@ function TodoHeader({ toggleForm, setToggleForm, requestSortBy }) {
                   </MenuItem>
                   <MenuItem onClick={() => requestSortBy('priority')}>
                      Sort by priority
+                  </MenuItem>
+                  <MenuItem onClick={() => showCompleted()}>
+                     Show completed tasks
                   </MenuItem>
                </Menu>
             </div>

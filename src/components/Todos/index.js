@@ -18,12 +18,27 @@ function Todos() {
    const [toggleForm, setToggleForm] = useState(false);
    const { state, toggleTodo, fetchTodos, addTodo } = useTodos(initialState);
    const { todos, fetching } = state;
-   const { items, requestSortBy } = useSortableData(todos);
+   const [filteredTodos, setFilteredTodos] = useState(todos);
+   const { items, requestSortBy } = useSortableData(filteredTodos);
 
    useEffect(() => {
       fetchTodos(id);
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
+
+   // filter through the todos to set State to only show ones that arent completed
+   useEffect(() => {
+      if (todos) {
+         const withoutCompleted = todos.filter(
+            (todo) => todo.completed === false
+         );
+         setFilteredTodos(withoutCompleted);
+      }
+   }, [todos]);
+
+   const showCompleted = () => {
+      setFilteredTodos(todos);
+   };
 
    return (
       <TodoCard>
@@ -31,6 +46,7 @@ function Todos() {
             toggleForm={toggleForm}
             setToggleForm={setToggleForm}
             requestSortBy={requestSortBy}
+            showCompleted={showCompleted}
          />
          {fetching && <TodoSkeleton />}
          {toggleForm && (
