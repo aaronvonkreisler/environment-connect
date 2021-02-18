@@ -50,3 +50,10 @@ Dropdown.propTypes = {
 export function DropdownItem({ ...props }) {
    return <StyledLi {...props}>{props.children}</StyledLi>;
 }
+
+DropdownItem.propTypes = {
+   children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node,
+   ]).isRequired,
+};
