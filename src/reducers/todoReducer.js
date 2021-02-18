@@ -6,6 +6,7 @@ function todoReducer(state, action) {
          return {
             ...state,
             todos: [payload, ...state.todos],
+            incompleteTodos: [payload, ...state.incompleteTodos],
          };
       case 'TOGGLE_TODO':
          return {
