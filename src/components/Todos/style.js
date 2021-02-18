@@ -51,6 +51,7 @@ export const StyledTodo = styled.div`
    justify-content: flex-start;
    width: 100%;
    padding: 8px;
+   margin-top: 5px;
    cursor: pointer;
    border-radius: 4px;
 
@@ -88,10 +89,4 @@ export const ColorCircle = styled.span`
    background-color: ${(props) => props.$color};
    border: 1px solid ${(props) => props.$color};
    border-radius: 50%;
-`;
-
-export const PriorityBadge = styled.div`
-   display: inline-block;
-   padding: 0.35em 0.65em;
-   font-size: 0.75em;
 `;

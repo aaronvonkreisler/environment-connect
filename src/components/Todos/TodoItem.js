@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import { ColorCircle, StyledTodo, TodoText } from './style';
 import { Checkbox } from 'components/common/FormElements';
 import { FlexCol, FlexRow } from 'components/common/StyledUtils';
@@ -7,11 +7,15 @@ import TodoItemDetails from './TodoItemDetails';
 
 function TodoItem({ item, toggleTodo }) {
    const [toggleDetails, setToggleDetails] = useState(false);
+   const [color, setColor] = useState('');
    const handleCheck = (e) => {
       toggleTodo(item);
    };
 
-   window.todo = item;
+   useLayoutEffect(() => {
+      const { text } = getPriorityColor(item.priority);
+      setColor(text);
+   }, [item.priority]);
 
    return (
       <StyledTodo
@@ -35,11 +39,11 @@ function TodoItem({ item, toggleTodo }) {
             >
                <FlexRow fullWidth justify="space-between">
                   <TodoText $completed={item.completed}>{item.title}</TodoText>
-                  <ColorCircle $color={getPriorityColor(item.priority)} />
+                  <ColorCircle $color={color} />
                </FlexRow>
             </FlexCol>
          </FlexRow>
-         <FlexRow fullWidth justify="flex-start">
+         <FlexRow fullWidth justify="flex-start" style={{ marginTop: '10px' }}>
             {toggleDetails && <TodoItemDetails todo={item} />}
          </FlexRow>
       </StyledTodo>

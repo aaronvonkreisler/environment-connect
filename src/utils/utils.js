@@ -29,10 +29,10 @@ export const getColorForLayer = (layerName) => {
 export const getPriorityColor = (priority) => {
    const level = priority.toLowerCase();
    if (level === 'medium') {
-      return '#0b6e4f';
+      return { text: '#0b6e4f', bg: '' };
    } else if (level === 'high') {
-      return '#d90b00';
+      return { text: '#d90b00', bg: '' };
    } else {
-      return '#212529';
+      return { text: '#212529', bg: '' };
    }
 };

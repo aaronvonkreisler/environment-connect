@@ -8,6 +8,7 @@ import TodoForm from './TodoForm';
 import TodoSkeleton from './TodoSkeleton';
 import useTodos from 'hooks/useTodos';
 import AuthContext from 'context/auth/authContext';
+import useAuth from 'hooks/useAuth';
 
 const initialState = {
    todos: [],
@@ -15,19 +16,19 @@ const initialState = {
    error: null,
 };
 function Todos() {
-   const { user } = useContext(AuthContext);
+   const { id } = useAuth();
    const [toggleForm, setToggleForm] = useState(false);
    const { state, toggleTodo, fetchTodos, addTodo } = useTodos(initialState);
    const { todos, fetching } = state;
 
    useEffect(() => {
-      fetchTodos(user.uid);
+      fetchTodos(id);
    }, []);
 
    return (
       <TodoCard>
          <TodoTitle>
-            <div>{toggleForm ? 'Add task' : "My tasks"}</div>
+            <div>{toggleForm ? 'Add task' : 'My tasks'}</div>
             <div>
                <IconButton
                   small
@@ -46,7 +47,7 @@ function Todos() {
             <TodoForm
                addTodo={addTodo}
                setToggleForm={setToggleForm}
-               userId={user.uid}
+               userId={id}
             />
          )}
          {!toggleForm &&

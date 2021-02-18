@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+import { PriorityBadge } from './TodoItemDetails.style';
+import { getPriorityColor } from 'utils/utils';
 
 function TodoItemDetails({ todo }) {
    const { priority, dueDate } = todo;
-   return <div>priority: {priority}</div>;
+   const [color, setColor] = useState('');
+
+   useLayoutEffect(() => {
+      const { text } = getPriorityColor(priority);
+      setColor(text);
+   }, [priority]);
+
+   return (
+      <>
+         <PriorityBadge $color={color}>
+            <span>Priority: {priority}</span>
+         </PriorityBadge>
+      </>
+   );
 }
 
 export default TodoItemDetails;
