@@ -10,7 +10,7 @@ export const PriorityBadge = styled.div`
    color: ${(props) => props.$color || '#fff'};
 `;
 
-export const StyledDate = styled.span`
+export const SecondaryText = styled.span`
    font-size: 15px;
    color: ${({ theme }) => theme.colors.textGrey};
 `;

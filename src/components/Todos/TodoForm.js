@@ -3,7 +3,7 @@ import useForm from 'hooks/useForm';
 import { LabledInput, LabledSelect } from 'components/common/FormElements';
 import { FlexCol, FlexRow } from 'components/common/StyledUtils';
 import Button from 'components/common/Button';
-import { ErrorMessage, ColorCircle } from './style';
+import { ErrorMessage } from './style';
 
 const initialValue = {
    title: '',

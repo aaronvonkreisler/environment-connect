@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { NotesContainer, NotesBody } from './style';
 import TextEditor from 'components/PlantDetails/Notes/TextEditor';
@@ -15,6 +15,7 @@ function Notes() {
 
    useEffect(() => {
       getNotes();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
    return (
       <NotesContainer>

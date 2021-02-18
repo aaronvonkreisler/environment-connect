@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TodoCard, TodoTitle } from './style';
 import IconButton from 'components/common/IconButton';
 import { BiPlus } from 'react-icons/bi';
@@ -7,7 +7,6 @@ import TodoItem from './TodoItem';
 import TodoForm from './TodoForm';
 import TodoSkeleton from './TodoSkeleton';
 import useTodos from 'hooks/useTodos';
-import AuthContext from 'context/auth/authContext';
 import useAuth from 'hooks/useAuth';
 
 const initialState = {
@@ -23,6 +22,7 @@ function Todos() {
 
    useEffect(() => {
       fetchTodos(id);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    return (

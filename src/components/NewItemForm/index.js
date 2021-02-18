@@ -1,10 +1,5 @@
 import React, { useContext } from 'react';
-import {
-   Input,
-   Select,
-   LabledInput,
-   LabledSelect,
-} from 'components/common/FormElements';
+import { LabledInput, LabledSelect } from 'components/common/FormElements';
 import Modal from 'components/Modal';
 import useForm from 'hooks/useForm';
 import { StyledErrorMessage } from 'components/common/FormElements/style';

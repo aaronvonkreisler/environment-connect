@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import PlantContext from 'context/plants/plantContext';
 import Table from './Table';
 import EmptyDisplay from './EmptyDisplay';
