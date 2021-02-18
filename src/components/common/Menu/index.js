@@ -8,7 +8,6 @@ export function Menu({ open, onClose, ...props }) {
          if (e.target.tagName !== 'LI') {
             onClose();
          }
-         console.log(e.target.tagName);
          document.removeEventListener('mousedown', closeMenu);
       },
       [onClose]
