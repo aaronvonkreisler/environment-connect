@@ -6,6 +6,7 @@ export const StyledUl = styled.ul`
    z-index: 1000;
    display: none;
    min-width: 8rem;
+
    padding: 0.5rem 0;
    font-size: 1rem;
    list-style: none;
@@ -17,7 +18,7 @@ export const StyledUl = styled.ul`
    ${(props) =>
       props.$open &&
       css`
-         margin: 0px;
+         margin: ${(props) => props.$margin || 0};
          position: absolute;
          inset: 0px auto auto 0px;
          transform: translate(0px, 20px);
@@ -27,11 +28,14 @@ export const StyledUl = styled.ul`
 
 export const PillButton = styled.button`
    padding: 0.2em 0.55em;
+   margin: ${(props) => props.$margin || 0};
    font-size: 0.65em;
-   font-weight: 700;
-   background-color: #6c757d;
+   font-weight: 500;
+   /* background-color: #6c757d; */
+   background-color: #38484e;
    border-radius: 4px;
-   color: #212529;
+   /* color: #212529; */
+   color: ${({ theme }) => theme.colors.textPrimary};
    min-width: 6rem;
    cursor: pointer;
 

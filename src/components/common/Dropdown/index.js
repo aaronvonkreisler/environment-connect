@@ -2,7 +2,15 @@ import React, { useRef, useCallback, useEffect } from 'react';
 import { StyledUl, PillButton, StyledLi } from './style';
 import PropTypes from 'prop-types';
 
-export function Dropdown({ open, setOpen, labeledBy, id, children, ...props }) {
+export function Dropdown({
+   open,
+   setOpen,
+   labeledBy,
+   id,
+   children,
+   margin,
+   ...props
+}) {
    const ref = useRef();
    const closeMenu = useCallback(
       (e) => {
@@ -26,10 +34,11 @@ export function Dropdown({ open, setOpen, labeledBy, id, children, ...props }) {
             onClick={() => setOpen(!open)}
             aria-expanded={open}
             id={id}
+            $margin={margin}
          >
             <span> {labeledBy}</span>
          </PillButton>
-         <StyledUl $open={open} ref={ref} aria-labelledby={id}>
+         <StyledUl $open={open} ref={ref} aria-labelledby={id} $margin={margin}>
             {children}
          </StyledUl>
       </div>
@@ -45,6 +54,7 @@ Dropdown.propTypes = {
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node,
    ]).isRequired,
+   margin: PropTypes.string,
 };
 
 export function DropdownItem({ ...props }) {
