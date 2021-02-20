@@ -53,7 +53,12 @@ function PlantsProvider({ children }) {
 
    const addNewPlant = async (plant) => {
       try {
-         const docRef = await db.collection('plants').add(plant);
+         const plantObj = {
+            ...plant,
+            searchValue: plant.plantName.toLowerCase(),
+         };
+
+         const docRef = await db.collection('plants').add(plantObj);
 
          const doc = await docRef.get();
          const newPlant = mergeDocAndId(doc);

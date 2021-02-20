@@ -14,7 +14,7 @@ export function Dropdown({
    const ref = useRef();
    const closeMenu = useCallback(
       (e) => {
-         if (ref.current.contains(e.target)) {
+         if (ref.current && ref.current.contains(e.target)) {
             return;
          }
          setOpen(false);

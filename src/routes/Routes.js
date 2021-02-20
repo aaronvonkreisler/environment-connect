@@ -19,14 +19,12 @@ function Routes() {
                <Route exact path="/" component={LoginPage} />
                <PlantsProvider>
                   <Navigation />
-
                   <PrivateRoute exact path="/plants" component={HomePage} />
                   <PrivateRoute
                      exact
                      path="/projects"
                      component={ProjectsPage}
                   />
-
                   <PrivateRoute
                      exact
                      path="/plants/:id"

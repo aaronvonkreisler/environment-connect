@@ -6,7 +6,7 @@ export function Menu({ open, onClose, ...props }) {
    const menuRef = useRef();
    const closeMenu = useCallback(
       (e) => {
-         if (menuRef.current.contains(e.target)) {
+         if (menuRef.current && menuRef.current.contains(e.target)) {
             return;
          }
          onClose();
