@@ -47,22 +47,6 @@ export const completeTodo = async (id, completed) => {
    }
 };
 
-export const searchPlantByName = async (string, userId) => {
-   try {
-      const ref = db
-         .collection('plants')
-         .orderBy('plantName')
-         .startAt(string)
-         .endAt(string + '/uf8ff')
-         .get();
-      const results = (await ref).docs.map(mergeDocAndId);
-      const currentUsersResults = results.filter((res) => res.user === userId);
-      return currentUsersResults;
-   } catch (err) {
-      throw new Error(err.message);
-   }
-};
-
 export const searchPlantByLayer = async (layer, userId) => {
    try {
       const ref = await db

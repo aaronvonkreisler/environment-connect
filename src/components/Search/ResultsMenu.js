@@ -4,7 +4,7 @@ import { FlexRow } from 'components/common/StyledUtils';
 import { layers, sunOptions } from 'constants/options';
 import ResultItem from './ResultItem';
 
-function ResultsMenu({ userId, results, searchByLayer, searchBySun }) {
+function ResultsMenu({ results, searchByLayer, searchBySun }) {
    const [layerOpen, setLayerOpen] = useState(false);
    const [sunOpen, setSunOpen] = useState(false);
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useContext } from 'react';
+import React, { useState, useReducer, useContext } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { SearchBarContainer, Searchbar, Input, Icon } from './style';
 import { Menu } from 'components/common/Menu';
@@ -7,7 +7,6 @@ import Progressbar from 'components/common/Progressbar';
 import useAuth from 'hooks/useAuth';
 import searchReducer from 'reducers/searchReducer';
 import PlantContext from 'context/plants/plantContext';
-import { searchByDesiredSun, searchPlantByLayer } from 'firebaseConfig/queries';
 import { searchByLayer, searchBySun } from 'reducers/searchReducerActions';
 
 const initialState = {
@@ -72,7 +71,6 @@ function Search() {
                >
                   {state.fetching && <Progressbar />}
                   <ResultsMenu
-                     userId={id}
                      results={state.results}
                      searchByLayer={queryByLayer}
                      searchBySun={queryBySun}
