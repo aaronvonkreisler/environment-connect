@@ -16,6 +16,11 @@ function todoReducer(state, action) {
                   ? { ...todo, completed: !todo.completed }
                   : todo
             ),
+            incompleteTodos: state.incompleteTodos.map((todo) =>
+               todo.id === payload.id
+                  ? { ...todo, completed: !todo.completed }
+                  : todo
+            ),
          };
       case 'REMOVE_TODO':
          return {

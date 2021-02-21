@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Dropdown, DropdownItem } from 'components/common/Dropdown';
 import { FlexRow } from 'components/common/StyledUtils';
 import { layers, sunOptions } from 'constants/options';
+import { ResultsContainer } from './style';
 import ResultItem from './ResultItem';
 
 function ResultsMenu({ results, searchByLayer, searchBySun }) {
@@ -67,9 +68,11 @@ function ResultsMenu({ results, searchByLayer, searchBySun }) {
             </Dropdown>
          </FlexRow>
          <FlexRow fullWidth justify="flex-start">
-            {results.map((plant) => (
-               <ResultItem plant={plant} key={plant.id} />
-            ))}
+            <ResultsContainer>
+               {results.map((plant) => (
+                  <ResultItem plant={plant} key={plant.id} />
+               ))}
+            </ResultsContainer>
          </FlexRow>
       </div>
    );

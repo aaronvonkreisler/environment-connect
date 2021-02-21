@@ -10,6 +10,7 @@ function TodoItem({ item, toggleTodo }) {
    const [color, setColor] = useState({});
    const handleCheck = (e) => {
       toggleTodo(item);
+      console.log('toggle todo');
    };
 
    useLayoutEffect(() => {

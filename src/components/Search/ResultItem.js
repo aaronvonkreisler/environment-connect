@@ -1,7 +1,9 @@
 import React from 'react';
+import { StyledResult } from './style';
 
 function ResultItem({ plant }) {
-   return <div>{plant.plantName}</div>;
+   const { plantName, layer, zone, id } = plant;
+   return <StyledResult>{plantName}</StyledResult>;
 }
 
 export default ResultItem;
