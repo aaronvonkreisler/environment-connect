@@ -94,15 +94,17 @@ export const MessageContainer = styled.div`
    justify-content: center;
    align-items: center;
    position: relative;
+   overflow: hidden;
 `;
 
 export const Message = styled.div`
    font-weight: 600;
-   font-size: 3rem;
+   font-size: 1.1rem;
    font-family: 'Rubik', sans-serif;
+   color: ${({ theme }) => theme.colors.textGrey};
    position: absolute;
-   top: auto;
-   bottom: auto;
-   left: auto;
-   right: auto;
+   bottom: 80px;
+   margin: 0 20px;
+   text-align: center;
+   width: 100%;
 `;

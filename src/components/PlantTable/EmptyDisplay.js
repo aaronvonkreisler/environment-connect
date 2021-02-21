@@ -1,14 +1,17 @@
 import React from 'react';
 import { TableContainer, MessageContainer, Message } from './style';
-import wavesImage from 'images/waves.svg';
+import NoDataSvg from 'components/common/NoDataSvg';
 function EmptyDisplay() {
    return (
       <TableContainer>
          <MessageContainer>
+            <NoDataSvg
+               style={{ height: '400px', position: 'absolute', top: '-50px' }}
+            />
             <Message>
-               Add some plants <br /> to get started
+               No plants yet, <br />
+               When you add some, you'll see them here.
             </Message>
-            <img src={wavesImage} alt="" style={{ flexGrow: 1 }} />
          </MessageContainer>
       </TableContainer>
    );
