@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const WelcomeCard = styled.div`
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    /* max-width: 800px;
    min-width: 650px; */
    min-height: 250px;
@@ -15,4 +15,9 @@ export const WelcomeCard = styled.div`
    @media ${({ theme }) => theme.device.desktop} {
       max-width: 50vw;
    }
+`;
+
+export const WelcomeText = styled.h2`
+   font-size: ${(props) => (props.$large ? '38px' : '28px')};
+   font-weight: 700;
 `;
