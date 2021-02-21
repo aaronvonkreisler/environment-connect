@@ -5,7 +5,7 @@ import { layers, sunOptions } from 'constants/options';
 import { ResultsContainer } from './style';
 import ResultItem from './ResultItem';
 
-function ResultsMenu({ results, searchByLayer, searchBySun }) {
+function ResultsMenu({ results, searchByLayer, searchBySun, closeMenu }) {
    const [layerOpen, setLayerOpen] = useState(false);
    const [sunOpen, setSunOpen] = useState(false);
 
@@ -70,7 +70,11 @@ function ResultsMenu({ results, searchByLayer, searchBySun }) {
          <FlexRow fullWidth justify="flex-start">
             <ResultsContainer>
                {results.map((plant) => (
-                  <ResultItem plant={plant} key={plant.id} />
+                  <ResultItem
+                     plant={plant}
+                     key={plant.id}
+                     closeMenu={closeMenu}
+                  />
                ))}
             </ResultsContainer>
          </FlexRow>

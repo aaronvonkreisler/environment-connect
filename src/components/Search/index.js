@@ -40,6 +40,10 @@ function Search() {
       searchBySun(sun, id, dispatch);
    };
 
+   const closeMenu = () => {
+      dispatch({ type: 'CLOSE_MENU' });
+   };
+
    return (
       <SearchBarContainer>
          <div>
@@ -60,7 +64,7 @@ function Search() {
                <Menu
                   open={state.menuOpen}
                   id="search-results"
-                  onClose={() => dispatch({ type: 'CLOSE_MENU' })}
+                  onClose={closeMenu}
                   style={{
                      top: '101%',
                      left: '0',
@@ -74,6 +78,7 @@ function Search() {
                      results={state.results}
                      searchByLayer={queryByLayer}
                      searchBySun={queryBySun}
+                     closeMenu={closeMenu}
                   />
                </Menu>
             </Searchbar>

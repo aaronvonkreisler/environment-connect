@@ -12,12 +12,17 @@ import {
    ColoredLable,
 } from './style';
 
-function ResultItem({ plant }) {
+function ResultItem({ plant, closeMenu }) {
    let history = useHistory();
    const { plantName, layer, zone, id } = plant;
    const color = getColorForLayer(layer);
    return (
-      <StyledResult onClick={() => history.push(`/plants/${id}`)}>
+      <StyledResult
+         onClick={() => {
+            history.push(`/plants/${id}`);
+            closeMenu();
+         }}
+      >
          <PlantIcon>
             <span>
                <RiPlantLine />
