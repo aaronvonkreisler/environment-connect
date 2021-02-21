@@ -14,8 +14,6 @@ const initialState = {
 function AuthProvider(props) {
    const [state, dispatch] = useReducer(authReducer, initialState);
 
-   window.auth = state;
-
    const onAuthStateChange = () => {
       return auth.onAuthStateChanged((user) => {
          if (user) {
