@@ -15,7 +15,7 @@ import SkeletonPulse from 'components/common/SkeletonPulse';
 
 function Header({ modalRef }) {
    const { selectedPlant, fetchingPlant } = useContext(PlantContext);
-   const [fill, setFill] = useState('#4B89DC');
+   const [fill, setFill] = useState('#292a2b');
 
    useEffect(() => {
       if (selectedPlant.layer) {
@@ -31,7 +31,7 @@ function Header({ modalRef }) {
       <HeaderContainer>
          {fetchingPlant || !selectedPlant.plantName ? (
             <>
-               <WaveSvg fill="#4B89DC" />
+               <WaveSvg fill="#292a2b" />
                <SkeletonTitle>
                   <SkeletonPulse height="82px" />
                </SkeletonTitle>
