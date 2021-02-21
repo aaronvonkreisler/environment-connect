@@ -11,4 +11,8 @@ export const WelcomeCard = styled.div`
    background-color: ${({ theme }) => theme.colors.blueRGB};
    box-shadow: ${({ theme }) => theme.elevation.two};
    margin-bottom: 32px;
+
+   @media ${({ theme }) => theme.device.desktop} {
+      max-width: 50vw;
+   }
 `;

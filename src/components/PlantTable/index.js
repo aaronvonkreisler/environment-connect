@@ -17,10 +17,9 @@ function PlantTable({ data }) {
    return (
       <>
          {fetching && <TableSkeleton />}
-         {!fetching && plants?.length > 0 ? (
+         {!fetching && plants?.length === 0 && <EmptyDisplay />}
+         {!fetching && plants?.length > 0 && (
             <Table data={plants} removePlant={removePlant} />
-         ) : (
-            <EmptyDisplay />
          )}
       </>
    );

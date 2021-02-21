@@ -8,12 +8,14 @@ export const DetailsContainer = styled.main`
    margin-right: auto;
    display: block;
 
-   @media (min-width: 501px) {
+   /* @media (min-width: 501px) {
       padding-left: 24px;
-   }
+      padding-right: 24px;
+   } */
 
    @media (min-width: 768px) {
       padding-right: 24px;
+      padding-left: 24px;
    }
 `;
 export const DetailsGrid = styled.div`
@@ -37,5 +39,6 @@ export const RightSide = styled.div`
       display: flex;
       flex-direction: column;
       flex: 0.3;
+      padding-left: 20px;
    }
 `;

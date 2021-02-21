@@ -14,6 +14,7 @@ export const LeftSide = styled.div`
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
+   align-items: flex-end;
    flex: 0.65;
    padding-right: 24px;
    @media ${({ theme }) => theme.device.tabletAndDown} {
@@ -25,6 +26,8 @@ export const RightSide = styled.div`
    display: flex;
    flex-direction: column;
    flex: 0.35;
+   align-items: flex-start;
+
    @media ${({ theme }) => theme.device.tabletAndDown} {
       flex-direction: row;
    }

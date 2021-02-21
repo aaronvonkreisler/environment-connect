@@ -12,7 +12,7 @@ export const NotesBody = styled.section`
    width: 100%;
    background-color: ${({ theme }) => theme.colors.paper};
    border-radius: 4px;
-   min-height: 300px;
    box-shadow: ${({ theme }) => theme.elevation.three};
    white-space: pre-wrap;
+   min-height: 600px;
 `;

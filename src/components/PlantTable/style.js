@@ -14,6 +14,9 @@ export const TableContainer = styled.div`
    -ms-overflow-style: none; /* IE and Edge */
    scrollbar-width: none;
    margin-bottom: 24px;
+   @media ${({ theme }) => theme.device.desktop} {
+      max-width: 50vw;
+   }
 `;
 
 export const StyledTable = styled.table`

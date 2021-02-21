@@ -21,6 +21,10 @@ export const TodoCard = styled.div`
       margin-left: 0;
       margin-bottom: 24px;
    }
+
+   @media ${({ theme }) => theme.device.desktop} {
+      max-width: 30vw;
+   }
 `;
 
 export const TodoTitle = styled.div`
