@@ -9,29 +9,32 @@ import HomePage from 'pages/HomePage';
 import PlantsProvider from 'context/plants/PlantsProvider';
 import LoginPage from 'pages/LoginPage';
 import PlantDetailsPage from 'pages/PlantDetailsPage';
+import AlertProvider from 'context/alert/AlertProvider';
 
 function Routes() {
    return (
       <Router>
          <GlobalStyle />
          <AppThemeProvider>
-            <Switch>
-               <Route exact path="/" component={LoginPage} />
-               <PlantsProvider>
-                  <Navigation />
-                  <PrivateRoute exact path="/plants" component={HomePage} />
-                  <PrivateRoute
-                     exact
-                     path="/projects"
-                     component={ProjectsPage}
-                  />
-                  <PrivateRoute
-                     exact
-                     path="/plants/:id"
-                     component={PlantDetailsPage}
-                  />
-               </PlantsProvider>
-            </Switch>
+            <AlertProvider>
+               <Switch>
+                  <Route exact path="/" component={LoginPage} />
+                  <PlantsProvider>
+                     <Navigation />
+                     <PrivateRoute exact path="/plants" component={HomePage} />
+                     <PrivateRoute
+                        exact
+                        path="/projects"
+                        component={ProjectsPage}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/plants/:id"
+                        component={PlantDetailsPage}
+                     />
+                  </PlantsProvider>
+               </Switch>
+            </AlertProvider>
          </AppThemeProvider>
       </Router>
    );
