@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SearchBarContainer = styled.div`
    position: relative;
@@ -106,4 +106,84 @@ export const StyledResult = styled.div`
    width: 100%;
    padding: 8px;
    cursor: pointer;
+   border-radius: 4px;
+   &:hover {
+      background-color: hsla(0, 0%, 100%, 0.075);
+   }
+`;
+
+export const PlantIcon = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: flex-start;
+   flex-basis: 40px;
+
+   & > span {
+      height: 30px;
+      width: 30px;
+      background-color: #38484e;
+      border-radius: 3px;
+      line-height: 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & > svg {
+         font-size: 20px;
+         vertical-align: text-bottom;
+         line-height: 1.2;
+      }
+   }
+`;
+
+export const ItemText = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   flex-grow: 1;
+   font-size: 16px;
+   font-weight: 700;
+
+   ${(props) =>
+      props.$secondary &&
+      css`
+         font-size: 12px;
+         font-weight: 400;
+         color: ${({ theme }) => theme.colors.textGrey};
+      `}
+`;
+
+export const TextWrapper = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   flex-grow: 1;
+   height: 100%;
+`;
+
+export const LeftSideText = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   flex-grow: 1;
+   height: 100%;
+`;
+
+export const RightSideLable = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+`;
+
+export const ColoredLable = styled.span`
+   display: inline-block;
+   width: 12px;
+   height: 12px;
+   border-radius: 2px;
+   margin-right: 4px;
+   background-color: ${(props) => props.$color || 'grey'};
 `;
