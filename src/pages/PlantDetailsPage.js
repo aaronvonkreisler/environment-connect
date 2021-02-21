@@ -19,12 +19,11 @@ function PlantDetailsPage() {
 
    useEffect(() => {
       fetchPlantById(id);
-
       return () => {
          clearSlectedPlant();
       };
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []);
+   }, [id]);
 
    return (
       <>
