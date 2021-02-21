@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useContext } from 'react';
+import React, { useState, useReducer, useContext, useEffect } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { SearchBarContainer, Searchbar, Input, Icon } from './style';
 import { Menu } from 'components/common/Menu';
@@ -17,13 +17,22 @@ const initialState = {
 };
 
 function Search() {
-   const { id } = useAuth();
+   const { id, isAuthenticated } = useAuth();
    const [textValue, setTextValue] = useState('');
    const [state, dispatch] = useReducer(searchReducer, initialState);
-   const { plants } = useContext(PlantContext);
+   const { plants, fetching, fetchPlants } = useContext(PlantContext);
+
+   // If plants are null it would suggest that the page has been refreshed and
+   // trying to filter through a null value will cause an error. If there aren't any plants in
+   // the context reload them
+   useEffect(() => {
+      if (!plants && !fetching && isAuthenticated) {
+         fetchPlants();
+      }
+   }, [plants, fetching, isAuthenticated, fetchPlants]);
 
    const searchByQuery = (query) => {
-      const searchResults = plants.filter((plant) =>
+      const searchResults = plants?.filter((plant) =>
          plant.plantName.toLowerCase().includes(query.toLowerCase())
       );
       dispatch({
