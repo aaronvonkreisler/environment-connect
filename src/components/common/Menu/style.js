@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-export const StyledMenu = styled.ul`
+export const StyledMenu = styled.div`
    z-index: 1000;
    min-width: 10rem;
    padding: 0.5rem 0;
@@ -25,7 +25,7 @@ export const StyledMenu = styled.ul`
       `};
 `;
 
-export const StyledMenuItem = styled.li`
+export const StyledMenuItem = styled.div`
    display: block;
    width: 100%;
    padding: 0.25rem 1rem;

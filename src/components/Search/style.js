@@ -89,3 +89,11 @@ export const Icon = styled.div`
       vertical-align: text-bottom;
    }
 `;
+
+export const StyledResults = styled.div`
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: center;
+   width: 100%;
+`;
