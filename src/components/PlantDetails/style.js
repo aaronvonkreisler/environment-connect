@@ -9,7 +9,7 @@ export const DetailsContainer = styled.main`
    display: block;
 
    @media (min-width: 501px) {
-      padding-left: 75px;
+      padding-left: 24px;
    }
 
    @media (min-width: 768px) {

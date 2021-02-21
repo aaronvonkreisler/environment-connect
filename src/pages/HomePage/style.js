@@ -15,10 +15,10 @@ export const LeftSide = styled.div`
    flex-direction: column;
    justify-content: flex-start;
    flex: 0.65;
-
-   /* @media ${({ theme }) => theme.device.tabletAndDown} {
-      flex-direction: row;
-   } */
+   padding-right: 24px;
+   @media ${({ theme }) => theme.device.tabletAndDown} {
+      padding-right: 0;
+   }
 `;
 
 export const RightSide = styled.div`

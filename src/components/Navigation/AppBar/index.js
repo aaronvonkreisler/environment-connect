@@ -1,10 +1,11 @@
 import React, { useRef, Fragment, useState, useContext } from 'react';
-import { FiMenu } from 'react-icons/fi';
-import { useLocation } from 'react-router-dom';
+import { FiPlus } from 'react-icons/fi';
+import { BiArrowBack } from 'react-icons/bi';
+import { useLocation, useHistory } from 'react-router-dom';
 import { AppBarRoot, MenuButtonContainer } from './style';
 import Avatar from 'components/common/Avatar';
 import IconButton from 'components/common/IconButton';
-import Button from 'components/common/Button';
+// import Button from 'components/common/Button';
 import NewItemForm from 'components/NewItemForm';
 import AuthContext from 'context/auth/authContext';
 import Search from 'components/Search';
@@ -17,7 +18,8 @@ function AppBar({ setSidebarOpen, isOpen }) {
    const { user, loading } = useContext(AuthContext);
    const plantModalRef = useRef();
    const { pathname } = useLocation();
-   const renderModalButton = pathname === '/plants';
+   let history = useHistory();
+   const onHomePage = pathname === '/plants';
 
    const handleModalOpen = () => {
       plantModalRef.current.openModal();
@@ -33,19 +35,19 @@ function AppBar({ setSidebarOpen, isOpen }) {
 
          <AppBarRoot>
             <MenuButtonContainer>
-               <IconButton onClick={() => setSidebarOpen(!isOpen)}>
-                  <FiMenu />
-               </IconButton>
+               {!onHomePage && (
+                  <IconButton onClick={() => history.goBack()}>
+                     <BiArrowBack />
+                  </IconButton>
+               )}
             </MenuButtonContainer>
             <Search />
             <FlexRow justify="flex-end" flexBasis="250px">
-               {renderModalButton && (
-                  <div style={{ width: '100%', marginRight: '20px' }}>
-                     <Button
-                        outline
-                        text="Add new Item"
-                        onClick={handleModalOpen}
-                     />
+               {onHomePage && (
+                  <div style={{ marginRight: '20px' }}>
+                     <IconButton onClick={handleModalOpen}>
+                        <FiPlus />
+                     </IconButton>
                   </div>
                )}
 

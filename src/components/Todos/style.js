@@ -6,7 +6,6 @@ export const TodoCard = styled.div`
    background-color: ${({ theme }) => theme.colors.paper};
    box-shadow: ${({ theme }) => theme.elevation.two};
    border-radius: 4px;
-   margin-left: 16px;
    height: 490px;
    /* max-height: 510px; */
    overflow-y: auto;

@@ -1,33 +1,33 @@
 import React, { Fragment, useState } from 'react';
-import { GoProject } from 'react-icons/go';
-import { MdSettings } from 'react-icons/md';
-import { RiPlantFill } from 'react-icons/ri';
+// import { GoProject } from 'react-icons/go';
+// import { MdSettings } from 'react-icons/md';
+// import { RiPlantFill } from 'react-icons/ri';
 
 import AppBar from 'components/Navigation/AppBar';
-import SideBar from 'components/Navigation/SideBar';
-import SidebarItem from 'components/Navigation/SideBar/SidebarItem';
-const sidebarItems = [
-   {
-      icon: <RiPlantFill />,
-      label: 'Plants',
-      path: '/plants',
-   },
-   {
-      icon: <GoProject />,
-      label: 'Projects',
-      path: '/projects',
-   },
-   {
-      icon: <MdSettings />,
-      label: 'Settings',
-      path: '/settings',
-   },
-   {
-      icon: <GoProject />,
-      label: 'Hello',
-      path: '/hello',
-   },
-];
+// import SideBar from 'components/Navigation/SideBar';
+// import SidebarItem from 'components/Navigation/SideBar/SidebarItem';
+// const sidebarItems = [
+//    {
+//       icon: <RiPlantFill />,
+//       label: 'Plants',
+//       path: '/plants',
+//    },
+//    {
+//       icon: <GoProject />,
+//       label: 'Projects',
+//       path: '/projects',
+//    },
+//    {
+//       icon: <MdSettings />,
+//       label: 'Settings',
+//       path: '/settings',
+//    },
+//    {
+//       icon: <GoProject />,
+//       label: 'Hello',
+//       path: '/hello',
+//    },
+// ];
 
 function Navigation({ modalRef }) {
    const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -38,7 +38,8 @@ function Navigation({ modalRef }) {
             setSidebarOpen={setSidebarOpen}
             modalRef={modalRef}
          />
-         <SideBar isOpen={sidebarOpen}>
+         {/*
+          <SideBar isOpen={sidebarOpen}>
             {sidebarItems.map((item) => (
                <SidebarItem
                   item={item}
@@ -48,6 +49,8 @@ function Navigation({ modalRef }) {
                />
             ))}
          </SideBar>
+      
+      */}
       </Fragment>
    );
 }
