@@ -2,7 +2,7 @@ import React from 'react';
 import useMediaQuery from 'hooks/useMediaQuery';
 function PersonSvg() {
    const mobile = useMediaQuery('(max-width: 500px)');
-   console.log(mobile);
+
    return (
       <svg
          width={mobile ? '239' : '259'}

@@ -4,6 +4,8 @@ import plantReducer from 'context/plants/plantReducer';
 import { mergeDocAndId } from 'utils/utils';
 import db from 'firebaseConfig/db';
 import AuthContext from 'context/auth/authContext';
+import useAlert from 'hooks/useAlert';
+
 import {
    PLANTS_ERROR,
    FETCH_PLANTS_SUCCESS,
@@ -18,6 +20,8 @@ import {
 
 function PlantsProvider({ children }) {
    const { user } = useContext(AuthContext);
+   const showAlert = useAlert();
+
    const initialState = {
       fetching: false,
       plants: null, // will be an array
@@ -67,6 +71,8 @@ function PlantsProvider({ children }) {
             payload: newPlant,
          });
 
+         showAlert(`${plant.plantName} added`, 'info', 3000);
+
          // create a notes document
          await db
             .collection('notes')
@@ -76,6 +82,7 @@ function PlantsProvider({ children }) {
             type: PLANTS_ERROR,
             payload: err.message,
          });
+         showAlert('There was an error. Try again later', 'error', 4000);
       }
    };
 
@@ -87,11 +94,15 @@ function PlantsProvider({ children }) {
          });
 
          await db.doc(`/plants/${id}`).delete();
+
+         showAlert('Successfuly removed', 'success', 3000);
       } catch (err) {
          dispatch({
             type: PLANTS_ERROR,
             payload: err.message,
          });
+
+         showAlert('There was an error. Try again later', 'error', 4000);
       }
    };
 
@@ -110,6 +121,7 @@ function PlantsProvider({ children }) {
             type: PLANTS_ERROR,
             payload: err.message,
          });
+         showAlert('There was an error. Try again later', 'error', 4000);
       }
    };
 
@@ -128,6 +140,7 @@ function PlantsProvider({ children }) {
             type: PLANTS_ERROR,
             payload: err.message,
          });
+         showAlert('There was an error. Try again later', 'error', 4000);
       }
 
       // console.log(updatedPlant);

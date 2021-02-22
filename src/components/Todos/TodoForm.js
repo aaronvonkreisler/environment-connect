@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import useForm from 'hooks/useForm';
 import { LabledInput, LabledSelect } from 'components/common/FormElements';
 import { FlexCol, FlexRow } from 'components/common/StyledUtils';
 import Button from 'components/common/Button';
 import { ErrorMessage } from './style';
-import AlertContext from 'context/alert/alertContext';
+import useAlert from 'hooks/useAlert';
 
 const initialValue = {
    title: '',
    completed: false,
    dueDate: '',
-   priority: 'low',
+   priority: 'Low',
    details: '',
 };
 
 function TodoForm({ addTodo, setToggleForm, userId }) {
-   const { showAlert } = useContext(AlertContext);
+   const showAlert = useAlert();
    const [disabled, setDisabled] = useState(true);
 
    const { formData, handleChange, validateInput, errors } = useForm(
@@ -26,7 +26,7 @@ function TodoForm({ addTodo, setToggleForm, userId }) {
    const handleSubmit = () => {
       addTodo({ ...formData, user: userId });
       setToggleForm(false);
-      showAlert('Successfully added task', 'error', 5000);
+      showAlert('Task added', 'success', 5000);
    };
 
    useEffect(() => {
