@@ -37,6 +37,15 @@ export const GlobalStyle = createGlobalStyle`
     overscroll-behavior-y: none;
     -webkit-overflow-scrolling: touch;
   }
+  body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #212121
+  }
+  body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+  }
   #root {
     height: 100%;
     width: 100%;
