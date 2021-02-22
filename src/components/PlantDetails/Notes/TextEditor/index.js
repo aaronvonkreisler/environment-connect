@@ -43,8 +43,6 @@ function TextEditor({ notes }) {
    };
 
    const handleSave = async (notesId, data) => {
-      console.log('from save -- plant:', notesId);
-      // const updates = formatData(data);
       await db.doc(`notes/${notesId}`).update({ content: data });
    };
 

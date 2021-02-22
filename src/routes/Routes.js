@@ -10,6 +10,7 @@ import PlantsProvider from 'context/plants/PlantsProvider';
 import LoginPage from 'pages/LoginPage';
 import PlantDetailsPage from 'pages/PlantDetailsPage';
 import AlertProvider from 'context/alert/AlertProvider';
+import Alerts from 'components/Alerts';
 
 function Routes() {
    return (
@@ -17,6 +18,7 @@ function Routes() {
          <GlobalStyle />
          <AppThemeProvider>
             <AlertProvider>
+               <Alerts />
                <Switch>
                   <Route exact path="/" component={LoginPage} />
                   <PlantsProvider>
