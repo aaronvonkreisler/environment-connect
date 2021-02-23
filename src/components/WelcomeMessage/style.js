@@ -20,4 +20,7 @@ export const WelcomeCard = styled.div`
 export const WelcomeText = styled.h2`
    font-size: ${(props) => (props.$large ? '38px' : '28px')};
    font-weight: 700;
+   @media ${({ theme }) => theme.device.mobile} {
+      display: none;
+   }
 `;
