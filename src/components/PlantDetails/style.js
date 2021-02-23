@@ -27,6 +27,7 @@ export const LeftSide = styled.div`
    display: flex;
    width: 100%;
    flex-direction: column;
+   min-width: 0;
 
    @media (min-width: 768px) {
       flex: 0.7;

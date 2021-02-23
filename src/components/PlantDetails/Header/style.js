@@ -3,22 +3,29 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.div`
    display: flex;
    justify-content: flex-start;
-
+   min-width: 0;
    position: relative;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
 `;
 
 export const Title = styled.div`
-   font-size: 48px;
+   font-size: 32px;
    font-weight: 500;
    font-family: 'Rubik', sans-serif;
    position: absolute;
    top: 0;
    margin-left: 16px;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   max-width: 95%;
    @media ${({ theme }) => theme.device.tablet} {
-      font-size: 54px;
+      font-size: 48px;
    }
    @media ${({ theme }) => theme.device.laptopAndUp} {
-      font-size: 68px;
+      font-size: 62px;
    }
 `;
 
