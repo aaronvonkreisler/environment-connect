@@ -24,6 +24,7 @@ export const TodoCard = styled.div`
 
    @media ${({ theme }) => theme.device.desktop} {
       max-width: 30vw;
+      width: 70%;
    }
 `;
 

@@ -7,7 +7,12 @@ function TodoItemDetails({ todo, color, bg }) {
    const { priority, dueDate, details } = todo;
    return (
       <>
-         <FlexRow fullWidth margin="10px 0 0 0" justify="space-between">
+         <FlexRow
+            fullWidth
+            margin="10px 0 0 0"
+            justify="space-between"
+            data-testid="todo-details"
+         >
             <FlexCol flexGrow="1" align="flex-start" justify="flex-start">
                <SecondaryText>
                   Due: {dueDate ? formatDate(dueDate) : 'n/a'}

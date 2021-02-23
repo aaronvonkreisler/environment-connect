@@ -135,12 +135,14 @@ function PlantsProvider({ children }) {
             type: UPDATE_PLANT,
             payload: updatedPlant,
          });
+
+         showAlert('Details successfully saved', 'success', 3000);
       } catch (err) {
          dispatch({
             type: PLANTS_ERROR,
             payload: err.message,
          });
-         showAlert('There was an error. Try again later', 'error', 4000);
+         showAlert('There was an error. Try again later', 'error', 5000);
       }
 
       // console.log(updatedPlant);

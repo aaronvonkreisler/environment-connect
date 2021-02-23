@@ -10,7 +10,6 @@ function TodoItem({ item, toggleTodo }) {
    const [color, setColor] = useState({});
    const handleCheck = (e) => {
       toggleTodo(item);
-      console.log('toggle todo');
    };
 
    useLayoutEffect(() => {
@@ -22,6 +21,7 @@ function TodoItem({ item, toggleTodo }) {
       <StyledTodo
          onClick={() => setToggleDetails(!toggleDetails)}
          $open={toggleDetails}
+         data-testid="todo-item"
       >
          <FlexRow fullWidth justify="flex-start">
             <FlexCol

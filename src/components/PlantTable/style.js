@@ -7,16 +7,21 @@ export const TableContainer = styled.div`
    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
       0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
    background-color: ${({ theme }) => theme.colors.paper};
-   border-radius: 4px;
-   &::-webkit-scrollbar {
-      display: none;
-   }
-   -ms-overflow-style: none; /* IE and Edge */
-   scrollbar-width: none;
+   border-radius: 4px; 
    margin-bottom: 24px;
+   &::-webkit-scrollbar {
+    width: 8px;
+    background-color: #212121
+   }
+   &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+  }
    @media ${({ theme }) => theme.device.desktop} {
       max-width: 50vw;
-   }
+      max-height: 565px;
+     
 `;
 
 export const StyledTable = styled.table`
