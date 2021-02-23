@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom/extend-expect';
 import AlertContext from 'context/alert/alertContext';
 import AppTheme from 'components/AppTheme';
 import TodoForm from 'components/Todos/TodoForm';
@@ -13,6 +14,32 @@ const customRender = (ui, { providerProps, ...renderOptions }) => {
       renderOptions
    );
 };
+
+it('requires a title in order to submit', () => {
+   const addTodo = jest.fn();
+   const setToggleForm = jest.fn();
+   const userId = 'abc';
+
+   const providerProps = {
+      value: {
+         alerts: [],
+         showAlert: jest.fn(),
+      },
+   };
+
+   const { getByText } = customRender(
+      <TodoForm
+         addTodo={addTodo}
+         setToggleForm={setToggleForm}
+         userId={userId}
+      />,
+      { providerProps }
+   );
+
+   expect(getByText(/Add Task/i).closest('button')).toBeDisabled();
+   userEvent.type(screen.getByLabelText(/title/i), 'Go to the store');
+   expect(getByText(/Add Task/i).closest('button')).not.toBeDisabled();
+});
 
 it('renders and submits a todo form', async () => {
    const addTodo = jest.fn();
