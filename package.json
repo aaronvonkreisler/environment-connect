@@ -46,5 +46,7 @@
   "resolutions": {
     "styled-components": "^5"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@react-mock/state": "^0.1.8"
+  }
 }
