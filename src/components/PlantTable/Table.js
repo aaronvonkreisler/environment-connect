@@ -97,7 +97,7 @@ function Table({ className, data, removePlant }) {
                                  small
                                  danger
                                  grey
-                                 onClick={() => removePlant(id)}
+                                 onClick={() => removePlant(item)}
                               >
                                  <FaTrash />
                               </IconButton>

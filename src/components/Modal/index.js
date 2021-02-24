@@ -14,7 +14,16 @@ import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
 
 const Modal = forwardRef(function Modal(
-   { children, title, onActionClick, buttonText, onCloseCallback },
+   {
+      children,
+      withTitle,
+      small,
+      withActions,
+      title,
+      onActionClick,
+      buttonText,
+      onCloseCallback,
+   },
    ref
 ) {
    const [display, setDisplay] = useState(false);
@@ -42,17 +51,22 @@ const Modal = forwardRef(function Modal(
    const childNode = (
       <ModalWrapper>
          <ModalBackdrop onClick={close} />
-         <ModalContainer>
-            <ModalTitle>
-               <h6>{title}</h6>
-               <IconButton onClick={close} grey>
-                  <MdClose />
-               </IconButton>
-            </ModalTitle>
+         <ModalContainer $small={small}>
+            {withTitle && (
+               <ModalTitle>
+                  <h6>{title}</h6>
+                  <IconButton onClick={close} grey>
+                     <MdClose />
+                  </IconButton>
+               </ModalTitle>
+            )}
+
             <ModalContent>{children}</ModalContent>
-            <ModalActions>
-               <Button text={buttonText} outline onClick={onActionClick} />
-            </ModalActions>
+            {withActions && (
+               <ModalActions>
+                  <Button text={buttonText} outline onClick={onActionClick} />
+               </ModalActions>
+            )}
          </ModalContainer>
       </ModalWrapper>
    );
@@ -63,6 +77,11 @@ const Modal = forwardRef(function Modal(
 
    return null;
 });
+
+Modal.defaultProps = {
+   withTitle: true,
+   withActions: true,
+};
 
 Modal.propTypes = {
    children: PropTypes.node,

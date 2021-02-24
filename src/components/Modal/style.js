@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ModalWrapper = styled.div`
    position: fixed;
@@ -22,7 +22,6 @@ export const ModalContainer = styled.div`
    position: relative;
    top: 50%;
    left: 50%;
-
    display: flex;
    flex-direction: column;
    max-width: 600px;
@@ -33,6 +32,11 @@ export const ModalContainer = styled.div`
    z-index: 1600;
    background-color: ${({ theme }) => theme.colors.paper};
    border-radius: 4px;
+   ${(props) =>
+      props.$small &&
+      css`
+         max-width: 350px !important;
+      `}
 `;
 
 export const ModalTitle = styled.div`
@@ -43,6 +47,8 @@ export const ModalTitle = styled.div`
    flex: 0 0 auto;
    padding: 4px 16px;
    color: ${({ theme }) => theme.colors.textGrey};
+   border-bottom: ${({ theme }) => '1px solid ' + theme.colors.textGrey};
+
    & > h6 {
       font-size: 20px;
       font-weight: 500;
@@ -51,8 +57,6 @@ export const ModalTitle = styled.div`
 export const ModalContent = styled.div`
    flex: 1 1 auto;
    overflow-y: auto;
-   border-top: ${({ theme }) => '1px solid ' + theme.colors.textGrey};
-   border-bottom: ${({ theme }) => '1px solid ' + theme.colors.textGrey};
    padding: 16px;
 `;
 export const ModalActions = styled.div`
@@ -60,4 +64,5 @@ export const ModalActions = styled.div`
    padding: 12px 16px;
    display: flex;
    flex-direction: row-reverse;
+   border-top: ${({ theme }) => '1px solid ' + theme.colors.textGrey};
 `;
