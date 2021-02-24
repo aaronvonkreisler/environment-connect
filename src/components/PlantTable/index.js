@@ -19,9 +19,6 @@ function PlantTable({ data }) {
    }, []);
 
    const handleDelete = (plant) => {
-      // will need to confirm delete first as deleting should also delete any
-      // associated notes/details
-      // removePlant(id);
       setPlantToRemove(plant);
       confirmModal.current.openModal();
    };
