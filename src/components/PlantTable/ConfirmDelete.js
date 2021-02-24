@@ -27,7 +27,9 @@ function ConfirmDelete({ modalRef, plant, removePlant }) {
             <Message>
                <div>
                   Are you sure you want to remove{' '}
-                  <span style={{ fontStyle: 'italic' }}>{plant.plantName}</span>
+                  <span style={{ fontStyle: 'italic' }}>
+                     {plant?.plantName}
+                  </span>
                   ?
                </div>
                <div>
