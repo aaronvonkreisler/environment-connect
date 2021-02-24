@@ -7,7 +7,6 @@ import PlantContext from 'context/plants/plantContext';
 import AuthContext from 'context/auth/authContext';
 import { layers, sunOptions } from 'constants/options';
 import { FlexCol, FlexRow } from 'components/common/StyledUtils';
-import useAlert from 'hooks/useAlert';
 
 const initialState = {
    plantName: '',

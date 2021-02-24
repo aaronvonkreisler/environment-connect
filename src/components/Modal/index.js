@@ -12,6 +12,7 @@ import {
 } from './style';
 import IconButton from 'components/common/IconButton';
 import Button from 'components/common/Button';
+
 const Modal = forwardRef(function Modal(
    { children, title, onActionClick, buttonText, onCloseCallback },
    ref

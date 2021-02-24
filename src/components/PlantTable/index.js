@@ -1,16 +1,16 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useRef } from 'react';
 import PropTypes from 'prop-types';
 import PlantContext from 'context/plants/plantContext';
 import Table from './Table';
 import EmptyDisplay from './EmptyDisplay';
 import TableSkeleton from './TableSkeleton';
-import useAlert from 'hooks/useAlert';
+import Modal from 'components/Modal';
 
 function PlantTable({ data }) {
+   const confirmModal = useRef();
    const { removePlant, fetchPlants, fetching, plants } = useContext(
       PlantContext
    );
-   const showAlert = useAlert();
 
    useEffect(() => {
       fetchPlants();
@@ -20,11 +20,15 @@ function PlantTable({ data }) {
    const handleDelete = (id) => {
       // will need to confirm delete first as deleting should also delete any
       // associated notes/details
-      removePlant(id);
+      // removePlant(id);
+      confirmModal.current.openModal();
    };
 
    return (
       <>
+         <Modal title="" ref={confirmModal} buttonText="Delete">
+            Confirm
+         </Modal>
          {fetching && <TableSkeleton />}
          {!fetching && plants?.length === 0 && <EmptyDisplay />}
          {!fetching && plants?.length > 0 && (

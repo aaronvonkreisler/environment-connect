@@ -92,8 +92,12 @@ function PlantsProvider({ children }) {
             type: REMOVE_PLANT,
             payload: id,
          });
-
          await db.doc(`/plants/${id}`).delete();
+         const notesRef = await db
+            .collection('notes')
+            .where('plant', '==', id)
+            .get();
+         notesRef.docs.forEach((doc) => doc.ref.delete());
 
          showAlert('Successfuly removed', 'success', 3000);
       } catch (err) {
@@ -105,6 +109,8 @@ function PlantsProvider({ children }) {
          showAlert('There was an error. Try again later', 'error', 4000);
       }
    };
+
+   //c1mFOBzVkgTIvevOdvrG
 
    const fetchPlantById = async (id) => {
       try {
@@ -144,8 +150,6 @@ function PlantsProvider({ children }) {
          });
          showAlert('There was an error. Try again later', 'error', 5000);
       }
-
-      // console.log(updatedPlant);
    };
 
    const clearSlectedPlant = () => {

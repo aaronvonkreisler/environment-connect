@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const TableContainer = styled.div`
    width: 100%;
    overflow-x: auto;
+   min-height: 200px;
    max-height: 400px;
    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
       0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
