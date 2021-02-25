@@ -54,6 +54,7 @@ export const StyledTodo = styled.div`
    flex-direction: column;
    align-items: center;
    justify-content: flex-start;
+   flex-shrink: 0;
    width: 100%;
    padding: 8px;
    margin-top: 5px;
