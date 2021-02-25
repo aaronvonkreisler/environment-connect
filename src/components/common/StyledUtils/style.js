@@ -9,6 +9,7 @@ export const StyledFlexRow = styled.div`
    width: ${(props) => (props.$fullWidth ? '100%' : 'auto')};
    flex-grow: ${(props) => props.$flexGrow || 0};
    flex-basis: ${(props) => props.$flexBasis || 0};
+   flex-shrink: 0;
 `;
 
 export const StyledFlexCol = styled.div`
@@ -21,4 +22,5 @@ export const StyledFlexCol = styled.div`
    flex-grow: ${(props) => props.$flexGrow || 0};
    flex-basis: ${(props) => props.$flexBasis || 0};
    margin: ${(props) => props.$margin || 0};
+   flex-shrink: 0;
 `;

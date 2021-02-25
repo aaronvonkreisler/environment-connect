@@ -8,9 +8,11 @@ export const PriorityBadge = styled.div`
    background-color: ${(props) => props.$bg || '#6c757'};
    border-radius: 4px;
    color: ${(props) => props.$color || '#fff'};
+   flex-shrink: 0;
 `;
 
 export const SecondaryText = styled.span`
    font-size: 14px;
    color: ${({ theme }) => theme.colors.textGrey};
+   flex-shrink: 0;
 `;

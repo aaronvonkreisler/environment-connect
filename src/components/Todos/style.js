@@ -75,6 +75,7 @@ export const StyledTodo = styled.div`
 export const TodoText = styled.span`
    color: ${({ theme }) => theme.colors.textPrimary};
    font-size: 16px;
+   flex-shrink: 0;
 
    ${(props) =>
       props.$completed &&
