@@ -53,6 +53,11 @@ function Table({ className, data, removePlant }) {
       }
       return sortConfig.key === name ? sortConfig.direction : undefined;
    };
+
+   const eventHandlerError = () => {
+      throw new Error('Event Error ');
+   };
+
    return (
       <TableContainer>
          <StyledTable>
