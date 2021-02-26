@@ -10,6 +10,7 @@ import Alerts from 'components/Alerts';
 import ErrorBoundary from 'components/ErrorBoundary';
 import LoadingBackdrop from 'components/common/LoadingBackdrop';
 import LoginPage from 'pages/LoginPage';
+import NotFoundPage from 'pages/NotFoundPage';
 const HomePage = React.lazy(() => import('pages/HomePage'));
 const PlantDetailsPage = React.lazy(() => import('pages/PlantDetailsPage'));
 
@@ -22,7 +23,6 @@ function Routes() {
                <Alerts />
                <Switch>
                   <Route exact path="/" component={LoginPage} />
-
                   <PlantsProvider>
                      <ErrorBoundary>
                         <Navigation />
@@ -46,6 +46,7 @@ function Routes() {
                         </ErrorBoundary>
                      </Suspense>
                   </PlantsProvider>
+                  <Route component={NotFoundPage} />
                </Switch>
             </AlertProvider>
          </AppThemeProvider>

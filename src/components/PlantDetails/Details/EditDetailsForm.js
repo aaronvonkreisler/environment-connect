@@ -104,7 +104,7 @@ function EditDetailsForm({ modalRef }) {
             style={{ marginTop: '10px' }}
             fullWidth
          >
-            <FlexCol flexBasis="50%" margin="0 5px">
+            <FlexCol flexBasis="45%" margin="0 5px">
                <LabledSelect
                   id="layer"
                   name="layer"
