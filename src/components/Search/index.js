@@ -78,7 +78,7 @@ function Search() {
                      top: '101%',
                      left: '0',
                      width: '100%',
-                     minHeight: '100px',
+                     minHeight: '200px',
                      padding: '0',
                   }}
                >

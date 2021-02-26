@@ -55,28 +55,9 @@ export const StyledBackground = styled.div`
 export const LoginFormWrapper = styled.div`
    height: 100vh;
    width: 100vw;
-   display: grid;
-   grid-template-columns: 1fr;
-   grid-template-rows: 1fr 1fr;
-   gap: 0px 0px;
-   @media ${({ theme }) => theme.device.mobile} {
-      & > :nth-child(1) {
-         display: none;
-      }
-   }
-   @media ${({ theme }) => theme.device.laptopAndUp} {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
-   }
-`;
-
-export const Title = styled.div`
-   margin-left: 20px;
-   font-size: 64px;
-   color: #fff;
-   font-weight: 700;
-   font-style: italic;
-   font-family: 'Rubik', sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 `;
 
 export const LoginCard = styled.div`
@@ -94,21 +75,41 @@ export const LoginCard = styled.div`
    }
 `;
 
-export const AlternateMethodText = styled.div`
-   display: flex;
-   justify-content: center;
-   color: ${({ theme }) => theme.colors.textGrey};
+export const Logo = styled.img`
+   height: 100px;
+   width: 175px;
+   overflow: hidden;
+`;
 
-   span {
-      height: 1.5px;
-      background: ${({ theme }) => theme.colors.textGrey};
-      width: 100%;
-      margin: auto 5px;
+export const WelcomeMessage = styled.div`
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 20px;
+
+   & > h5 {
+      color: ${({ theme }) => theme.colors.textPrimary};
+      font-size: 18px;
+      font-weight: 700;
+   }
+
+   & > p {
+      color: #9699a8;
+      margin-bottom: 10px;
    }
 `;
 
-export const Logo = styled.img`
-   height: 50px;
-   width: 50px;
-   overflow: hidden;
+export const Copyright = styled.div`
+   color: #9699a8;
+   position: fixed;
+   left: auto;
+   right: auto;
+   bottom: 24px;
+   font-size: 15px;
+
+   & > a {
+      color: #9699a8;
+      text-decoration: underline;
+   }
 `;

@@ -20,15 +20,15 @@ function ResultsMenu({ results, searchByLayer, searchBySun, closeMenu }) {
    };
 
    return (
-      <div style={{ padding: '8px', width: '100%' }}>
-         <FlexRow fullWidth justify="flex-end">
+      <div style={{ padding: '8px', width: '100%', marginBottom: '10px' }}>
+         <FlexRow fullWidth justify="flex-start">
             {/* Layer DropDown */}
             <Dropdown
                open={layerOpen}
                setOpen={setLayerOpen}
                labeledBy="Layer"
                id="layer-dropdown"
-               margin="0 8px"
+               margin="0 8px 8px 8px"
             >
                {layers.map((layer, index) => (
                   <DropdownItem
@@ -51,6 +51,7 @@ function ResultsMenu({ results, searchByLayer, searchBySun, closeMenu }) {
                setOpen={setSunOpen}
                labeledBy="Desired sun"
                id="desired-sun-dropdown"
+               margin="0 8px 8px 8px"
             >
                {sunOptions.map((option, index) => (
                   <DropdownItem
