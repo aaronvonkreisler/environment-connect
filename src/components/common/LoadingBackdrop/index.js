@@ -1,6 +1,6 @@
 import React from 'react';
 import { Backdrop, Logo } from './style';
-import logo from 'images/logoCropped.png';
+import logo from 'images/logoCroppedSmall.png';
 
 function LoadingBackdrop() {
    return (
